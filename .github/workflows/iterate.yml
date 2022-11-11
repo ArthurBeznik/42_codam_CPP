@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Echo values from ENV
         run: |
-          for i in "${{ env.DIR[@] }}"; do
-            for n in "${{ env.EXO[@] }}"; do
+          for i in "${{ env.DIR[i] }}"; do
+            for n in "${{ env.EXO[i] }}"; do
               echo "Value: ${i}"
               echo "Value: ${n}"
             done
