@@ -19,6 +19,7 @@ jobs:
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
               TEST = $(find ${i}/${n}/Makefile) ;
+              echo ${TEST} ;
               if [[ -a ${TEST} ]]; then
                 echo "Path: ${i}/${n}"
                 # echo "Path: ${v}"
