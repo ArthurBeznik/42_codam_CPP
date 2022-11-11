@@ -27,7 +27,7 @@ jobs:
           # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
           IFS="," read -a mydir <<< ${{ env.DIR }}
           for i in "${mydir[@]}"; do
-            echo "$(find ${i} -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
+            echo "$(find '${i}' -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
           done
 
       - name: Processing my found files from output
