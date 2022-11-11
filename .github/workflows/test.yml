@@ -5,6 +5,8 @@ on:
     branches: [ "master" ]
 
 env:
+  DIRECTORIES: 00, 01, 02
+  EXOS: ex00, ex01, ex02, ex03, ex04, ex05
   DIR: '00/,01/,02/'
   EXO: 'ex00/,ex01/,ex02/,ex03/,ex04/,ex05/'
 
@@ -19,6 +21,15 @@ jobs:
           for i in "${mydir[@]}"; do
             echo "Value: ${i}"
             echo "Value: ${i%.*}"
+          done
+      
+      - name: Test
+        run: |
+          for i in ${{ env.DIRECTORIES }}; do
+            echo "Value: ${i}"
+          done
+          for i in ${{ env.EXOS }}; do
+            echo "Value: ${i}"
           done
 
       - name: Finding files and store to output
