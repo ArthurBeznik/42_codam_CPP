@@ -19,9 +19,10 @@ jobs:
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
               if [[ $(find ${i}/${n}) ]]; then
+                make fclean -C ${v}
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
-                make re -C ${v}
+                make -C ${v}
               fi
             done
           done
