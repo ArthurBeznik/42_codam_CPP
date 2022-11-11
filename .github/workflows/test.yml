@@ -25,11 +25,11 @@ jobs:
         id: finding-files
         run: |
           # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
-          echo "$(find . -name 'ex0*/' -print)={value}" >> FILELIST
+          echo "$(find . -name 'ex0*/' -print)={value}" >> $GITHUB_OUTPUT
 
       - name: Processing my found files from output
         run: |
-          IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.FILELIST }}
+          IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.GITHUB_OUTPUT }}
           for i in "${myarray[@]}"; do
             file_path=$(dirname "${i}")
             file_name=$(basename "${i}")
