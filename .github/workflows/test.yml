@@ -23,6 +23,7 @@ jobs:
       #       echo "Value: ${i%.*}"
       #     done
       
+      - uses: actions/checkout@v3
       - name: Test
         run: |
           for i in ${{ env.DIRECTORIES }}; do
