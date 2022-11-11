@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  DIR: '00,01,02'
+  DIR: '00/,01/,02/'
   EXO: 'ex00/,ex01/,ex02/,ex03/,ex04/,ex05/'
 
 jobs:
@@ -25,9 +25,10 @@ jobs:
         id: finding-files
         run: |
           # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
+          pwd
           IFS="," read -a mydir <<< ${{ env.DIR }}
           for i in "${mydir[@]}"; do
-            echo "$(find '${i}' -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
+            echo "$(find ${i} -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
           done
 
       - name: Processing my found files from output
