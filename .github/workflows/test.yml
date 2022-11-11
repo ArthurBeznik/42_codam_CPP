@@ -25,7 +25,7 @@ jobs:
         id: finding-files
         run: |
           # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
-          echo "$(find . -name 'ex0*/' -print)={value}" >> $GITHUB_OUTPUT
+          echo "$(find . -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
 
       - name: Processing my found files from output
         run: |
