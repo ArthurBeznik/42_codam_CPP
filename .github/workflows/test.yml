@@ -5,7 +5,8 @@ on:
     branches: [ "master" ]
 
 env:
-  VALUE_ARRAY_AS_STRING: '00'
+  DIR: '00/, 01/, 02/'
+  EXO: 'ex00/, ex01/, ex02/, ex03/, ex04/, ex05/'
 
 jobs:
   run-my-stuff:
@@ -14,7 +15,7 @@ jobs:
     steps:
       - name: Echo values from ENV
         run: |
-          IFS="," read -a myarray <<< ${{ env.VALUE_ARRAY_AS_STRING }}
+          IFS="," read -a myarray <<< ${{ env.DIR.EXO }}
           for i in "${myarray[@]}"; do
             echo "Value: ${i}"
             echo "Value: ${i%.*}"
@@ -23,7 +24,7 @@ jobs:
       - name: Finding files and store to output
         id: finding-files
         run: |
-          echo "::set-output name=FILELIST::$(find . -name '*.md' -print)"
+          echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
 
       - name: Processing my found files from output
         run: |
