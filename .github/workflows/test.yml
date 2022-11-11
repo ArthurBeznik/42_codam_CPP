@@ -12,7 +12,7 @@ env:
 
 jobs:
   run-my-stuff:
-    name: Iterating over comma-separated-values
+    name: Compiling using ubuntu
     runs-on: ubuntu-latest
     steps:
       # - name: Echo values from ENV
@@ -28,6 +28,7 @@ jobs:
           for i in ${{ env.DIRECTORIES }}; do
             for n in ${{ env.EXOS }}; do
               echo "Value: ${i}/${n}"
+              find ${i}/${n}
               echo "$(find ${i}/${n})"
             done
           done
