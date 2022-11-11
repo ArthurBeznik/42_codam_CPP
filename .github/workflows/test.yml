@@ -28,7 +28,7 @@ jobs:
           for i in ${{ env.DIRECTORIES }}; do
             for n in ${{ env.EXOS }}; do
               echo "Value: ${i}/${n}"
-              echo "$(find ${i} -name 'ex0*' -print)"
+              echo "$(find ${i}/${n})"
             done
           done
 
