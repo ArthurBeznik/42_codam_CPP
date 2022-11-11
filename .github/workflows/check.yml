@@ -18,7 +18,8 @@ jobs:
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
-              if [ $(find ${i}/${n}/Makefile) -eq 0 ] ; then
+              @RES=$(find ${i}/${n}/Makefile) ;
+              if [ $(RES) -eq 0 ] ; then
                 echo "Path: ${i}/${n}"
                 # echo "Path: ${v}"
                 # v=$(find ${i}/${n})
