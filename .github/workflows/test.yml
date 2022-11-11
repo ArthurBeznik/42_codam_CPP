@@ -26,6 +26,7 @@ jobs:
         run: |
           # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
           pwd
+          ls
           IFS="," read -a mydir <<< ${{ env.DIR }}
           for i in "${mydir[@]}"; do
             echo "$(find ${i} -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
