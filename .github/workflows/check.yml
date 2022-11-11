@@ -18,7 +18,7 @@ jobs:
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
-              if [[ $(find ${i}/${n}) ]]; then
+              if [[ $(find ${i}/${n}) -eq 0 ]]; then
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
                 # make -C ${v}
