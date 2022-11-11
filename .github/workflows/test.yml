@@ -15,19 +15,20 @@ jobs:
     name: Iterating over comma-separated-values
     runs-on: ubuntu-latest
     steps:
-      - name: Echo values from ENV
-        run: |
-          IFS="," read -a mydir <<< ${{ env.DIR }}
-          for i in "${mydir[@]}"; do
-            echo "Value: ${i}"
-            echo "Value: ${i%.*}"
-          done
+      # - name: Echo values from ENV
+      #   run: |
+      #     IFS="," read -a mydir <<< ${{ env.DIR }}
+      #     for i in "${mydir[@]}"; do
+      #       echo "Value: ${i}"
+      #       echo "Value: ${i%.*}"
+      #     done
       
       - name: Test
         run: |
           for i in ${{ env.DIRECTORIES }}; do
             for n in ${{ env.EXOS }}; do
               echo "Value: ${i}/${n}"
+              echo "$(find ${i} -name 'ex0*' -print)
             done
           done
 
