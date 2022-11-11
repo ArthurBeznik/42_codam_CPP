@@ -26,29 +26,28 @@ jobs:
       - name: Test
         run: |
           for i in ${{ env.DIRECTORIES }}; do
-            echo "Value: ${i}"
-          done
-          for i in ${{ env.EXOS }}; do
-            echo "Value: ${i}"
-          done
-
-      - name: Finding files and store to output
-        id: finding-files
-        run: |
-          # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
-          pwd
-          ls
-          IFS="," read -a mydir <<< ${{ env.DIR }}
-          for i in "${mydir[@]}"; do
-            echo "$(find ${i} -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
+            for n in ${{ env.EXOS }}; do
+              echo "Value: ${i}/${n}"
+            done
           done
 
-      - name: Processing my found files from output
-        run: |
-          IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.GITHUB_OUTPUT }}
-          for i in "${myarray[@]}"; do
-            file_path=$(dirname "${i}")
-            file_name=$(basename "${i}")
-            cd file_path
-            cat file_name
-          done
+      # - name: Finding files and store to output
+      #   id: finding-files
+      #   run: |
+      #     # echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
+      #     pwd
+      #     ls
+      #     IFS="," read -a mydir <<< ${{ env.DIR }}
+      #     for i in "${mydir[@]}"; do
+      #       echo "$(find ${i} -name 'ex0*' -print)={value}" >> $GITHUB_OUTPUT
+      #     done
+
+      # - name: Processing my found files from output
+      #   run: |
+      #     IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.GITHUB_OUTPUT }}
+      #     for i in "${myarray[@]}"; do
+      #       file_path=$(dirname "${i}")
+      #       file_name=$(basename "${i}")
+      #       cd file_path
+      #       cat file_name
+      #     done
