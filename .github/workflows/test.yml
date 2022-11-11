@@ -29,8 +29,9 @@ jobs:
           for i in ${{ env.DIRECTORIES }}; do
             for n in ${{ env.EXOS }}; do
               echo "Value: ${i}/${n}"
-              find ${i}/${n}
-              echo "$(find ${i}/${n})"
+              if [[ $(find ${i}/${n}) ]]; then
+                echo "$(find ${i}/${n})"
+              fi
             done
           done
 
