@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/10 13:48:13 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/11/10 14:56:43 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/11/11 15:53:28 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void) {
 	// delete horde;
 	// delete [] horde;
 	
-	system("leaks ex01");
+	// system("leaks ex01");
 	
 	return (0);
 }

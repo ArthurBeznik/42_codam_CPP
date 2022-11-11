@@ -6,16 +6,9 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/11/11 12:33:58 by abeznik       ########   odam.nl          #
+#    Updated: 2022/11/11 14:57:56 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
-# Colours
-RED 		:=	\033[1;31m
-GRN 		:=	\033[1;32m
-BLUE		:=	\033[1;36m
-YEL 		:=	\033[0;33m
-DEF 		:=	\033[0m
 
 NAME			= 	ex03
 

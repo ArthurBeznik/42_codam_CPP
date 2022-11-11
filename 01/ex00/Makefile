@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/11/10 13:45:34 by abeznik       ########   odam.nl          #
+#    Updated: 2022/11/11 14:54:52 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,11 @@ COMPILE			= 	c++
 FLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
 RESET			= 	\033[0m
-GREEN 			= 	\033[38;5;46m
+GREEN 			= 	\033[1;32m
 WHITE 			= 	\033[38;5;15m
-GREY 			= 	\033[38;5;8m
+GREY 			= 	\033[1;36m
 ORANGE 			= 	\033[38;5;202m
-RED 			= 	\033[38;5;160m
+RED 			= 	\033[1;31m
 
 all: $(NAME)
 

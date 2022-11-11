@@ -1,34 +1,27 @@
-name: Makefile CI
+name: Ubuntu Compilation
 
-# on:
-#   push:
-#     branches: [ "master" ]
-#   pull_request:
-#     branches: [ "master" ]
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  DIR: 00 01 02
+  EXO: ex00 ex01 ex02 ex03 ex04 ex05
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        ex: [ex00, ex01, ex02, ex03, ex04, ex05, ex06]
-        dir: [00, 01, 02, 03]
-
+  check-c98:
+    name: Compiling using ubuntu
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-      with: ${{ matrix }}
-    
-    - if: ${{ matrix.dir[0] }}
-      run: for i in "${matrix.dir[@]}"; do
-              for n in "${matrix.ex[@]}"; do
-                make -C "${matrix.dir[i]}"/${matrix.ex[n]}
-              done
+      - uses: actions/checkout@v3
+      - name: Loop, search and compile
+        run: |
+          for i in ${{ env.DIR }}; do
+            for n in ${{ env.EXO }}; do
+              if [[ $(find ${i}/${n}) ]]; then
+                echo "Path: ${i}/${n}"
+                v=$(find ${i}/${n})
+                make re -C ${v}
+              fi
             done
-          # make -C ex00/
-
-    # - name: Make 00 check
-
-    - name: Make 01 check
-      run: make -C ex01/
-    
+          done

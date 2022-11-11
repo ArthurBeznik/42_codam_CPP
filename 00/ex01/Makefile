@@ -6,40 +6,51 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/11/09 11:00:27 by abeznik       ########   odam.nl          #
+#    Updated: 2022/11/11 14:56:07 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	phonebook
+NAME			= 	phonebook
 
-# Colours
-RED 		:=	\033[1;31m
-GRN 		:=	\033[1;32m
-BLUE		:=	\033[1;36m
-YEL 		:=	\033[0;33m
-DEF 		:=	\033[0m
+SRCS			=	main.cpp \
+					Contact.class.cpp \
+					PhoneBook.class.cpp \
+					Utils.cpp
 
-# Srcs
-SRCS		=	main.cpp \
-				Contact.class.cpp \
-				PhoneBook.class.cpp \
-				Utils.cpp
+OBJECT			=	$(SRCS:.cpp=.o)
 
-# Config
-CC			:=	c++
-FLAGS		:= -Wall -Werror -Wextra -std=c++98
+COMPILE			= 	c++
 
-all:	$(NAME)
+FLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
+RESET			= 	\033[0m
+GREEN 			= 	\033[1;32m
+WHITE 			= 	\033[38;5;15m
+GREY 			= 	\033[1;36m
+ORANGE 			= 	\033[38;5;202m
+RED 			= 	\033[1;31m
+
+all: $(NAME)
+
+%.o: %.cpp
+	@echo "$(GREY)Compiling...				$<"
+	@$(COMPILE) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJECT)
+	@echo "$(GREEN)----------------------------------------------------"
+	@$(COMPILE) $(FLAGS) $(OBJECT) -o $(NAME)
+	@echo "Executable				./$(NAME) $(RESET)"
 
 clean:
-	rm -rf $(OBJ_DIR)
+	@echo "$(RED)----------------------------------------------------"
+	@/bin/rm -f $(OBJECT)
+	@echo "$(GRAY)Removed object files $(RESET)"
 
-fclean:	clean
-	rm -f $(NAME)
+fclean: clean
+	@echo "$(RED)----------------------------------------------------"
+	@/bin/rm -f $(NAME)
+	@echo "$(GRAY)Removed executable file $(RESET)"
 
-re:	fclean all
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re

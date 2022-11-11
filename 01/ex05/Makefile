@@ -6,46 +6,48 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/10/04 10:08:34 by abeznik       ########   odam.nl          #
+#    Updated: 2022/11/11 15:54:18 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	megaphone
+NAME			= 	ex05
 
-# Colours
-RED 		:=	\033[1;31m
-GRN 		:=	\033[1;32m
-BLUE		:=	\033[1;36m
-YEL 		:=	\033[0;33m
-DEF 		:=	\033[0m
+SRCS			=	
 
-# Srcs
-SRCS		=	megaphone.cpp
+OBJECT			=	$(SRCS:.cpp=.o)
 
-# Config
-CC			:=	c++
-FLAGS		:= -Wall -Werror -Wextra -std=c++98
+COMPILE			= 	c++
 
-all:	$(NAME)
+FLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(SRCS)
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
+RESET			= 	\033[0m
+GREEN 			= 	\033[1;32m
+WHITE 			= 	\033[38;5;15m
+GREY 			= 	\033[1;36m
+ORANGE 			= 	\033[38;5;202m
+RED 			= 	\033[1;31m
 
-shhh:	re
-	./${NAME} "shhhhh... I think the students are asleep..."
+all: $(NAME)
 
-damn:	re
-	./${NAME} Damnit " ! " "Sorry students, I thought this thing was off."
+%.o: %.cpp
+	@echo "$(GREY)Compiling...				$<"
+	@$(COMPILE) $(FLAGS) -c $< -o $@
 
-loud:	re
-	./${NAME}
+$(NAME): $(OBJECT)
+	@echo "$(GREEN)----------------------------------------------------"
+	@$(COMPILE) $(FLAGS) $(OBJECT) -o $(NAME)
+	@echo "Executable				./$(NAME) $(RESET)"
 
 clean:
-	rm -rf $(OBJ_DIR)
+	@echo "$(RED)----------------------------------------------------"
+	@/bin/rm -f $(OBJECT)
+	@echo "$(GRAY)Removed object files $(RESET)"
 
-fclean:	clean
-	rm -f $(NAME)
+fclean: clean
+	@echo "$(RED)----------------------------------------------------"
+	@/bin/rm -f $(NAME)
+	@echo "$(GRAY)Removed executable file $(RESET)"
 
-re:	fclean all
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re
