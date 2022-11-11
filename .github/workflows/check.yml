@@ -3,8 +3,6 @@ name: Makefile CI
 on:
   push:
     branches: [ "master" ]
-    paths:
-      - ''
   pull_request:
     branches: [ "master" ]
 

@@ -1,4 +1,8 @@
-name: Looping over values in Github Actions
+name: Test
+
+on:
+  push:
+    branches: [ "master" ]
 
 env:
   VALUE_ARRAY_AS_STRING: '00'
