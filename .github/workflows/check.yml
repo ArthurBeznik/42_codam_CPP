@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          fetch-depth: 3
+          fetch-depth: 2
       - name: Loop, search and compile
-        run: make all
+        run: make
         # run: |
         #   for i in ${{ env.DIR }}; do
         #     for n in ${{ env.EXO }}; do
