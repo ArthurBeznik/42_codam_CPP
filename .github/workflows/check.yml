@@ -13,11 +13,13 @@ jobs:
     name: Compiling using ubuntu
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout repo
+        uses: actions/checkout@master
         with:
           fetch-depth: 2
-      - name: Loop, search and compile
-        run: dir
+      - name: Build makefiles
+        run: | 
+          dir
           make
         # run: |
         #   for i in ${{ env.DIR }}; do
