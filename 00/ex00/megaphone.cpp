@@ -6,12 +6,12 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/29 15:02:21 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/11/14 12:39:13 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/11/14 12:44:50 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <compare>
+#include <array>
 
 int	main(int argc, char **argv) {
 	
