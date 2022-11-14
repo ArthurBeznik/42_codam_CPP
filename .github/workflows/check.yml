@@ -21,7 +21,8 @@ jobs:
               if [[ $(find ${i}/${n}) ]]; then
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
-                $(MAKE) re -C ${v}
+                make re -C ${v}
+                dir
               fi
             done
           done
