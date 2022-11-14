@@ -21,6 +21,7 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build makefiles
+        if: always()
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
@@ -29,4 +30,3 @@ jobs:
               fi
             done
           done
-        continue-on-error: true
