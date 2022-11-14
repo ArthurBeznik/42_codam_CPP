@@ -14,6 +14,7 @@ jobs:
   check-c98:
     name: Compiling using ubuntu
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout repo
         uses: actions/checkout@master

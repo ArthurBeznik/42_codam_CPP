@@ -6,13 +6,13 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/11/11 15:54:18 by abeznik       ########   odam.nl          #
+#    Updated: 2022/11/14 11:41:39 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= 	ex05
 
-SRCS			=	
+SRCS			=	main.cpp
 
 OBJECT			=	$(SRCS:.cpp=.o)
 
