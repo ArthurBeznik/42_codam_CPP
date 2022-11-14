@@ -6,12 +6,12 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/29 15:02:21 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/11/14 12:44:50 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/11/14 14:38:33 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <array>
+#include <array> // ? this comes from c++11 => should cause an error on compile
 
 int	main(int argc, char **argv) {
 	

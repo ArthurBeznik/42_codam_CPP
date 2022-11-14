@@ -21,10 +21,11 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build makefiles
+        continue-on-error: true
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
-              if [[ $(find ${i}/${n}) ]]; then
+              if [[ -f ${i}/${n}/Makefile ]]; then
                 make re -C ${i}/${n}
               fi
             done
