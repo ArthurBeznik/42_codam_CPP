@@ -21,9 +21,6 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build makefiles
-        # run: | 
-        #   dir
-        #   make
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
