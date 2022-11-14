@@ -18,17 +18,17 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build makefiles
-        run: | 
-          dir
-          make
-        # run: |
-        #   for i in ${{ env.DIR }}; do
-        #     for n in ${{ env.EXO }}; do
-        #       if [[ $(find ${i}/${n}) ]]; then
-        #         dir ${i}/${n}
-        #         echo "Path: ${i}/${n}"
-        #         v=$(find ${i}/${n})
-        #         make re -C ${v}
-        #       fi
-        #     done
-        #   done
+        # run: | 
+        #   dir
+        #   make
+        run: |
+          for i in ${{ env.DIR }}; do
+            for n in ${{ env.EXO }}; do
+              if [[ $(find ${i}/${n}) ]]; then
+                echo "Path: ${i}/${n}"
+                v=$(find ${i}/${n})
+                make re -C ${v}
+                dir ${i}/${n}
+              fi
+            done
+          done
