@@ -17,7 +17,8 @@ jobs:
         with:
           fetch-depth: 2
       - name: Loop, search and compile
-        run: make
+        run: dir
+          make
         # run: |
         #   for i in ${{ env.DIR }}; do
         #     for n in ${{ env.EXO }}; do
