@@ -13,16 +13,19 @@ jobs:
     name: Compiling using ubuntu
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 3
       - name: Loop, search and compile
-        run: |
-          for i in ${{ env.DIR }}; do
-            for n in ${{ env.EXO }}; do
-              if [[ $(find ${i}/${n}) ]]; then
-                dir ${i}/${n}
-                echo "Path: ${i}/${n}"
-                v=$(find ${i}/${n})
-                make re -C ${v}
-              fi
-            done
-          done
+        run: make all
+        # run: |
+        #   for i in ${{ env.DIR }}; do
+        #     for n in ${{ env.EXO }}; do
+        #       if [[ $(find ${i}/${n}) ]]; then
+        #         dir ${i}/${n}
+        #         echo "Path: ${i}/${n}"
+        #         v=$(find ${i}/${n})
+        #         make re -C ${v}
+        #       fi
+        #     done
+        #   done
