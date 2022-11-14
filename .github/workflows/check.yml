@@ -7,6 +7,8 @@ on:
 env:
   DIR: 00 01 02
   EXO: ex00 ex01 ex02 ex03 ex04 ex05
+  CC: c++
+  MAKE: make
 
 jobs:
   check-c98:
@@ -27,9 +29,9 @@ jobs:
               if [[ $(find ${i}/${n}) ]]; then
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
-                dir ${i}/${n}
+                dir ${v}
                 make -C ${v}
-                dir ${i}/${n}
+                dir ${v}
               fi
             done
           done
