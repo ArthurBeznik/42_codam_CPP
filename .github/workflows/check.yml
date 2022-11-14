@@ -30,7 +30,7 @@ jobs:
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
                 dir ${v}
-                make -C ${v}
+                make -C ${i}/${n}
                 dir ${v}
               fi
             done
