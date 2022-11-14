@@ -28,10 +28,7 @@ jobs:
             for n in ${{ env.EXO }}; do
               if [[ $(find ${i}/${n}) ]]; then
                 echo "Path: ${i}/${n}"
-                v=$(find ${i}/${n})
-                dir ${v}
-                make -C ${i}/${n}
-                dir ${v}
+                make re -C ${i}/${n}
               fi
             done
           done
