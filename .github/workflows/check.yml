@@ -19,10 +19,10 @@ jobs:
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
               if [[ $(find ${i}/${n}) ]]; then
+                dir
                 echo "Path: ${i}/${n}"
                 v=$(find ${i}/${n})
                 make re -C ${v}
-                dir
               fi
             done
           done
