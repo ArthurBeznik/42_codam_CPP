@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@master
         with:
-          fetch-depth: 2
+          fetch-depth: 3
       - name: Build makefiles
         run: | 
           dir
