@@ -54,7 +54,7 @@ jobs:
         run: |
           pwd
           ls
-          # echo ${{ matrix.exo }}
+          echo ${{ matrix.exo }}
           make -k -C ${{matrix.module}}/${{ matrix.exo }}
 
 
