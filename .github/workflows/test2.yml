@@ -50,12 +50,12 @@ jobs:
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Compile modules
-        working-directory: ${{ matrix.module }}
+        # working-directory: ${{ matrix.module }}
         run: |
           pwd
           ls
           # echo ${{ matrix.exo }}
-          make -k -C ${{ matrix.exo }}
+          make -k -C ${{matrix.module}}/${{ matrix.exo }}
 
 
 
