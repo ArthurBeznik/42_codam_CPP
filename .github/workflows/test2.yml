@@ -28,5 +28,4 @@ jobs:
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Compile modules
-        run: |
-          echo ${{ matrix.path }}
+        run: make -k -C ${{ matrix.path }}/Makefile
