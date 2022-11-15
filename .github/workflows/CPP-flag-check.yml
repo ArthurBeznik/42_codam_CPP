@@ -1,0 +1,46 @@
+name: CPP Flag Check
+
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  DIR: 00 01 02
+  EXO: ex00 ex01 ex02 ex03 ex04 ex05
+  CC: c++
+  MAKE: make
+
+jobs:
+  check-c98:
+    name: Compiling using ubuntu
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 00
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f 00/${n}/Makefile ]]; then
+              make -kj re -C ${i}/${n}
+            fi
+          done
+      - name: Build 01
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f 01/${n}/Makefile ]]; then
+              make -kj re -C ${i}/${n}
+            fi
+          done
+      - name: Build 02
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f 01/${n}/Makefile ]]; then
+              make -kj re -C ${i}/${n}
+            fi
+          done
