@@ -5,27 +5,44 @@ on:
     branches: [ "master" ]
   
 jobs:
-  generateInputPaths:
+  generateModulePath:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Generate matrix
-        id: set-matrix
+      - name: Generate matrix of modules
+        id: set-dir
         run: |
           echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-  checklinks:
-    needs: generateInputPaths
+      matrix: ${{ steps.set-dir.outputs.matrix }}
+
+  generateExoPath:
+    needs: generateModulePath
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Generate matrix of exos
+        working-directory: ${{ matrix.path }}
+        id: set-exo
+        run: |
+          echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
+    outputs:
+      matrix: ${{ steps.set-exo.outputs.matrix }}
+
+  compileModules:
+    needs: generateModulePath && generateExoPath
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        path: ${{ fromJson(needs.generateInputPaths.outputs.matrix) }}
+        path: |
+          ${{ fromJson(needs.generateExoPath.outputs.matrix) }}
     steps:
       - uses: actions/checkout@master
       - name: Print Directory Structure
+        working-directory: ${{ matrix.path }}
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Compile modules
+        working-directory: ${{ matrix.path }}
         run: make -k -C ${{ matrix.path }}/Makefile
