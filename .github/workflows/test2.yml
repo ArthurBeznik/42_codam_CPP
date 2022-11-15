@@ -38,7 +38,9 @@ jobs:
 
   compileModules:
     # needs: generateModulePath
-    needs: generateExoPath
+    needs: | 
+      generateModulePath
+      generateExoPath
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
