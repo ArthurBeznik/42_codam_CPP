@@ -23,7 +23,7 @@ jobs:
       - name: Build makefiles
         if: always()
         # if: ${{ success() || failure() }}
-        continue-on-error: true
+        # continue-on-error: true
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
