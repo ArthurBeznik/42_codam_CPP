@@ -1,12 +1,12 @@
-name: Iterate
+name: Loop
 
 on:
   push:
     branches: [ "master" ]
 
 env:
-  DIR: '00/, 01/, 02/'
-  EXO: 'ex00/, ex01/, ex02/, ex03/, ex04/, ex05/'
+  DIR: '00/,01/,02/'
+  EXO: 'ex00/,ex01/,ex02/,ex03/,ex04/,ex05/'
 
 jobs:
   run-my-stuff:
@@ -14,17 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo values from ENV
-        run: |
-          for i in "${env.DIR[@]}"; do
-            for n in "${env.EXO[@]}"; do
+          run: |
+            IFS="," read -a myarray <<< ${{ env.DIR/env.EXO }}
+            for i in "${myarray[@]}"; do
               echo "Value: ${i}"
-              echo "Value: ${n}"
+              echo "Value: ${i%.*}"
             done
-          done
+
       - name: Finding files and store to output
         id: finding-files
         run: |
-          echo "::set-output name=FILELIST::$(find . -name 'ex0*/' -print)"
+          echo "::set-output name=FILELIST::$(find . -name '*' -print)"
+
       - name: Processing my found files from output
         run: |
           IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.FILELIST }}
