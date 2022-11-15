@@ -1,8 +1,8 @@
 name: Check CPP Compilation
 
-on:
-  push:
-    branches: [ "master" ]
+# on:
+#   push:
+#     branches: [ "master" ]
   
 jobs:
   generateModulePath:
