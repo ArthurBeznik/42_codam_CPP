@@ -12,6 +12,7 @@ jobs:
       - name: Generate matrix of modules
         id: set-dir
         run: |
+          ls -l
           echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
       matrix: ${{ steps.set-dir.outputs.matrix }}
@@ -25,6 +26,7 @@ jobs:
         working-directory: ${{ matrix.path }}
         id: set-exo
         run: |
+          ls -l
           echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
       matrix: ${{ steps.set-exo.outputs.matrix }}
