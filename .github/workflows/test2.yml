@@ -30,7 +30,7 @@ jobs:
       matrix: ${{ steps.set-exo.outputs.matrix }}
 
   compileModules:
-    needs: generateModulePath && generateExoPath
+    needs: generateExoPath
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
