@@ -28,6 +28,5 @@ jobs:
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Compile modules
-        uses: actions/checkout@master
         run: |
           echo "${{ github.workspace }}/${{ matrix.inputPath }}"
