@@ -20,6 +20,11 @@ jobs:
   generateExoPath:
     needs: generateModulePath
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        path: |
+          ${{ fromJson(needs.generateModulePath.outputs.matrix) }}
     steps:
       - uses: actions/checkout@master
       - name: Generate matrix of exos
