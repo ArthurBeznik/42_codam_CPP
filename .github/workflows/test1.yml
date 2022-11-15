@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Echo values from ENV
           run: |
-            IFS="," read -a myarray <<< ${{ env.DIR/env.EXO }}
+            IFS="," read -a myarray <<< ${{ env.DIR }}
             for i in "${myarray[@]}"; do
               echo "Value: ${i}"
               echo "Value: ${i%.*}"
