@@ -48,11 +48,15 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Print Directory Structure
+        working-directory: ${{ matrix.path }}
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Compile modules
         working-directory: ${{ matrix.path }}
-        run: make -k -C ${{ matrix.path }}/Makefile
+        run: |
+          ls
+          echo ${{ matrix.path }}
+          make -k -C ${{ matrix.path }}/Makefile
 
 
 
