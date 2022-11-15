@@ -42,8 +42,8 @@ jobs:
     # needs: generateExoPath
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         path: ${{ fromJson(needs.generateModulePath.outputs.matrix) }}
         # path: ${{ fromJson(needs.generateExoPath.outputs.matrix) }}
     steps:
