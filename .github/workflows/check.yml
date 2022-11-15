@@ -21,13 +21,15 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build makefiles
-        # if: always()
-        if: ${{ success() || failure() }}
+        if: always()
+        # if: ${{ success() || failure() }}
+        continue-on-error: true
         run: |
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
               if [[ -f ${i}/${n}/Makefile ]]; then
-                make -j re -C ${i}/${n}
+                make -jk re -C ${i}/${n}
               fi
             done
           done
+        continue-on-error: true
