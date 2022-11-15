@@ -21,26 +21,29 @@ jobs:
         with:
           fetch-depth: 3
       - name: Build 00
+        working-directory: 00/
         continue-on-error: true
         run: |
           for n in ${{ env.EXO }}; do
-            if [[ -f 00/${n}/Makefile ]]; then
-              make -kj re -C 00/${n}
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
             fi
           done
       - name: Build 01
+        working-directory: 01/
         continue-on-error: true
         run: |
           for n in ${{ env.EXO }}; do
-            if [[ -f 01/${n}/Makefile ]]; then
-              make -kj re -C 01/${n}
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
             fi
           done
       - name: Build 02
+        working-directory: 02/
         continue-on-error: true
         run: |
           for n in ${{ env.EXO }}; do
-            if [[ -f 01/${n}/Makefile ]]; then
-              make -kj re -C 02/${n}
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
             fi
           done
