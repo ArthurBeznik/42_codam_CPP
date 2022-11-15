@@ -52,10 +52,15 @@ jobs:
       - name: Compile modules
         # working-directory: ${{ matrix.module }}
         run: |
-          pwd
-          ls
-          echo ${{ matrix.exo }}
-          make -k -C ${{matrix.module}}/${{ matrix.exo }}
+          # pwd
+          # ls
+          # echo ${{ matrix.exo }}
+          # make -k -C ${{ matrix.module }}/${{ matrix.exo }}
+          for n in ${{ matrix.module }}; do
+            if [[ -f ${n}/${{ matrix.exo }}/Makefile ]]; then
+              make -kj re -C ${{ matrix.exo }}
+            fi
+          done
 
 
 
