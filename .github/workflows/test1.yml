@@ -30,14 +30,15 @@ jobs:
         id: finding-files
         run: |
           # echo "::set-output name=FILELIST::$(find . -name '*.md' -print)"
-          echo "FILELIST=$(find . -name '*' -print)" >> $GITHUB_OUTPUT
+          echo "FILELIST=$(find . -name 'Makefile' -print)" >> $GITHUB_OUTPUT
 
       - name: Processing my found files from output
         run: |
-          IFS="," read -a myarray <<< ${{ steps.finding-files.outputs.FILELIST }}
-          for i in "${myarray[@]}"; do
+          IFS="," read -a makefile_path <<< ${{ steps.finding-files.outputs.FILELIST }}
+          for i in "${makefile_path[@]}"; do
             file_path=$(dirname "${i}")
             file_name=$(basename "${i}")
+            make -C ${i}
             cd file_path
             cat file_name
           done
