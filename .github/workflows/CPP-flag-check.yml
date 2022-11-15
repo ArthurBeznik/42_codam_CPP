@@ -25,7 +25,7 @@ jobs:
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f 00/${n}/Makefile ]]; then
-              make -kj re -C ${i}/${n}
+              make -kj re -C 00/${n}
             fi
           done
       - name: Build 01
@@ -33,7 +33,7 @@ jobs:
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f 01/${n}/Makefile ]]; then
-              make -kj re -C ${i}/${n}
+              make -kj re -C 01/${n}
             fi
           done
       - name: Build 02
@@ -41,6 +41,6 @@ jobs:
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f 01/${n}/Makefile ]]; then
-              make -kj re -C ${i}/${n}
+              make -kj re -C 02/${n}
             fi
           done
