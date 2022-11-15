@@ -28,7 +28,7 @@ jobs:
           for i in ${{ env.DIR }}; do
             for n in ${{ env.EXO }}; do
               if [[ -f ${i}/${n}/Makefile ]]; then
-                make -jk re -C ${i}/${n}
+                make -kj re -C ${i}/${n}
               fi
             done
           done
