@@ -44,7 +44,8 @@ jobs:
     strategy:
       matrix:
         path: |
-          ${{ fromJson(needs.generateExoPath.outputs.matrix) }}
+          ${{ fromJson(needs.generateModulePath.outputs.matrix) }}
+          # ${{ fromJson(needs.generateExoPath.outputs.matrix) }}
     steps:
       - uses: actions/checkout@master
       - name: Print Directory Structure
