@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Finding files and store to output
         id: finding-files
-        run: echo "FILELIST=$(find . -name 'Makefile' -print)" >> $GITHUB_OUTPUT
+        run: echo "FILELIST=$(find . -name 'Makefile' -print | tr '\n' ' ')" >> $GITHUB_OUTPUT
           # echo "::set-output name=FILELIST::$(find . -name '*.md' -print)"
 
       - uses: actions/checkout@master
