@@ -13,9 +13,9 @@ jobs:
         id: set-mod
         run: |
           ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'
-          echo "module=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
+          echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
-      matrix: ${{ steps.set-mod.outputs.module }}
+      matrix: ${{ steps.set-mod.outputs.matrix }}
 
   generateExoPath:
     needs: generateModulePath
@@ -32,15 +32,14 @@ jobs:
         id: set-exo
         run: |
           ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'
-          echo "exo=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
+          echo "matrix=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
-      matrix: ${{ steps.set-exo.outputs.exo }}
+      matrix: ${{ steps.set-exo.outputs.matrix }}
 
   compileModules:
     needs: generateExoPath
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         path: |
           ${{ fromJson(needs.generateExoPath.outputs.matrix) }}
