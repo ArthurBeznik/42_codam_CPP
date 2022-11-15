@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo values from ENV
+        uses: actions/checkout@master
         run: |
           IFS="," read -a module <<< ${{ env.DIR }}
           IFS="," read -a exo <<< ${{ env.EXO }}
@@ -27,12 +28,14 @@ jobs:
           done
 
       - name: Finding files and store to output
+        uses: actions/checkout@master
         id: finding-files
         run: |
           # echo "::set-output name=FILELIST::$(find . -name '*.md' -print)"
           echo "FILELIST=$(find . -name 'Makefile' -print)" >> $GITHUB_OUTPUT
 
       - name: Processing my found files from output
+        uses: actions/checkout@master
         run: |
           IFS="," read -a makefile_path <<< ${{ steps.finding-files.outputs.FILELIST }}
           for i in "${makefile_path[@]}"; do
