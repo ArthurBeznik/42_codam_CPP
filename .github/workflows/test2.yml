@@ -15,7 +15,7 @@ jobs:
           ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'
           echo "module=$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | jq -R -s -c 'split("\n") | map(select(length > 0))'))" >> $GITHUB_OUTPUT
     outputs:
-      matrix: ${{ steps.set-dir.outputs.module }}
+      matrix: ${{ steps.set-mod.outputs.module }}
 
   generateExoPath:
     needs: generateModulePath
