@@ -11,16 +11,3 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-
-HumanB::HumanB() {}
-
-HumanB::HumanB(const HumanB& copy) { (void)copy; }
-
-HumanB::~HumanB() {}
-
-HumanB & HumanB::operator=(const HumanB& op)
-{
-	if (this == &op)
-		return (*this); 
-	return (*this);
-}

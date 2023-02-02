@@ -12,15 +12,21 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() {}
+Weapon::Weapon(std::string type) {
 
-Weapon::Weapon(const Weapon& copy) { (void)copy; }
+	setType(type);
+}
 
-Weapon::~Weapon() {}
+Weapon::~Weapon() {
 
-Weapon & Weapon::operator=(const Weapon& op)
-{
-	if (this == &op)
-		return (*this); 
-	return (*this);
+}
+
+const std::string&	Weapon::getType(void) {
+	
+	return this->_type;
+}
+
+void	Weapon::setType(const std::string newType) {
+	
+	this->_type = newType;
 }

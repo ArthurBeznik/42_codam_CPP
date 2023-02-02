@@ -11,26 +11,20 @@
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
-# define WEAPON_HPP
+#define WEAPON_HPP
 
-# include <iostream>
-
-class Weapon;
+#include <iostream>
 
 class Weapon {
 
-    private:
-        
-        
-    public:
-        Weapon();
-        Weapon(const Weapon&);
-        virtual ~Weapon();
-        Weapon &operator=(const Weapon& op);
+	private:
+		std::string _type;
 
-
+	public:
+		Weapon(std::string type);
+		~Weapon();
+		const std::string&	getType(void);
+		void				setType(const std::string newType);
 };
-
-
 
 #endif

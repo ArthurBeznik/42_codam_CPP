@@ -6,13 +6,18 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:31:12 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/11/11 12:33:47 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/02 17:05:04 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int	main(void) {
+#include <iostream>
+#include <string>
 
+int main(void) {
+	
 	return (0);
 }

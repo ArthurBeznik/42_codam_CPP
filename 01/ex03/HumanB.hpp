@@ -11,26 +11,18 @@
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
-# define HUMANB_HPP
+#define HUMANB_HPP
 
-# include <iostream>
+#include <iostream>
 
-class HumanB;
+#include "Weapon.hpp"
 
 class HumanB {
 
-    private:
-        
-        
-    public:
-        HumanB();
-        HumanB(const HumanB&);
-        virtual ~HumanB();
-        HumanB &operator=(const HumanB& op);
+	private:
 
+	public:
 
 };
-
-
 
 #endif

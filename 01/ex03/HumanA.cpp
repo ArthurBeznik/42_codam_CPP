@@ -12,15 +12,3 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA() {}
-
-HumanA::HumanA(const HumanA& copy) { (void)copy; }
-
-HumanA::~HumanA() {}
-
-HumanA & HumanA::operator=(const HumanA& op)
-{
-	if (this == &op)
-		return (*this); 
-	return (*this);
-}
