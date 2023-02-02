@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/10 13:48:13 by abeznik       #+#    #+#                 */
-/*   Updated: 2022/11/11 15:53:28 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/02 14:13:17 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 int main(void) {
 
+    Zombie	*horde;
 	int		N = 3;
-	Zombie*	horde = zombieHorde(N, "Arthur");
 
-	for (int i = 0; i < N; ++i) {
-		horde[i].announce();
-	}
-	// horde->~Zombie();
-	// horde->~Zombie();
-	// horde->~Zombie();
-	// delete horde;
-	// delete [] horde;
-	
-	// system("leaks ex01");
-	
-	return (0);
+    horde = zombieHorde(N, "Arthur");
+    for (int i = 0; i < N; i++) {
+        horde[i].announce();
+    }
+    delete [] horde;
+    return (0);
 }
