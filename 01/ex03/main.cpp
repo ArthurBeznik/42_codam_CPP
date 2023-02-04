@@ -6,18 +6,37 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:31:12 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/02 17:05:04 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/04 13:25:19 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
 #include <iostream>
-#include <string>
 
+/**
+ * It's better to use a reference to Weapon for HumanA because HumanA always 
+ * has a weapon and it makes no sense to dynamically allocate memory for it. 
+ * On the other hand, HumanB may or may not have a weapon, so it's better to 
+ * use a pointer to Weapon to handle the case where HumanB is unarmed.
+*/
 int main(void) {
+	{
+		Weapon  club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon  club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	
 	return (0);
 }

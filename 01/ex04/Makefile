@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2022/11/14 11:40:16 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/04 13:43:38 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ $(NAME): $(OBJECT)
 clean:
 	@echo "$(RED)----------------------------------------------------"
 	@/bin/rm -f $(OBJECT)
+	@/bin/rm -f *.replace
 	@echo "$(GRAY)Removed object files $(RESET)"
 
 fclean: clean
