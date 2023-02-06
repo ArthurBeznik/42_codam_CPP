@@ -15,22 +15,20 @@
 
 # include <iostream>
 
-class Harl;
-
 class Harl {
 
     private:
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
         
-        
-    public:
-        Harl();
-        Harl(const Harl&);
-        virtual ~Harl();
-        Harl &operator=(const Harl& op);
-
+	public:
+		Harl();
+		~Harl();
+		
+		void	complain(std::string level);
 
 };
-
-
 
 #endif
