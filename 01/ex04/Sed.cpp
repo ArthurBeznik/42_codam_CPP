@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/06 11:53:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 14:16:04 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 14:24:59 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ int	Sed::parseInput(void) {
 
 int	Sed::_openInFile(void) {
 
+	std::string inFile = this->_fileName;
+	
 	if (this->_inFile.is_open())
 		this->_inFile.close();
-	this->_inFile.open(this->_fileName);
+	this->_inFile.open(inFile);
 	if (!this->_inFile.is_open()) {
 		std::cout << "Error opening infile" << std::endl;
 		return (1);
@@ -54,7 +56,9 @@ int	Sed::_openInFile(void) {
 
 int	Sed::_openOutFile(void) {
 	
-	this->_outFile.open(this->_newFileName);
+	std::string outFile = this->_newFileName;
+	
+	this->_outFile.open(outFile);
 	if (!this->_outFile.is_open()) {
 		std::cout << "Error opening outfile" << std::endl;
 		return (1);
