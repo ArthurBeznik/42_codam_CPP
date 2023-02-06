@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/06 11:53:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 14:40:04 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 15:02:17 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 Sed::Sed(std::string fileName, std::string string1, std::string string2): \
 			_fileName(fileName), _s1(string1), _s2(string2) {
-// Sed::Sed(char* fileName, std::string string1, std::string string2): \
 
 	// this->_newFileName = fileName.append(".replace");
 	std::string tmp = fileName.append(".replace");
-	this->_testIn = tmp.c_str();
+	this->_testOut = tmp.c_str();
 }
 
 Sed::~Sed(void) {
@@ -43,11 +42,11 @@ int	Sed::parseInput(void) {
 	return (0);
 }
 
-int	Sed::_openInFile(void) {
+int	Sed::_openInFile(const char* fileName) {
 
 	if (this->_inFile.is_open())
 		this->_inFile.close();
-	this->_inFile.open(this->_testIn);
+	this->_inFile.open(fileName);
 	if (!this->_inFile.is_open()) {
 		std::cout << "Error opening infile" << std::endl;
 		return (1);
@@ -55,13 +54,13 @@ int	Sed::_openInFile(void) {
 	return (0);
 }
 
-int	Sed::_openOutFile(void) {
+int	Sed::_openOutFile(const char* fileName) {
 	
-	std::string outFile = this->_newFileName;
-	std::string tmp = this->_newFileName;
-	this->_testOut = tmp.c_str();
+	std::string tmp = fileName;
+	std::string tmp1 = tmp.append(".replace");
+	const char* test = tmp1.c_str();
 	
-	this->_outFile.open(this->_testOut);
+	this->_outFile.open(test);
 	if (!this->_outFile.is_open()) {
 		std::cout << "Error opening outfile" << std::endl;
 		return (1);
@@ -69,9 +68,9 @@ int	Sed::_openOutFile(void) {
 	return (0);
 }
 
-int	Sed::openFiles(void) {
+int	Sed::openFiles(const char* fileName) {
 	
-	if (this->_openInFile() || this->_openOutFile())
+	if (this->_openInFile(fileName) || this->_openOutFile(fileName))
 		return (1);
 	return (0);
 }

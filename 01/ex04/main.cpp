@@ -6,20 +6,21 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/14 11:39:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 14:39:36 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 14:56:21 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-int	sedForLosers(std::string fileName, std::string string1, \
+int	sedForLosers(char* fileName, std::string string1, \
 					std::string string2) {
 
-	Sed	sed(fileName, string1, string2);
+	std::string file = fileName;
+	Sed	sed(file, string1, string2);
 
 	if (sed.parseInput())
 		return (1);
-	if (sed.openFiles())
+	if (sed.openFiles(fileName))
 		return (1);
 	if (sed.replace())
 		return (1);
