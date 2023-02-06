@@ -17,6 +17,16 @@ Fixed::Fixed(void): _fixedNumber(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::Fixed(const int value) {
+
+	// insert code here
+}
+
+Fixed::Fixed(const float value) {
+
+	// insert code here
+}
+
 Fixed::Fixed(const Fixed& copy): _fixedNumber(copy._fixedNumber) {
 	
 	std::cout << "Copy constructor called" << std::endl;
@@ -44,4 +54,14 @@ int	Fixed::getRawBits(void) const {
 void	Fixed::setRawBits(int const raw) {
 
 	_fixedNumber = raw;
+}
+
+float	Fixed::toFloat(void) const {
+
+	// insert code here
+}
+
+int		Fixed::toInt(void) const {
+
+	// insert code here	
 }
