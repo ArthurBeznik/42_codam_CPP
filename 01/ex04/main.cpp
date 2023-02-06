@@ -6,12 +6,12 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/14 11:39:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 15:52:17 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 15:53:19 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
-#include <array> // ? this comes from c++11 => should cause an error on compile
+// #include <array> // ? this comes from c++11 => should cause an error on compile
 
 int	sedForLosers(std::string fileName, std::string string1, \
 					std::string string2) {
