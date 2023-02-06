@@ -6,19 +6,21 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/04 13:43:38 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/06 12:46:46 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= 	ex04
 
 SRCS			=	main.cpp \
+					Sed.cpp \
+					Logger.cpp \
 
 OBJECT			=	$(SRCS:.cpp=.o)
 
 COMPILE			= 	c++
 
-FLAGS			= 	-Wall -Wextra -Werror -std=c++98
+FLAGS			= 	-Wall -Wextra -Werror -g3 -std=c++98
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m
