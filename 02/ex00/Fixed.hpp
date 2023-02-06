@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Template.hpp                                       :+:    :+:            */
+/*   Fixed.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 16:57:35 by abeznik       ########   odam.nl         */
+/*   Updated: 2022/11/11 12:27:55 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
 
-class Template {
+class Fixed {
 
     private:
-        
+        int					_fixedNumber;
+		static const int	_fractionalBits = 8;
         
     public:
-        Template();
-        Template(const Template&);
-        Template &operator=(const Template& op);
-        ~Template();
+        Fixed(void);							// default constructor
+        Fixed(const Fixed& fixed);				// copy constructor
+        Fixed& operator = (const Fixed& Fixed);	// copy assignment operator
+        ~Fixed(void);							// destructor
 
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
 
 };
 

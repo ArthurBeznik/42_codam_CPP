@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Template.cpp                                       :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 16:57:16 by abeznik       ########   odam.nl         */
+/*   Created: 2023/02/06 16:35:45 by abeznik       #+#    #+#                 */
+/*   Updated: 2023/02/06 17:01:31 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Template.hpp"
+#include "Fixed.hpp"
 
-Template::Template(void) {
-	
-	
-}
+int	main(void) {
 
-Template::Template(const Template& copy) {
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 	
-	(void)copy;
-}
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-Template::~Template(void) {
-	
-	
-}
-
-Template & Template::operator=(const Template& op) {
-	
-	if (this == &op)
-		return (*this); 
-	return (*this);
+	return (0);
 }
