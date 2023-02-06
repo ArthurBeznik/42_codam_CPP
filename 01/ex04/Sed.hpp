@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/06 11:43:21 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 15:04:16 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 15:12:30 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,14 @@
 class Sed {
 	
 	private:
-		const std::string	_fileName;
-		std::string			_newFileName;
-		const char*			_testOut;
+		std::string			_fileName;
 		const std::string	_s1;
 		const std::string	_s2;
 		std::ifstream		_inFile;
 		std::ofstream		_outFile;
 
-		int					_openInFile(const char* fileName);
-		int					_openOutFile(const char* fileName);
+		int					_openInFile(void);
+		int					_openOutFile(void);
 
 		void				_findAndReplace(std::string line);
 		void				_writeLine(const std::string newLine);
@@ -39,7 +37,7 @@ class Sed {
 		~Sed(void);
 
 		int		parseInput(void);
-		int		openFiles(const char* fileName);
+		int		openFiles();
 		int		replace(void);
 
 };

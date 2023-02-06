@@ -6,13 +6,13 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/14 11:39:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 14:56:21 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 15:11:41 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-int	sedForLosers(char* fileName, std::string string1, \
+int	sedForLosers(const char* fileName, std::string string1, \
 					std::string string2) {
 
 	std::string file = fileName;
@@ -20,7 +20,7 @@ int	sedForLosers(char* fileName, std::string string1, \
 
 	if (sed.parseInput())
 		return (1);
-	if (sed.openFiles(fileName))
+	if (sed.openFiles())
 		return (1);
 	if (sed.replace())
 		return (1);

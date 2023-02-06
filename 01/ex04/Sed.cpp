@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/06 11:53:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 15:02:17 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/06 15:12:42 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 Sed::Sed(std::string fileName, std::string string1, std::string string2): \
 			_fileName(fileName), _s1(string1), _s2(string2) {
 
-	// this->_newFileName = fileName.append(".replace");
-	std::string tmp = fileName.append(".replace");
-	this->_testOut = tmp.c_str();
 }
 
 Sed::~Sed(void) {
@@ -42,8 +39,10 @@ int	Sed::parseInput(void) {
 	return (0);
 }
 
-int	Sed::_openInFile(const char* fileName) {
+int	Sed::_openInFile(void) {
 
+	const char* fileName = this->_fileName.c_str();
+	
 	if (this->_inFile.is_open())
 		this->_inFile.close();
 	this->_inFile.open(fileName);
@@ -54,13 +53,12 @@ int	Sed::_openInFile(const char* fileName) {
 	return (0);
 }
 
-int	Sed::_openOutFile(const char* fileName) {
+int	Sed::_openOutFile(void) {
 	
-	std::string tmp = fileName;
-	std::string tmp1 = tmp.append(".replace");
-	const char* test = tmp1.c_str();
+	std::string tmp = this->_fileName.append(".replace");
+	const char* newFileName = tmp.c_str();
 	
-	this->_outFile.open(test);
+	this->_outFile.open(newFileName);
 	if (!this->_outFile.is_open()) {
 		std::cout << "Error opening outfile" << std::endl;
 		return (1);
@@ -68,9 +66,9 @@ int	Sed::_openOutFile(const char* fileName) {
 	return (0);
 }
 
-int	Sed::openFiles(const char* fileName) {
+int	Sed::openFiles(void) {
 	
-	if (this->_openInFile(fileName) || this->_openOutFile(fileName))
+	if (this->_openInFile() || this->_openOutFile())
 		return (1);
 	return (0);
 }
