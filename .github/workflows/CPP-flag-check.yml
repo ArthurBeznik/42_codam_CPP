@@ -47,3 +47,12 @@ jobs:
               make -kj re -C ${n}
             fi
           done
+      - name: Build 03
+        working-directory: 03/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
