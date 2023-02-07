@@ -23,23 +23,55 @@ class Fixed {
 		static const int	_fractionalBits = 8;
         
     public:
-        Fixed(void);							// default constructor
-
+        Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
+        Fixed(const Fixed &fixed);
 
-        Fixed(const Fixed& fixed);				// copy constructor
-        Fixed& operator = (const Fixed& Fixed);	// copy assignment operator
-        ~Fixed(void);							// destructor
+		/**
+		 * Arithmetic operators
+		*/
+        Fixed&	operator = (const Fixed &fixed);
+        Fixed	operator + (const Fixed &fixed);
+        Fixed	operator - (const Fixed &fixed);
+        Fixed	operator * (const Fixed &fixed);
+        Fixed	operator / (const Fixed &fixed);
+
+		/**
+		 * Comparison operators
+		*/
+        bool	operator > (const Fixed &fixed) const;
+        bool	operator < (const Fixed &fixed) const;
+        bool	operator >= (const Fixed &fixed) const;
+        bool	operator <= (const Fixed &fixed) const;
+        bool	operator == (const Fixed &fixed) const;
+        bool	operator != (const Fixed &fixed) const;
+		
+		/**
+		 * Increment / decrement operators
+		*/
+        Fixed	operator ++ (int value);
+		Fixed&	operator ++ ();
+		Fixed	operator -- (int value);
+		Fixed&	operator -- ();
+
+		/**
+		 * Public overloaded member functions
+		*/
+		static	Fixed		&min(Fixed &first, Fixed &second);
+		static	Fixed const	&min(const Fixed &first, const Fixed &second);
+		static	Fixed		&max(Fixed &first, Fixed &second);
+		static	Fixed const	&max(const Fixed &first, const Fixed &second);
+
+        ~Fixed(void);
 
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
-
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
 };
 
-std::ostream& operator << (std::ostream& os, const Fixed &fixed); // dafuq?
+std::ostream& operator << (std::ostream &os, const Fixed &fixed);
 
 #endif

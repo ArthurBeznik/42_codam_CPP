@@ -6,11 +6,11 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/06 16:36:59 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/07 17:48:01 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	ex00
+NAME			= 	ex02
 
 SRCS			=	main.cpp \
 					Fixed.cpp \
