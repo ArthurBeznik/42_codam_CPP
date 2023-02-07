@@ -41,20 +41,19 @@ void	Harl::_error(void) {
 }
 
 void	Harl::complain(std::string level) {
-
-	void (Harl::*pf)(void);
-
-	if (level == "DEBUG")
-		pf = &Harl::_debug;
-	else if (level == "INFO")
-		pf = &Harl::_info;
-	else if (level == "WARNING")
-		pf = &Harl::_warning;
-	else if (level == "ERROR")
-		pf = &Harl::_error;
-	else {
-		std::cout << "Invalid level specified." << std::endl;
-		return ;
+	
+	void (Harl::*pf[4])(void) = { 
+		&Harl::_debug, 
+		&Harl::_info, 
+		&Harl::_warning, 
+		&Harl::_error
+	};
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	
+	for (int i = 0; i < 4; i++) {
+		if (level == levels[i]) {
+			(this->*pf[i])();
+			break;
+		}
 	}
-	(this->*pf)();
 }

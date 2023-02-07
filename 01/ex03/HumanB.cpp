@@ -13,7 +13,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(const std::string name): _weapon(), _name(name) {
+HumanB::HumanB(const std::string name): _weapon(nullptr), _name(name) {
 	
 	return ;
 }
