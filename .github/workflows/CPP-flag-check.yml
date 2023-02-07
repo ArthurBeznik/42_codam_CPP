@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  DIR: 00 01 02
+  DIR: 00 01 02 03
   EXO: ex00 ex01 ex02 ex03 ex04 ex05
   CC: c++
   MAKE: make
