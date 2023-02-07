@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/10 13:48:13 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/02 14:13:17 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/07 14:57:51 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,10 @@ int main(void) {
         horde[i].announce();
     }
     delete [] horde;
+
+	// while (1) {
+		
+	// } // ? testing for leaks
+	
     return (0);
 }

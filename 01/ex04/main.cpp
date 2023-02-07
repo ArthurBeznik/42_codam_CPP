@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/14 11:39:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 15:53:19 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/07 15:05:21 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ int	main(int argc, char **argv) {
 		return (logger.printError("Wrong number of arguments"));
 	if (sedForLosers(argv[1], argv[2], argv[3]))
 		return (logger.printError(""));
+	
+	// while (1) {
+		
+	// } // ? testing for leaks
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/06 11:53:00 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 15:12:42 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/07 15:07:48 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,11 @@ Sed::~Sed(void) {
 }
 
 int	Sed::parseInput(void) {
-	
-	// std::string tmp_f1 = ""; // ? testing
-	// if (tmp_f1 == "") { // ? testing
+
 	if (this->_fileName == "") {
 		std::cerr << "<filename> cannot be empty" << std::endl;
 		return (1);
 	}
-	// std::string tmp_s1 = ""; // ? testing
-	// std::string tmp_s2 = ""; // ? testing
-	// if (tmp_s1 == "" || tmp_s2 == "") { // ? testing
 	if (this->_s1 == "" || this->_s2 == "") {
 		std::cerr << "<string1> and/or <string2> cannot be empty" << std::endl;
 		return (1);
@@ -75,8 +70,8 @@ int	Sed::openFiles(void) {
 
 void	Sed::_writeLine(const std::string newLine) {
 	
-	_outFile.write(&newLine[0], newLine.length());
-	_outFile.write("\n", 1);
+	this->_outFile.write(&newLine[0], newLine.length());
+	this->_outFile.write("\n", 1);
 }
 
 void	Sed::_findAndReplace(std::string line) {
@@ -84,8 +79,7 @@ void	Sed::_findAndReplace(std::string line) {
 	size_t	replaceLen = this->_s1.length();
 
 	for (size_t pos = 0; pos < line.length(); pos++) {
-		if (line.compare(pos, replaceLen, this->_s1) == 0)
-		{
+		if (line.compare(pos, replaceLen, this->_s1) == 0) {
 			line.erase(pos, replaceLen);
 			line.insert(pos, this->_s2);
 			/* result.replace(pos, replaceLen, replacement); */
