@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:31:12 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/08 12:22:59 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 10:32:24 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void) {
 	{
 		Weapon	club = Weapon("crude spiked club");
 		HumanB	jim("Jim");
-		// jim.setWeapon(club);
+		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();

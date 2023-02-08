@@ -6,20 +6,20 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/08 13:54:09 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/08 12:32:55 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	ex00
+NAME			= 	ex01
 
 SRCS			=	main.cpp \
-					Fixed.cpp \
+					
 					
 OBJECT			=	$(SRCS:.cpp=.o)
 
 COMPILE			= 	c++
 
-FLAGS			= 	-Wall -Wextra -Werror -g3 -std=c++98
+FLAGS			= 	-Wall -Wextra -Werror -std=c++98
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m

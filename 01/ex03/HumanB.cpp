@@ -15,6 +15,7 @@
 
 HumanB::HumanB(const std::string name): _weapon(NULL), _name(name) {
 	
+	return ;
 }
 
 void	HumanB::setName(const std::string name) {

@@ -23,8 +23,8 @@ class Fixed {
         
     public:
         Fixed(void);							// default constructor
-        Fixed(const Fixed &fixed);				// copy constructor
-        Fixed &operator = (const Fixed &Fixed);	// copy assignment operator
+        Fixed(const Fixed &copy);				// copy constructor
+        Fixed &operator = (const Fixed &fixed);	// copy assignment operator
         ~Fixed(void);							// destructor
 
 	int		getRawBits(void) const;
