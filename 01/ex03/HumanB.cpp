@@ -13,7 +13,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(const std::string name): _weapon(), _name(name) {
+HumanB::HumanB(const std::string name): _weapon(NULL), _name(name) {
 	
 	return ;
 }
@@ -46,5 +46,7 @@ void	HumanB::attack(void) {
 	std::cout << " attacks with his ";
 	if (weapon)
 		std::cout << weapon->getType() << std::endl;
+	else
+		std::cout << "bare hands" << std::endl;
 }
 
