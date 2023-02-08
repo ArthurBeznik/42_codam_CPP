@@ -31,7 +31,7 @@ Fixed::Fixed(const float value): _fixedNumber(value) {
 	_fixedNumber = roundf(value * (1 << _fractionalBits));
 }
 
-Fixed::Fixed(const Fixed& copy): _fixedNumber(copy._fixedNumber) {
+Fixed::Fixed(const Fixed &copy): _fixedNumber(copy._fixedNumber) {
 	
 	std::cout << "Copy constructor called" << std::endl;
 	_fixedNumber = copy._fixedNumber;
@@ -42,7 +42,7 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed & Fixed::operator=(const Fixed& fixed) {
+Fixed & Fixed::operator = (const Fixed &fixed) {
 
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &fixed)
@@ -50,7 +50,7 @@ Fixed & Fixed::operator=(const Fixed& fixed) {
 	return (*this);
 }
 
-std::ostream& operator<<( std::ostream& os, const Fixed &value ) {
+std::ostream &operator << (std::ostream &os, const Fixed &value) {
 
 	os << value.toFloat();
 	return (os);
@@ -69,18 +69,14 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	float	floatValue;
-
-	floatValue = (float)_fixedNumber / (float)(1 << _fractionalBits);
+	float floatValue = (float)_fixedNumber / (float)(1 << _fractionalBits);
 
 	return (floatValue);
 }
 
 int		Fixed::toInt(void) const {
 
-	int	intValue;
-
-	intValue = _fixedNumber >> _fractionalBits;
+	int intValue = _fixedNumber >> _fractionalBits;
 
 	return (intValue);
 }

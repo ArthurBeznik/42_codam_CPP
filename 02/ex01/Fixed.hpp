@@ -28,8 +28,8 @@ class Fixed {
 		Fixed(const int value);
 		Fixed(const float value);
 
-        Fixed(const Fixed& fixed);				// copy constructor
-        Fixed& operator = (const Fixed& Fixed);	// copy assignment operator
+        Fixed(const Fixed &fixed);				// copy constructor
+        Fixed& operator = (const Fixed &fixed);	// copy assignment operator
         ~Fixed(void);							// destructor
 
 	int		getRawBits(void) const;
@@ -40,6 +40,6 @@ class Fixed {
 
 };
 
-std::ostream& operator << (std::ostream& os, const Fixed &fixed); // dafuq?
+std::ostream &operator << (std::ostream &os, const Fixed &fixed);	// overload
 
 #endif
