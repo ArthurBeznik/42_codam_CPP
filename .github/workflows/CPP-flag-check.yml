@@ -11,8 +11,8 @@ env:
   MAKE: make
 
 jobs:
-  check-c98:
-    name: Compiling using ubuntu
+  check-c98_0:
+    name: Compiling 00 using ubuntu
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -28,6 +28,14 @@ jobs:
               make -kj re -C ${n}
             fi
           done
+  check-c98_1:
+    name: Compiling 01 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
       - name: Build 01
         working-directory: 01/
         continue-on-error: true
@@ -37,67 +45,4 @@ jobs:
               make -kj re -C ${n}
             fi
           done
-      - name: Build 02
-        working-directory: 02/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 03
-        working-directory: 03/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 04
-        working-directory: 04/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 05
-        working-directory: 05/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 06
-        working-directory: 06/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 07
-        working-directory: 07/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-      - name: Build 08
-        working-directory: 08/
-        continue-on-error: true
-        run: |
-          for n in ${{ env.EXO }}; do
-            if [[ -f ${n}/Makefile ]]; then
-              make -kj re -C ${n}
-            fi
-          done
-
+     
