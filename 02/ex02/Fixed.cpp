@@ -117,7 +117,7 @@ Fixed	Fixed::operator ++ (int value) {
 	return (copy);
 }
 
-Fixed&	Fixed::operator ++ () {
+Fixed	&Fixed::operator ++ () {
 
 	_fixedNumber++;
 	return (*this);
@@ -131,7 +131,7 @@ Fixed	Fixed::operator -- (int value) {
 	return (copy);
 }
 
-Fixed&	Fixed::operator -- () {
+Fixed	&Fixed::operator -- () {
 
 	_fixedNumber--;
 	return (*this);

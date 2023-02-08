@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/07 18:59:51 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 11:13:56 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints
 	std::cout << " has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& copy) {
+ClapTrap::ClapTrap(const ClapTrap &copy) {
 	
 	if (this != &copy) {
 		*this = copy;

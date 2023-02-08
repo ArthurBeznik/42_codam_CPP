@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 16:57:16 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 11:14:25 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Template::Template(void) {
 	
 }
 
-Template::Template(const Template& copy) {
+Template::Template(const Template &copy) {
 	
 	(void)copy;
 }
@@ -27,7 +27,7 @@ Template::~Template(void) {
 	
 }
 
-Template & Template::operator=(const Template& op) {
+Template &Template::operator = (const Template &op) {
 	
 	if (this == &op)
 		return (*this); 

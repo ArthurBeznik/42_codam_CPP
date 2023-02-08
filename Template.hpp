@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/06 16:57:35 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 11:14:52 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Template {
     public:
         Template();
         Template(const Template&);
-        Template &operator=(const Template& op);
+        Template &operator = (const Template &op);
         ~Template();
 
 
