@@ -28,6 +28,7 @@ jobs:
               make -kj re -C ${n}
             fi
           done
+
   check-c98_1:
     name: Compiling 01 using ubuntu
     runs-on: ubuntu-latest
@@ -46,3 +47,128 @@ jobs:
             fi
           done
      
+  check-c98_2:
+    name: Compiling 02 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 02
+        working-directory: 02/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_3:
+    name: Compiling 03 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 03
+        working-directory: 03/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_4:
+    name: Compiling 04 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 04
+        working-directory: 04/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_5:
+    name: Compiling 05 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 05
+        working-directory: 05/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_6:
+    name: Compiling 06 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 06
+        working-directory: 06/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_7:
+    name: Compiling 07 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 07
+        working-directory: 07/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
+  check-c98_8:
+    name: Compiling 08 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 08
+        working-directory: 08/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
