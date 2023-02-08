@@ -6,14 +6,15 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/07 18:16:32 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/08 17:12:00 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= 	ex01
 
 SRCS			=	main.cpp \
-					Fixed.cpp \
+					ClapTrap.cpp \
+					ScavTrap.cpp \
 					
 OBJECT			=	$(SRCS:.cpp=.o)
 

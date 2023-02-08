@@ -6,38 +6,34 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/07 18:59:41 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 17:42:47 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
-int	main(void) {
+void	testScav() {
+	
+	ScavTrap	scav("Arthur");
+	ScavTrap	secondScav("Jules");
+	
+	scav.attack("Jules");
 
-	ClapTrap clap("Arthur");
+	// for (int x = 0; x < 200; x++) {
+	// 	scav.attack("test");
+	// } // ? testing loop until no EP/HP left
+	
+	scav.beRepaired(10);
+	scav.takeDamage(10);
+	scav.guardGate();
 
-	clap.attack("Maxime");		// 9 EP
-	clap.beRepaired(1);			// 8 EP
-	clap.takeDamage(5);
+	// Copy assignment operator test
+	secondScav = scav;
+	secondScav.attack("Maxime");
+}
+
+int main(void) {
 	
-	clap.attack("Thomas");		// 7
-	clap.attack("Jules");		// 6
-	clap.attack("Celestin");	// 5
-	clap.attack("Gonzague");	// 4
-	clap.attack("Patrice");		// 3
-	clap.attack("Herve");		// 2
-	clap.attack("Jacques");		// 1
-	clap.attack("Pierre");		// 0 after this attack
-	
-	/**
-	 * Should not work
-	*/
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	
+	testScav();
 	return (0);
 }

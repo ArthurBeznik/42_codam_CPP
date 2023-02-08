@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/08 11:13:56 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 16:43:45 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ClapTrap::~ClapTrap(void) {
 ClapTrap &ClapTrap::operator = (const ClapTrap &clap) {
 	
 	if (this == &clap) {
-		return *this;
+		return (*this);
 	}
 	_name = clap._name;
 	_hitPoints = clap._hitPoints;
