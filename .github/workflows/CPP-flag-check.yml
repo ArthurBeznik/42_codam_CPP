@@ -75,7 +75,7 @@ jobs:
           fetch-depth: 3
       - name: Build 03
         working-directory: 03/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
