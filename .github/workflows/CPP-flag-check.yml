@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 3
       - name: Build 00
         working-directory: 00/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -39,7 +39,7 @@ jobs:
           fetch-depth: 3
       - name: Build 01
         working-directory: 01/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -57,7 +57,7 @@ jobs:
           fetch-depth: 3
       - name: Build 02
         working-directory: 02/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -93,7 +93,7 @@ jobs:
           fetch-depth: 3
       - name: Build 04
         working-directory: 04/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -111,7 +111,7 @@ jobs:
           fetch-depth: 3
       - name: Build 05
         working-directory: 05/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -129,7 +129,7 @@ jobs:
           fetch-depth: 3
       - name: Build 06
         working-directory: 06/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -147,7 +147,7 @@ jobs:
           fetch-depth: 3
       - name: Build 07
         working-directory: 07/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
@@ -165,7 +165,7 @@ jobs:
           fetch-depth: 3
       - name: Build 08
         working-directory: 08/
-        continue-on-error: true
+        continue-on-error: false
         run: |
           for n in ${{ env.EXO }}; do
             if [[ -f ${n}/Makefile ]]; then
