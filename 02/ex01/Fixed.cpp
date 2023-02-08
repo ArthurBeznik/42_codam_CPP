@@ -42,7 +42,7 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed & Fixed::operator = (const Fixed &fixed) {
+Fixed &Fixed::operator = (const Fixed &fixed) {
 
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &fixed)
@@ -59,7 +59,7 @@ std::ostream &operator << (std::ostream &os, const Fixed &value) {
 int	Fixed::getRawBits(void) const {
 
 	std::cout << "getRawBits member function called" << std::endl;
-	return (Fixed::_fixedNumber);
+	return (_fixedNumber);
 }
 
 void	Fixed::setRawBits(int const raw) {

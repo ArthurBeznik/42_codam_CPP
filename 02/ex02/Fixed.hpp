@@ -51,9 +51,9 @@ class Fixed {
 		 * Increment / decrement operators
 		*/
         Fixed	operator ++ (int value);
-		Fixed&	operator ++ ();
+		Fixed	&operator ++ ();
 		Fixed	operator -- (int value);
-		Fixed&	operator -- ();
+		Fixed	&operator -- ();
 
 		/**
 		 * Public overloaded member functions

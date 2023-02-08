@@ -47,32 +47,32 @@ Fixed::~Fixed(void) {
 */
 bool	Fixed::operator > (const Fixed &fixed) const {
 
-	return toFloat() > fixed.toFloat();
+	return (toFloat() > fixed.toFloat());
 }
 
 bool	Fixed::operator < (const Fixed &fixed) const {
 
-	return toFloat() < fixed.toFloat();
+	return (toFloat() < fixed.toFloat());
 }
 
 bool	Fixed::operator >= (const Fixed &fixed) const {
 
-	return toFloat() >= fixed.toFloat();
+	return (toFloat() >= fixed.toFloat());
 }
 
 bool	Fixed::operator <= (const Fixed &fixed) const {
 
-	return toFloat() <= fixed.toFloat();
+	return (toFloat() <= fixed.toFloat());
 }
 
 bool	Fixed::operator == (const Fixed &fixed) const {
 
-	return toFloat() == fixed.toFloat();
+	return (toFloat() == fixed.toFloat());
 }
 
 bool	Fixed::operator != (const Fixed &fixed) const {
 
-	return toFloat() != fixed.toFloat();
+	return (toFloat() != fixed.toFloat());
 }
 
 /**
@@ -88,22 +88,22 @@ Fixed &Fixed::operator = (const Fixed &fixed) {
 
 Fixed	Fixed::operator + (const Fixed &fixed) {
 
-	return toFloat() + fixed.toFloat();
+	return (toFloat() + fixed.toFloat());
 }
 
 Fixed	Fixed::operator - (const Fixed &fixed) {
 
-	return toFloat() - fixed.toFloat();
+	return (toFloat() - fixed.toFloat());
 }
 
 Fixed	Fixed::operator * (const Fixed &fixed) {
 
-	return toFloat() * fixed.toFloat();
+	return (toFloat() * fixed.toFloat());
 }
 
 Fixed	Fixed::operator / (const Fixed &fixed) {
 
-	return toFloat() / fixed.toFloat();
+	return (toFloat() / fixed.toFloat());
 }
 
 /**
@@ -152,7 +152,7 @@ std::ostream &operator << (std::ostream &os, const Fixed &value) {
 int	Fixed::getRawBits(void) const {
 
 	std::cout << "getRawBits member function called" << std::endl;
-	return (Fixed::_fixedNumber);
+	return (_fixedNumber);
 }
 
 void	Fixed::setRawBits(int const raw) {
