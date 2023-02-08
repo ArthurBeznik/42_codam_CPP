@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  DIR: 00 01 02 03 04
+  DIR: 00 01 02 03 04 05 06 07 08
   EXO: ex00 ex01 ex02 ex03 ex04 ex05
   CC: c++
   MAKE: make
@@ -64,3 +64,40 @@ jobs:
               make -kj re -C ${n}
             fi
           done
+      - name: Build 05
+        working-directory: 05/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+      - name: Build 06
+        working-directory: 06/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+      - name: Build 07
+        working-directory: 07/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+      - name: Build 08
+        working-directory: 08/
+        continue-on-error: true
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+
