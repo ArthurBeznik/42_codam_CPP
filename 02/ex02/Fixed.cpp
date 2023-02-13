@@ -111,7 +111,7 @@ Fixed	Fixed::operator / (const Fixed &fixed) {
 */
 Fixed	Fixed::operator ++ (int value) {
 
-	(void)value;
+	(void)value; // ? to remove -Werror error
 	Fixed copy(*this);
 	++(*this);
 	return (copy);
@@ -125,7 +125,7 @@ Fixed	&Fixed::operator ++ () {
 
 Fixed	Fixed::operator -- (int value) {
 	
-	(void)value;
+	(void)value; // ? to remove -Werror error
 	Fixed copy(*this);
 	--(*this);
 	return (copy);
@@ -162,13 +162,21 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	float floatValue = (float)_fixedNumber / (float)(1 << _fractionalBits);
+	int	res = _fixedNumber;
+	int sign = res < 0 ? -1 : 1;
+
+	res = sign < 0 ? -res : res;
+	float floatValue = (float)res / (1 << _fractionalBits) * sign;
 	return (floatValue);
 }
 
 int		Fixed::toInt(void) const {
 
-	int intValue = _fixedNumber >> _fractionalBits;
+	int	res = _fixedNumber;
+	int sign = res < 0 ? -1 : 1;
+
+	res = sign < 0 ? -res : res;
+	int intValue = (res >> _fractionalBits) * sign;
 	return (intValue);
 }
 

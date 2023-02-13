@@ -17,6 +17,11 @@ Fixed::Fixed(void): _fixedNumber(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
+/**
+ * _fixedNumber = value << _factionalBits
+ * 			<=>
+ * _fixedNumber = value * (2 ^ _fractionalBits)
+*/
 Fixed::Fixed(const int value): _fixedNumber(value) {
 
 	std::cout << "Integer constructor called" << std::endl;
@@ -24,6 +29,11 @@ Fixed::Fixed(const int value): _fixedNumber(value) {
 	_fixedNumber = value << _fractionalBits;
 }
 
+/**
+ * _fixedNumber = roundf(value * (1 << _fractionalBits));
+ * 			<=>
+ * _fixedNumber = roundf(value * (2 ^ _fractionalBits));
+*/
 Fixed::Fixed(const float value): _fixedNumber(value) {
 
 	std::cout << "Float constructor called" << std::endl;
@@ -50,6 +60,11 @@ Fixed &Fixed::operator = (const Fixed &fixed) {
 	return (*this);
 }
 
+/**
+ * The operator << overload inserts the result of toFloat() into the 
+ * output stream os. 
+ * This allows to easily print a fixed-point value as a floating-point value.
+*/
 std::ostream &operator << (std::ostream &os, const Fixed &value) {
 
 	os << value.toFloat();
@@ -69,14 +84,20 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	float floatValue = (float)_fixedNumber / (1 << _fractionalBits);
+	int	res = _fixedNumber;
+	int sign = res < 0 ? -1 : 1;
 
+	res = sign < 0 ? -res : res;
+	float floatValue = (float)res / (1 << _fractionalBits) * sign;
 	return (floatValue);
 }
 
 int		Fixed::toInt(void) const {
 
-	int intValue = _fixedNumber >> _fractionalBits;
+	int	res = _fixedNumber;
+	int sign = res < 0 ? -1 : 1;
 
+	res = sign < 0 ? -res : res;
+	int intValue = (res >> _fractionalBits) * sign;
 	return (intValue);
 }

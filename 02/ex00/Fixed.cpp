@@ -27,6 +27,13 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
+/**
+ * A copy assignment operator is an operator that takes a reference to an 
+ * object of the same class, and it is used to assign the values of one 
+ * object to another. 
+ * In the OCF, the copy assignment operator should perform a deep copy of 
+ * the data members, and it should handle self-assignment correctly.
+*/
 Fixed &Fixed::operator = (const Fixed &fixed) {
 
 	std::cout << "Copy assignment operator called" << std::endl;
