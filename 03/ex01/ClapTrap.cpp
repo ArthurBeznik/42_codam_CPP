@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/08 17:28:22 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/13 16:31:22 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	announce(std::string const &name, int whichTrap) {
 	}
 }
 
-ClapTrap::ClapTrap(): _name("nothing"), _hitPoints(10), _energyPoints(10), _attackDamage(10) {
+ClapTrap::ClapTrap(): _name("N/A"), _hitPoints(10), _energyPoints(10), _attackDamage(10) {
 	
 	announce(_name, CLAP);
 }
@@ -69,6 +69,9 @@ void	ClapTrap::attack(const std::string &target) {
 	_energyPoints--;
 }
 
+/**
+ * can he take dmg if aleady at 0?
+*/
 void	ClapTrap::takeDamage(unsigned int amount) {
 	
 	announce(_name, CLAP);
@@ -76,6 +79,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	_hitPoints -= amount;
 }
 
+/**
+ * can he repair more than default init?
+*/
 void	ClapTrap::beRepaired(unsigned int amount) {
 	
 	announce(_name, CLAP);

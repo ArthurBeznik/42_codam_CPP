@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.cpp                                       :+:    :+:            */
+/*   FragTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/13 16:16:43 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/13 16:48:23 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void): ClapTrap("N/A", 100, 50, 20) {
+FragTrap::FragTrap(void): ClapTrap("N/A", 100, 100, 30) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	std::cout << " has been created!" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const &name): ClapTrap(name, 100, 50, 20) {
+FragTrap::FragTrap(std::string const &name): ClapTrap(name, 100, 100, 30) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	std::cout << " has been created!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) {
+FragTrap::FragTrap(const FragTrap &copy) {
 	
 	if (this != &copy) {
 		*this = copy;
 	}
 }
 
-ScavTrap::~ScavTrap(void) {
+FragTrap::~FragTrap(void) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	std::cout << " died!" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator = (const ScavTrap &scav) {
+FragTrap &FragTrap::operator = (const FragTrap &frag) {
 	
-	if (this == &scav) {
+	if (this == &frag) {
 		return *this;
 	}
-	_name = scav._name;
-	_hitPoints = scav._hitPoints;
-	_energyPoints = scav._energyPoints;
-	_attackDamage = scav._attackDamage;
+	_name = frag._name;
+	_hitPoints = frag._hitPoints;
+	_energyPoints = frag._energyPoints;
+	_attackDamage = frag._attackDamage;
 	return (*this);
 }
 
-void	ScavTrap::attack(const std::string &target) {
+void	FragTrap::attack(const std::string &target) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	if (_energyPoints == 0 || _hitPoints == 0) {
 		std::cout << " does not have enough EP and/or HP" << std::endl;
 		return ;
@@ -60,16 +60,16 @@ void	ScavTrap::attack(const std::string &target) {
 	_energyPoints--;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount) {
+void	FragTrap::takeDamage(unsigned int amount) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	std::cout << " takes " << amount << " points of damage!" << std::endl;
 	_hitPoints -= amount;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount) {
+void	FragTrap::beRepaired(unsigned int amount) {
 	
-	announce(_name, SCAV);
+	announce(_name, FRAG);
 	if (_energyPoints == 0 || _hitPoints == 0) {
 		std::cout << " does not have enough EP OR HP" << std::endl;
 		return ;
@@ -79,8 +79,8 @@ void	ScavTrap::beRepaired(unsigned int amount) {
 	_hitPoints += amount;
 }
 
-void	ScavTrap::guardGate() {
+void	FragTrap::highFivesGuys(void) {
 	
-	announce(_name, SCAV);
-	std::cout << " has entered gatekeeper mode" << std::endl;
+	announce(_name, FRAG);
+	std::cout << " requests a high five!" << std::endl;
 }
