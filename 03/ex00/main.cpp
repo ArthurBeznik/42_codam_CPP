@@ -6,38 +6,42 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/07 18:59:41 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/14 11:41:33 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
 
+/**
+ * attack: target - <attack damage> HP
+ * repair: clap + <amount> HP
+ * attack & repair: clap - 1 EP
+ * if 0 EP or 0 HP => no action
+*/
 int	main(void) {
 
-	ClapTrap clap("Arthur");
+	ClapTrap clap("Arthur");	// start: 		= 10 EP 10 HP
 
-	clap.attack("Maxime");		// 9 EP
-	clap.beRepaired(1);			// 8 EP
-	clap.takeDamage(5);
-	
-	clap.attack("Thomas");		// 7
-	clap.attack("Jules");		// 6
-	clap.attack("Celestin");	// 5
-	clap.attack("Gonzague");	// 4
-	clap.attack("Patrice");		// 3
-	clap.attack("Herve");		// 2
-	clap.attack("Jacques");		// 1
-	clap.attack("Pierre");		// 0 after this attack
+	clap.attack("Maxime");		// -1 EP 		= 9 EP 10 HP
+	clap.beRepaired(1);			// -1 EP +1 HP	= 8 EP 11 HP
+	clap.takeDamage(5);			// -5 HP		= 8 EP 6 HP
+
+	/**
+	 * looping until clap has no EP/HP left (-1 EP on each loop)
+	*/
+	for (int x = 0; x < 20; x++) {
+		clap.attack("test");
+	}
 	
 	/**
 	 * Should not work
 	*/
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
-	clap.attack("Maxime");
+	clap.attack("Jules");
+	clap.attack("Thomas");
+	clap.attack("Celestin");
+	clap.attack("Gonzague");
+	clap.attack("Jacques");
+	clap.attack("Pierre");
 	
 	return (0);
 }

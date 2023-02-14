@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/08 16:43:45 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/14 11:41:17 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ void	ClapTrap::attack(const std::string &target) {
 	
 	announce(_name);
 	if (_energyPoints == 0 || _hitPoints == 0) {
-		std::cout << " does not have enough EP and/or HP" << std::endl;
+		std::cout << " does not have enough EP or HP" << std::endl;
 		return ;
 	}
 	std::cout << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	_energyPoints--;
+	// std::cout << "\tEP: " << _energyPoints << " / HP: " << _hitPoints << std::endl; // ? testing
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
@@ -65,16 +66,19 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	announce(_name);
 	std::cout << " takes " << amount << " points of damage!" << std::endl;
 	_hitPoints -= amount;
+	// std::cout << "\tEP: " << _energyPoints << " / HP: " << _hitPoints << std::endl; // ? testing
+
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	
 	announce(_name);
 	if (_energyPoints == 0 || _hitPoints == 0) {
-		std::cout << " does not have enough EP OR HP" << std::endl;
+		std::cout << " does not have enough EP or HP" << std::endl;
 		return ;
 	}
 	std::cout << " repairs himself and gets " << amount << " hit points back!" << std::endl;
 	_energyPoints--;
 	_hitPoints += amount;
+	// std::cout << "\tEP: " << _energyPoints << " / HP: " << _hitPoints << std::endl; // ? testing
 }
