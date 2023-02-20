@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/08 17:27:49 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/20 10:48:39 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class ClapTrap {
 
-    protected:				// ? what is this
+    protected:
         std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;
