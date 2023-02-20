@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 10:48:39 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/20 16:20:38 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ class ClapTrap {
 };
 
 void	announce(std::string const &name, int whichTrap);
-
 
 #endif

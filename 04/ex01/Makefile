@@ -6,20 +6,25 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/08 12:32:55 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/20 14:26:48 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	ex01
+NAME			= 	ex00
 
+SRCDIR			=	srcs
 SRCS			=	main.cpp \
+					Animal.cpp \
+					Cat.cpp \
+					Dog.cpp \
 					
-					
-OBJECT			=	$(SRCS:.cpp=.o)
+OBJDIR			=	objs
+OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
-COMPILE			= 	c++
+INCLUDES		=	includes
 
-FLAGS			= 	-Wall -Wextra -Werror -std=c++98
+CC				= 	c++
+FLAGS			=	-Wall -Werror -Wextra -I $(INCLUDES) -std=c++98 
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m
@@ -28,20 +33,21 @@ GREY 			= 	\033[1;36m
 ORANGE 			= 	\033[38;5;202m
 RED 			= 	\033[1;31m
 
-all: $(NAME)
+all:		$(NAME)
 
-%.o: %.cpp
-	@echo "$(GREY)Compiling...				$<"
-	@$(COMPILE) $(FLAGS) -c $< -o $@
-
-$(NAME): $(OBJECT)
+$(NAME):	$(OBJS)
 	@echo "$(GREEN)----------------------------------------------------"
-	@$(COMPILE) $(FLAGS) $(OBJECT) -o $(NAME)
+	@$(CC) ${FLAGS} ${OBJS}  -o ${NAME}
 	@echo "Executable				./$(NAME) $(RESET)"
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@echo "$(GREY)Compiling...				$<"
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@echo "$(RED)----------------------------------------------------"
-	@/bin/rm -f $(OBJECT)
+	@/bin/rm -rf $(OBJDIR)
 	@echo "$(GRAY)Removed object files $(RESET)"
 
 fclean: clean

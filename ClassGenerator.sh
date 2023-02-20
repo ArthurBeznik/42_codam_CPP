@@ -21,3 +21,4 @@ mv $class_name.cpp $dest_dir
 mv $class_name.hpp $dest_dir
 
 # ! shoutout to Excalibur for this amazing script
+# ? Usage: ./ClassGenerator.sh <class_name> <dest_dir>

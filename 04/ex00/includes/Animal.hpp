@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.hpp                                       :+:    :+:            */
+/*   Animal.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 16:21:31 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/08 11:14:52 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap {
+class Animal {
+
+	protected:
+		std::string const _type;
         
     public:
-        ScavTrap();
-        ScavTrap(std::string const &name);
-        ScavTrap(const ScavTrap &copy);
-        ScavTrap &operator = (const ScavTrap &scav);
-        ~ScavTrap();
+		Animal();
+        Animal(std::string const &type);
+        Animal(const Animal &copy);
+        Animal &operator = (const Animal &animal);
+        ~Animal();
 
-		void	attack(const std::string &target);
-		void 	guardGate();		
+		virtual void		makeSound() const;
+		std::string const	getType() const;
 
 };
 
+std::ostream	&operator << (std::ostream &ostream, const Animal &animal);
 
 #endif
