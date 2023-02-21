@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:41:42 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 14:52:34 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,6 @@ FragTrap &FragTrap::operator = (const FragTrap &frag) {
 	this->_energyPoints = frag._energyPoints;
 	this->_attackDamage = frag._attackDamage;
 	return (*this);
-}
-
-void	FragTrap::attack(const std::string &target) {
-	
-	// logger(this->_name, this->_energyPoints, this->_hitPoints, BEFORE); // ? testing
-	announce(this->_name, FRAG);
-	if (this->_energyPoints == 0 || this->_hitPoints == 0) {
-		std::cout << " does not have enough EP and/or HP" << std::endl;
-		return ;
-	}
-	std::cout << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-	this->_energyPoints--;
-	// logger(this->_name, this->_energyPoints, this->_hitPoints, AFTER); // ? testing
 }
 
 /**

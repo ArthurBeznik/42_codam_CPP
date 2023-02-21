@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:18:54 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 14:54:36 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <ClapTrap.hpp>
 
+/**
+ *  "[...] its construction and destruction messages must be different [...]"
+*/
 class FragTrap: public ClapTrap {
         
     public:
@@ -25,7 +28,6 @@ class FragTrap: public ClapTrap {
         FragTrap &operator = (const FragTrap &frag);
         ~FragTrap();
 
-		void	attack(std::string const &target);
 		void 	highFivesGuys(void);
 
 };

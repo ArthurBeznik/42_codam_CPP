@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:33:23 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:06:40 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	testClap(void) {
 	
 	ClapTrap	clap("Thomas", 50, 25, 10);
 	ClapTrap	secondClap("Roger", 50, 25, 10);
+	ClapTrap	thirdClap;
 	
 	clap.attack("Arthur");
 	secondClap.attack("Jules");
@@ -109,8 +110,11 @@ static void	testFrag(void) {
 	
 	FragTrap	frag("Jospeh");
 	FragTrap	secondFrag("Roger");
+	FragTrap	thirdFrag;
+
 	
 	frag.attack("Roger");
+	thirdFrag.attack("Roger");
 
 	// for (int x = 0; x < 200; x++) {
 	// 	scav.attack("test");
