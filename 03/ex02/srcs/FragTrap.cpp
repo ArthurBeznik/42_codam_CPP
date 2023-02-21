@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 14:52:34 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:36:11 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy) {
 	if (this != &copy) {
 		*this = copy;
 	}
+	announce(this->_name, FRAG);
+	std::cout << " has been created (by copy)!" << std::endl;
 }
 
 FragTrap::~FragTrap(void) {

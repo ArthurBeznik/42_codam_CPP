@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/21 11:26:50 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/21 15:28:18 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ INCLUDES		=	includes
 
 CC				= 	c++
 FLAGS			=	-Wall -Werror -Wextra -pedantic -I $(INCLUDES) -std=c++98 
+# FLAGS			=	-pedantic -I $(INCLUDES) -std=c++98
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m

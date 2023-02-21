@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:42:53 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:34:16 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ClapTrap::ClapTrap() : _name("N/A"),
 {
 
 	announce(this->_name, CLAP);
+	std::cout << " has been created!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const &name,
@@ -41,6 +42,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy) {
 		*this = copy;
 	}
 	announce(this->_name, CLAP);
+	std::cout << " has been created (by copy)!" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {

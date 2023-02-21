@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:00:28 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:37:36 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	testBoth(void) {
 	ScavTrap	secondScav("Jules");
 	ClapTrap	clap("Thomas", 50, 25, 10);
 	ClapTrap	secondClap("Roger", 50, 25, 10);
+	ClapTrap	test;
 	
 	scav.attack("Jules");
 	clap.attack("Arthur");
@@ -48,6 +49,7 @@ void	testClap(void) {
 	
 	ClapTrap	clap("Thomas", 50, 25, 10);
 	ClapTrap	secondClap("Roger", 50, 25, 10);
+	ClapTrap	test;
 	
 	clap.attack("Arthur");
 	secondClap.attack("Jules");
@@ -73,6 +75,8 @@ void	testScav(void) {
 	
 	ScavTrap	scav("Arthur");
 	ScavTrap	secondScav("Jules");
+	ScavTrap	test;
+	ScavTrap	copyScav(test);
 	
 	scav.attack("Jules");
 

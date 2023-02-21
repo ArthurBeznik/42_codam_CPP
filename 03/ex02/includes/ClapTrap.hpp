@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:20:10 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:24:36 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class ClapTrap {
 		int			_energyPoints;
 		int			_attackDamage;
 		
-        
     public:
         ClapTrap();
         ClapTrap(std::string const &name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);

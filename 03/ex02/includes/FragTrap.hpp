@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 14:54:36 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:27:56 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <ClapTrap.hpp>
 
 /**
- *  "[...] its construction and destruction messages must be different [...]"
+ *  "[...] its construction and destruction messages must be different."
 */
 class FragTrap: public ClapTrap {
         

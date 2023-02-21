@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:06:40 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:38:48 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,10 @@ static void	testScav(void) {
 
 static void	testFrag(void) {
 	
-	FragTrap	frag("Jospeh");
+	FragTrap	frag("Skip");
 	FragTrap	secondFrag("Roger");
 	FragTrap	thirdFrag;
-
+	FragTrap	fourthFrag(frag);
 	
 	frag.attack("Roger");
 	thirdFrag.attack("Roger");
@@ -126,7 +126,7 @@ static void	testFrag(void) {
 
 	// Copy assignment operator test
 	secondFrag = frag;
-	secondFrag.attack("Joseph");
+	secondFrag.attack("Luc");
 
 	std::cout << std::endl;
 }

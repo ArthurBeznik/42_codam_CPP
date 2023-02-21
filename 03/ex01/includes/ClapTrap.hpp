@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:13:04 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:26:40 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class ClapTrap {
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
-		
         
     public:
         ClapTrap();

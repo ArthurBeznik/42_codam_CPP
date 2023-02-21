@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:07:41 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:36:18 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,44 +22,40 @@ ClapTrap::ClapTrap() : _name("N/A"),
 	std::cout << " has been created!" << std::endl;
 }
 
-// ClapTrap::ClapTrap(std::string const &name,
-// 				   unsigned int hitPoints,
-// 				   unsigned int energyPoints,
-// 				   unsigned int attackDamage) : _name(name),
-// 												_hitPoints(hitPoints),
-// 												_energyPoints(energyPoints),
-// 												_attackDamage(attackDamage)
-// {
-
-// 	announce(this->_name, CLAP);
-// 	std::cout << " has been created!" << std::endl;
-// }
-
 ClapTrap::ClapTrap(std::string const &name,
 				   unsigned int hitPoints,
 				   unsigned int energyPoints,
-				   unsigned int attackDamage)
+				   unsigned int attackDamage) : _name(name),
+												_hitPoints(hitPoints),
+												_energyPoints(energyPoints),
+												_attackDamage(attackDamage)
 {
 
-	this->_name = name;
-	if (hitPoints < 0) {
-		std::cout << "ERROR" << std::endl;
-		return ;
-	}
-	this->_hitPoints = hitPoints;
-	this->_energyPoints = energyPoints;
-	this->_attackDamage = attackDamage;
 	announce(this->_name, CLAP);
 	std::cout << " has been created!" << std::endl;
 }
 
+// ClapTrap::ClapTrap(std::string const &name,
+// 				   unsigned int hitPoints,
+// 				   unsigned int energyPoints,
+// 				   unsigned int attackDamage)
+// {
+
+// 	this->_name = name;
+// 	this->_hitPoints = hitPoints;
+// 	this->_energyPoints = energyPoints;
+// 	this->_attackDamage = attackDamage;
+// 	announce(this->_name, CLAP);
+// 	std::cout << " has been created!" << std::endl;
+// }
+
 ClapTrap::ClapTrap(const ClapTrap &copy) {
 
-	if (this != &copy)
-	{
+	if (this != &copy) {
 		*this = copy;
 	}
 	announce(this->_name, CLAP);
+	std::cout << " has been created (by copy)!" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
@@ -68,7 +64,7 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << " died!" << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &clap) {
+ClapTrap &ClapTrap::operator = (const ClapTrap &clap) {
 
 	if (this == &clap)
 	{

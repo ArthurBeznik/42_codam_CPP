@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:03:39 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:13:58 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <ClapTrap.hpp>
 
+/**
+ * "[...] its constructors, destructor and attack() will print different messages."
+*/
 class ScavTrap: public ClapTrap {
         
     public:
@@ -26,7 +29,7 @@ class ScavTrap: public ClapTrap {
         ~ScavTrap();
 
 		void	attack(const std::string &target);
-		void 	guardGate();		
+		void 	guardGate(void);		
 
 };
 

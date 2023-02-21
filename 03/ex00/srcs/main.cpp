@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:37:27 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:37:50 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 */
 int	main(void) {
 
-	ClapTrap clap("Arthur");	// start: 		= 10 EP 10 HP
+	ClapTrap	clap("Arthur");	// start: 		= 10 EP 10 HP
+	ClapTrap	test;
+	ClapTrap	copyClap(clap);
 
 	clap.attack("Maxime");		// -1 EP 		= 9 EP 10 HP
 	clap.beRepaired(1);			// -1 EP +1 HP	= 8 EP 11 HP

@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 11:39:38 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:27:36 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap {
         
     public:
         ClapTrap();
-        ClapTrap(std::string name);
+        ClapTrap(std::string const &name);
         ClapTrap(const ClapTrap &copy);
         ClapTrap &operator = (const ClapTrap &clap);
         ~ClapTrap();

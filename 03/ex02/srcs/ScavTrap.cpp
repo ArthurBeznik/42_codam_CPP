@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:30:35 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 15:35:54 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy) {
 	if (this != &copy) {
 		*this = copy;
 	}
+	announce(this->_name, SCAV);
+	std::cout << " has been created (by copy)!" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
