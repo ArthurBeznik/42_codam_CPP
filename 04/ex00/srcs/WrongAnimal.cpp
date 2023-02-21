@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.cpp                                       :+:    :+:            */
+/*   WrongAnimal.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -10,32 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Cat.hpp>
+#include <WrongAnimal.hpp>
 
-Cat::Cat(void): Animal("Cat") {
+WrongAnimal::WrongAnimal(void) : _type("N/A")  {
 	
-	std::cout << "Cat constructor called!" << std::endl;
+	std::cout << "WrongAnimal constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy) {
+WrongAnimal::WrongAnimal(std::string const &type) : _type(type) {
 	
-	std::cout << "Cat copy constructor called!" << std::endl;
-	Animal(copy.getType());
+    std::cout << "WrongAnimal constructor called!" << std::endl;
 }
 
-Cat::~Cat(void) {
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
 	
-	std::cout << "Cat destructor called!" << std::endl;
+	std::cout << "WrongAnimal constructor called!" << std::endl;
+	if (this != &copy) {
+		*this = copy;
+	}
 }
 
-Cat &Cat::operator = (const Cat &cat) {
+WrongAnimal::~WrongAnimal(void) {
 	
-	if (this == &cat)
+	std::cout << "WrongAnimal destructor called!" << std::endl;
+}
+
+WrongAnimal &WrongAnimal::operator = (const WrongAnimal &op) {
+	
+	if (this == &op)
 		return (*this); 
 	return (*this);
 }
 
-void    Cat::makeSound() const {
+std::string const	WrongAnimal::getType(void) const {
 
-    std::cout << "Meeeeeoooow" << std::endl;
+	return _type;
+}
+
+void	WrongAnimal::makeSound(void) const {
+
+	std::cout << "Not some animal sound" << std::endl;
 }

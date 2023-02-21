@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Template.cpp                                       :+:    :+:            */
+/*   WrongCat.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:54:15 by abeznik       ########   odam.nl         */
+/*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
+/*   Updated: 2023/02/21 16:08:21 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Template.hpp>
+#ifndef WRONG_CAT_HPP
+# define WRONG_CAT_HPP
 
-Template::Template(void) {
-	
-	
-}
+# include <iostream>
+# include <WrongAnimal.hpp>
 
-Template::Template(const Template &copy) {
-	
-	(void)copy;
-}
+class WrongCat : public WrongAnimal {
 
-Template::~Template(void) {
-	
-	
-}
+    public:
+        WrongCat();
+        WrongCat(const WrongCat&);
+        WrongCat &operator = (const WrongCat &op);
+        ~WrongCat();
 
-Template &Template::operator = (const Template &op) {
-	
-	if (this == &op)
-		return (*this); 
-	return (*this);
-}
+		void	makeSound() const;
+
+};
+
+#endif

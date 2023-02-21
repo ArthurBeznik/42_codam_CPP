@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Template.cpp                                       :+:    :+:            */
+/*   WrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:54:15 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 16:03:22 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Template.hpp>
+#include <WrongCat.hpp>
 
-Template::Template(void) {
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 	
-	
+	std::cout << "WrongCat constructor called!" << std::endl;
 }
 
-Template::Template(const Template &copy) {
+WrongCat::WrongCat(const WrongCat &copy) {
 	
-	(void)copy;
+	std::cout << "WrongCat copy constructor called!" << std::endl;
+	WrongAnimal(copy.getType());
 }
 
-Template::~Template(void) {
+WrongCat::~WrongCat(void) {
 	
-	
+	std::cout << "WrongCat destructor called!" << std::endl;
 }
 
-Template &Template::operator = (const Template &op) {
+WrongCat &WrongCat::operator = (const WrongCat &op) {
 	
 	if (this == &op)
 		return (*this); 
 	return (*this);
+}
+
+void	WrongCat::makeSound() const {
+
+    std::cout << "Not Meeeeeoooow?" << std::endl;
 }
