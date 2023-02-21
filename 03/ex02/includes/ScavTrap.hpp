@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 16:21:31 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:03:39 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
+# include <ClapTrap.hpp>
 
 class ScavTrap: public ClapTrap {
         

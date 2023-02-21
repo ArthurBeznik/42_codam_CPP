@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/13 16:48:54 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:18:54 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FLAGTRAP_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
+# include <ClapTrap.hpp>
 
 class FragTrap: public ClapTrap {
         
@@ -26,12 +26,9 @@ class FragTrap: public ClapTrap {
         ~FragTrap();
 
 		void	attack(std::string const &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
 		void 	highFivesGuys(void);
 
 };
-
 
 
 #endif

@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ClapTrap.hpp                                       :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 16:20:38 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:03:39 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
+# include <ClapTrap.hpp>
 
-# define CLAP 0
-# define SCAV 1
-
-class ClapTrap {
-
-    protected:
-        std::string	_name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
+class ScavTrap: public ClapTrap {
         
     public:
-        ClapTrap();
-        ClapTrap(std::string const &name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
-        ClapTrap(const ClapTrap &copy);
-        ClapTrap &operator = (const ClapTrap &clap);
-        ~ClapTrap();
+        ScavTrap();
+        ScavTrap(std::string const &name);
+        ScavTrap(const ScavTrap &copy);
+        ScavTrap &operator = (const ScavTrap &scav);
+        ~ScavTrap();
 
 		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void 	guardGate();		
 
 };
 
-void	announce(std::string const &name, int whichTrap);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/13 16:47:57 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:13:04 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 
 # include <iostream>
 
+# define NA -1
 # define CLAP 0
 # define SCAV 1
-# define FRAG 2
+
+# define BEFORE 2
+# define AFTER 3
 
 class ClapTrap {
 
-    protected:				// ? what is this
+    protected:
         std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
+		
         
     public:
         ClapTrap();
@@ -40,7 +44,8 @@ class ClapTrap {
 
 };
 
-void	announce(std::string const &name, int whichTrap);
+void	logger(const std::string &name, const int &eP, const int &hP, const int when);
 
+void	announce(std::string const &name, int whichTrap);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 11:39:09 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:37:37 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include <ClapTrap.hpp>
 
 void	announce(std::string const &name) {
 	

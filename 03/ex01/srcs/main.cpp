@@ -6,11 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/07 18:25:17 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/20 16:31:44 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:00:28 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScavTrap.hpp"
+#include <ScavTrap.hpp>
 
 void	testBoth(void) {
 	
