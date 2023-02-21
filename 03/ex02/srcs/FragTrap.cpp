@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:32:29 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:41:42 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ void	FragTrap::attack(const std::string &target) {
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, AFTER); // ? testing
 }
 
+/**
+ * Special ability
+*/
 void	FragTrap::highFivesGuys(void) {
 	
 	announce(this->_name, FRAG);

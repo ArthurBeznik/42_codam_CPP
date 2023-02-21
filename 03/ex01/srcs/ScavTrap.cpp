@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:12:45 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:41:46 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &scav) {
 	return (*this);
 }
 
-void	ScavTrap::guardGate() {
-	
-	announce(this->_name, SCAV);
-	std::cout << " has entered gatekeeper mode" << std::endl;
-}
-
 void	ScavTrap::attack(const std::string &target) {
 	
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, BEFORE); // ? testing
@@ -68,3 +62,13 @@ void	ScavTrap::attack(const std::string &target) {
 	this->_energyPoints--;
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, AFTER); // ? testing
 }
+
+/**
+ * Special ability
+*/
+void	ScavTrap::guardGate() {
+	
+	announce(this->_name, SCAV);
+	std::cout << " has entered gatekeeper mode" << std::endl;
+}
+

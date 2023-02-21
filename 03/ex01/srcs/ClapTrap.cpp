@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:13:12 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/21 11:42:53 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ ClapTrap::ClapTrap(std::string const &name,
 	std::cout << " has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
-{
+ClapTrap::ClapTrap(const ClapTrap &copy) {
 
 	if (this != &copy)
 	{
@@ -44,15 +43,13 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	announce(this->_name, CLAP);
 }
 
-ClapTrap::~ClapTrap(void)
-{
+ClapTrap::~ClapTrap(void) {
 
 	announce(this->_name, CLAP);
 	std::cout << " died!" << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &clap)
-{
+ClapTrap &ClapTrap::operator=(const ClapTrap &clap) {
 
 	if (this == &clap)
 	{
@@ -68,8 +65,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &clap)
 /**
  * Actions.
 */
-void ClapTrap::attack(const std::string &target)
-{
+void ClapTrap::attack(const std::string &target) {
+	
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, BEFORE); // ? testing
 	announce(this->_name, CLAP);
 	if (this->_energyPoints == 0 || this->_hitPoints == 0)
@@ -82,8 +79,8 @@ void ClapTrap::attack(const std::string &target)
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, AFTER); // ? testing
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
-{
+void ClapTrap::takeDamage(unsigned int amount) {
+	
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, BEFORE); // ? testing
 	announce(this->_name, NA);
 	std::cout << " takes " << amount << " points of damage!" << std::endl;
@@ -91,8 +88,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, AFTER); // ? testing
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
-{
+void ClapTrap::beRepaired(unsigned int amount) {
+	
 	// logger(this->_name, this->_energyPoints, this->_hitPoints, BEFORE); // ? testing
 	announce(this->_name, NA);
 	if (this->_energyPoints == 0 || this->_hitPoints == 0)
