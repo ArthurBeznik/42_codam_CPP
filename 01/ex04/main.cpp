@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/14 11:39:57 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 11:12:42 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/07 15:05:21 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	sedForLosers(std::string fileName, std::string string1, \
 
 int	main(int argc, char **argv) {
 	
-	Logger	// logger;
+	Logger	logger;
 
 	if (argc != 4)
-		return (// logger.printError("Wrong number of arguments"));
+		return (logger.printError("Wrong number of arguments"));
 	if (sedForLosers(argv[1], argv[2], argv[3]))
-		return (// logger.printError(""));
+		return (logger.printError(""));
 	
 	// while (1) {
 		
