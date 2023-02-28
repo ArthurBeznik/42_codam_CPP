@@ -12,7 +12,7 @@
 
 #include <Cat.hpp>
 
-Cat::Cat(void): Animal("Cat") {
+Cat::Cat(void): Animal("Cat"), _brain(new Brain()) {
 	
 	std::cout << "Cat constructor called!" << std::endl;
 }
@@ -26,6 +26,7 @@ Cat::Cat(const Cat &copy): Animal(copy.getType()) {
 Cat::~Cat(void) {
 	
 	std::cout << "Cat destructor called!" << std::endl;
+	delete _brain;
 }
 
 Cat &Cat::operator = (const Cat &cat) {

@@ -12,7 +12,7 @@
 
 #include <Dog.hpp>
 
-Dog::Dog(void): Animal("Dog") {
+Dog::Dog(void): Animal("Dog"), _brain(new Brain()) {
 	
 	std::cout << "Dog constructor called!" << std::endl;
 }
@@ -26,6 +26,7 @@ Dog::Dog(const Dog &copy): Animal(copy.getType()) {
 Dog::~Dog(void) {
 	
 	std::cout << "Dog destructor called!" << std::endl;
+	delete _brain;
 }
 
 Dog &Dog::operator = (const Dog &dog) {

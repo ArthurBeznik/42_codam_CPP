@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 12:35:01 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:49:36 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,22 @@ void	moreAnimals() {
 
 	std::cout << std::endl;
 }
+
+// void	copyTest() {
+// 	std::cout << "----- Copy test: -----" << std::endl;
+// 	Animal*	first = new Dog();
+// 	Animal*	second = new Dog();
+
+// 	first->getBrain()->setIdea(0, "Woof");
+// 	*second = *first;
+// 	first->getBrain()->setIdea(0, "Other Woof");
+// 	std::cout << "First idea: " << first->getBrain()->getIdea(0) << std::endl;
+// 	std::cout << "Second idea: " << second->getBrain()->getIdea(0) << std::endl;
+
+// 	delete(first);
+// 	delete(second);
+// }
+
 
 void	testBrain() {
 

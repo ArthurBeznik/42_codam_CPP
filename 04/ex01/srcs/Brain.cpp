@@ -15,7 +15,6 @@
 Brain::Brain(void) {
 	
 	std::cout << "Brain created" << std::endl;
-	_ideas = new std::string[100];
 }
 
 Brain::Brain(const Brain &copy) {
@@ -28,7 +27,6 @@ Brain::Brain(const Brain &copy) {
 Brain::~Brain(void) {
 	
 	std::cout << "Brain destroyed" << std::endl;
-	delete[] _ideas;
 }
 
 Brain &Brain::operator = (const Brain &op) {
