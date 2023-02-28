@@ -6,17 +6,19 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/02/20 14:26:48 by abeznik       ########   odam.nl          #
+#    Updated: 2023/02/28 12:25:19 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	ex00
+NAME			= 	ex01
 
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
 					Animal.cpp \
 					Cat.cpp \
 					Dog.cpp \
+					WrongCat.cpp \
+					WrongAnimal.cpp \
 					
 OBJDIR			=	objs
 OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

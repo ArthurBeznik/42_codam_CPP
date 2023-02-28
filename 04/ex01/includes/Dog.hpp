@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-# include "Animal.hpp"
+# include <Animal.hpp>
 
 class Dog : public Animal {
 
@@ -23,12 +23,11 @@ class Dog : public Animal {
         Dog();
         Dog(const Dog &copy);
         Dog &operator = (const Dog &dog);
-        ~Dog();
+        // ~Dog();
+        virtual ~Dog();
 
 		void	makeSound() const;
 
 };
-
-
 
 #endif

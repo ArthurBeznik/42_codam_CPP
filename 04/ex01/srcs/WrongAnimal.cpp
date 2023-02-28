@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.cpp                                       :+:    :+:            */
+/*   WrongAnimal.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -10,44 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Animal.hpp>
+#include <WrongAnimal.hpp>
 
-Animal::Animal(void) : _type("N/A") {
+WrongAnimal::WrongAnimal(void) : _type("N/A")  {
 	
-    std::cout << "Default animal constructor called!" << std::endl;
+	std::cout << "WrongAnimal constructor called!" << std::endl;
 }
 
-Animal::Animal(std::string const &type) : _type(type) {
+WrongAnimal::WrongAnimal(std::string const &type) : _type(type) {
 	
-    std::cout << "Animal constructor called!" << std::endl;
+    std::cout << "WrongAnimal constructor called!" << std::endl;
 }
 
-Animal::Animal(const Animal &copy) : _type(copy.getType()) {
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) : _type(copy.getType()) {
 	
-	std::cout << "Animal copy constructor called!" << std::endl;
+	std::cout << "WrongAnimal constructor called!" << std::endl;
 	if (this != &copy) {
 		*this = copy;
 	}
 }
 
-Animal::~Animal(void) {
+WrongAnimal::~WrongAnimal(void) {
 	
-    std::cout << "Animal destructor called!" << std::endl;
+	std::cout << "WrongAnimal destructor called!" << std::endl;
 }
 
-Animal &Animal::operator = (const Animal &op) {
+WrongAnimal &WrongAnimal::operator = (const WrongAnimal &op) {
 	
 	if (this == &op)
 		return (*this); 
 	return (*this);
 }
 
-void	Animal::makeSound(void) const {
-
-	std::cout << "Some animal sound" << std::endl;
-}
-
-std::string const	Animal::getType(void) const {
+std::string const	WrongAnimal::getType(void) const {
 
 	return _type;
+}
+
+void	WrongAnimal::makeSound(void) const {
+
+	std::cout << "Not Some animal sound" << std::endl;
 }

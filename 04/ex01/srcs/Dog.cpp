@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include <Dog.hpp>
 
 Dog::Dog(void): Animal("Dog") {
 	
 	std::cout << "Dog constructor called!" << std::endl;
 }
 
-Dog::Dog(const Dog &copy) {
+Dog::Dog(const Dog &copy): Animal(copy.getType()) {
 	
 	std::cout << "Dog copy constructor called!" << std::endl;
-	Animal(copy.getType());
+	// Animal(copy.getType());
 }
 
 Dog::~Dog(void) {
@@ -31,7 +31,8 @@ Dog::~Dog(void) {
 Dog &Dog::operator = (const Dog &dog) {
 	
 	if (this == &dog)
-		return (*this); 
+		return (*this);
+	Animal::operator=(dog);
 	return (*this);
 }
 

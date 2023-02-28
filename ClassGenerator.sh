@@ -17,8 +17,8 @@ rm $class_name.cpp.bak
 sed -i '.bak' 's/TEMPLATE/'$upped'/g' $class_name.hpp
 rm $class_name.hpp.bak
 
-mv $class_name.cpp $dest_dir
-mv $class_name.hpp $dest_dir
+mv $class_name.cpp $dest_dir/srcs
+mv $class_name.hpp $dest_dir/includes
 
 # ! shoutout to Excalibur for this amazing script
 # ? Usage: ./ClassGenerator.sh <class_name> <dest_dir>
