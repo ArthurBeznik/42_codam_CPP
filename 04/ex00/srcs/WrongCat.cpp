@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 16:03:22 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 11:52:58 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ WrongCat &WrongCat::operator = (const WrongCat &op) {
 
 void	WrongCat::makeSound() const {
 
-    std::cout << "Not Meeeeeoooow?" << std::endl;
+    std::cout << "Not Meeeeeoooow" << std::endl;
 }

@@ -23,7 +23,8 @@ class Dog : public Animal {
         Dog();
         Dog(const Dog &copy);
         Dog &operator = (const Dog &dog);
-        ~Dog();
+        // ~Dog();
+        virtual ~Dog();
 
 		void	makeSound() const;
 

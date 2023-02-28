@@ -6,13 +6,59 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 16:06:40 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 11:52:06 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Dog.hpp>
 #include <Cat.hpp>
 #include <WrongCat.hpp>
+
+void	moreWrongAnimals() {
+	
+	const WrongAnimal* wrongAnimals[] = { new WrongAnimal(), new WrongCat() };
+
+	int i = 0;
+	while (i < 2) {
+		wrongAnimals[i]->makeSound();
+		i++;
+	}
+
+	// system("leaks ex00");
+	
+	i = 0;
+	while (i < 2) {
+		delete wrongAnimals[i];
+		i++;
+	}
+
+	// system("leaks ex00");
+	
+	std::cout << std::endl;
+}
+
+void	moreAnimals() {
+	
+	Animal* animals[] = { new Dog(), new Cat(), new Animal() };
+
+	int i = 0;
+	while (i < 3) {
+		animals[i]->makeSound();
+		i++;
+	}
+
+	// system("leaks ex00");
+	
+	i = 0;
+	while (i < 3) {
+		delete animals[i];
+		i++;
+	}
+
+	// system("leaks ex00");
+
+	std::cout << std::endl;
+}
 
 int	main(void) {
 	
@@ -37,6 +83,28 @@ int	main(void) {
 	std::cout << wrongMeta->getType() << " " << std::endl;
 	wrongCat->makeSound();
 	wrongMeta->makeSound();
+
+	// system("leaks ex00");
+	
+	delete dog;
+    delete cat;
+    delete meta;
+    delete wrongMeta;
+    delete wrongCat;
+
+	// system("leaks ex00");
+
+	std::cout << std::endl;
+
+	std::cout << "---------- More Animals ----------" << std::endl;
+	moreAnimals();
+
+	// system("leaks ex00");
+
+	std::cout << "---------- More Wrong Animals ----------" << std::endl;
+	moreWrongAnimals();
+
+	// system("leaks ex00");
 	
 	return (0);
 }
