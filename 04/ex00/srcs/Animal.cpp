@@ -12,17 +12,17 @@
 
 #include <Animal.hpp>
 
-Animal::Animal(void): _type("N/A") {
+Animal::Animal(void) : _type("N/A") {
 	
     std::cout << "Default animal constructor called!" << std::endl;
 }
 
-Animal::Animal(std::string const &type): _type(type) {
+Animal::Animal(std::string const &type) : _type(type) {
 	
     std::cout << "Animal constructor called!" << std::endl;
 }
 
-Animal::Animal(const Animal &copy) {
+Animal::Animal(const Animal &copy) : _type(copy.getType()) {
 	
 	std::cout << "Animal copy constructor called!" << std::endl;
 	if (this != &copy) {

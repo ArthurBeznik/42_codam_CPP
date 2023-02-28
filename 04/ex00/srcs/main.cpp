@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 11:54:06 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:23:53 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	moreWrongAnimals() {
 void	moreAnimals() {
 	
 	Animal* animals[] = { new Dog(), new Cat(), new Animal() };
-
+	
 	int i = 0;
 	while (i < 3) {
 		animals[i]->makeSound();
@@ -56,6 +56,30 @@ void	moreAnimals() {
 	}
 
 	// system("leaks ex00");
+
+	std::cout << std::endl;
+		
+	const Animal* copyDog = new Dog();
+	const Animal* testDog(copyDog);
+
+	std::cout << copyDog->getType() << " " << std::endl;
+	copyDog->makeSound();
+	std::cout << testDog->getType() << " " << std::endl;
+	testDog->makeSound();
+
+	delete copyDog;
+
+	std::cout << std::endl;
+		
+	const Animal* copyCat = new Cat();
+	const Animal* testCat(copyCat);
+
+	std::cout << copyCat->getType() << " " << std::endl;
+	copyCat->makeSound();
+	std::cout << testCat->getType() << " " << std::endl;
+	testCat->makeSound();
+
+	delete copyCat;
 
 	std::cout << std::endl;
 }

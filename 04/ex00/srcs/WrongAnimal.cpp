@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal(std::string const &type) : _type(type) {
     std::cout << "WrongAnimal constructor called!" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) : _type(copy.getType()) {
 	
 	std::cout << "WrongAnimal constructor called!" << std::endl;
 	if (this != &copy) {

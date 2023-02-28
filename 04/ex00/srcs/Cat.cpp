@@ -17,7 +17,7 @@ Cat::Cat(void): Animal("Cat") {
 	std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy): Animal(copy) {
+Cat::Cat(const Cat &copy): Animal(copy.getType()) {
 	
 	std::cout << "Cat copy constructor called!" << std::endl;
 	// Animal(copy.getType());
