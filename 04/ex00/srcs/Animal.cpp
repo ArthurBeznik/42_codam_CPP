@@ -51,9 +51,3 @@ std::string const	Animal::getType(void) const {
 
 	return _type;
 }
-
-std::ostream	&operator << (std::ostream &ostream, const Animal &animal) {
-	
-	ostream << animal.getType();
-	return ostream;
-}

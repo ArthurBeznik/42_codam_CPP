@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 11:52:06 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 11:54:06 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	main(void) {
 	std::cout << dog->getType() << " " << std::endl;
 	std::cout << cat->getType() << " " << std::endl;
 	
-	dog->makeSound(); // will output the cat sound!
-	cat->makeSound(); // will output the dog sound!
+	dog->makeSound(); // will output the dog sound!
+	cat->makeSound(); // will output the cat sound!
 	meta->makeSound();
 	std::cout << std::endl;
 

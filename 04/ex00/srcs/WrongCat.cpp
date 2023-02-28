@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 11:52:58 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:03:08 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 	std::cout << "WrongCat constructor called!" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &copy) {
+WrongCat::WrongCat(const WrongCat &copy): WrongAnimal(copy) {
 	
 	std::cout << "WrongCat copy constructor called!" << std::endl;
-	WrongAnimal(copy.getType());
+	// WrongAnimal(copy.getType());
 }
 
 WrongCat::~WrongCat(void) {
@@ -28,10 +28,11 @@ WrongCat::~WrongCat(void) {
 	std::cout << "WrongCat destructor called!" << std::endl;
 }
 
-WrongCat &WrongCat::operator = (const WrongCat &op) {
+WrongCat &WrongCat::operator = (const WrongCat &wrongCat) {
 	
-	if (this == &op)
-		return (*this); 
+	if (this == &wrongCat)
+		return (*this);
+	WrongAnimal::operator=(wrongCat);
 	return (*this);
 }
 

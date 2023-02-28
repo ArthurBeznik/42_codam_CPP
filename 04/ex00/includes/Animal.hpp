@@ -33,6 +33,5 @@ class Animal {
 
 };
 
-std::ostream	&operator << (std::ostream &ostream, const Animal &animal);
 
 #endif
