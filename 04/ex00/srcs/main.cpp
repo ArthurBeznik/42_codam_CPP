@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 12:23:53 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:38:34 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int	main(void) {
 	std::cout << std::endl;
 
 	std::cout << "---------- Wrong ----------" << std::endl;
-	const WrongAnimal* wrongMeta	= new WrongAnimal();
-	const WrongAnimal* wrongCat		= new WrongCat();
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
 
 	std::cout << wrongCat->getType() << " " << std::endl;
 	std::cout << wrongMeta->getType() << " " << std::endl;

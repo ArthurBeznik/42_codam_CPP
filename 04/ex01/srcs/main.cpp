@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 12:23:53 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:35:01 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ void	moreAnimals() {
 	std::cout << std::endl;
 }
 
+void	testBrain() {
+
+	
+}
+
 int	main(void) {
 	
 	std::cout << "---------- Correct ----------" << std::endl;
@@ -129,6 +134,9 @@ int	main(void) {
 	moreWrongAnimals();
 
 	// system("leaks ex00");
+
+	std::cout << "---------- Brain ----------" << std::endl;
+	testBrain();
 	
 	return (0);
 }

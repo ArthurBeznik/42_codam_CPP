@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 11:44:15 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/02/28 12:45:22 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ class WrongCat : public WrongAnimal {
         WrongCat();
         WrongCat(const WrongCat&);
         WrongCat &operator = (const WrongCat &op);
-        // ~WrongCat();
-        virtual ~WrongCat();
-
-		void	makeSound() const;
+        ~WrongCat();
 
 };
 
