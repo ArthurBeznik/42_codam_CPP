@@ -12,12 +12,15 @@
 
 #include <Cat.hpp>
 
-Cat::Cat(void): Animal("Cat"), _brain(new Brain()) {
+/**
+ * Constructors - Destructors
+*/
+Cat::Cat(void) : Animal("Cat"), _brain(new Brain()) {
 	
 	std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy): Animal(copy.getType()), _brain(copy.getBrain()) {
+Cat::Cat(const Cat &copy) : Animal(copy.getType()), _brain(copy.getBrain()) {
 	
 	std::cout << "Cat copy constructor called!" << std::endl;
 	// Animal(copy.getType());
@@ -29,6 +32,9 @@ Cat::~Cat(void) {
 	delete this->_brain;
 }
 
+/**
+ * Operator overloads
+*/
 Cat &Cat::operator = (const Cat &cat) {
 	
 	if (this == &cat)
@@ -39,22 +45,29 @@ Cat &Cat::operator = (const Cat &cat) {
 	return (*this);
 }
 
-Animal &Cat::operator = (const Animal &cat) {
+// Animal &Cat::operator = (const Animal &animal) {
 	
-	if (this == &cat)
-		return (*this);
-	Animal::operator=(cat);
-	this->_type = cat.getType();
-	*(this->_brain) = *(cat.getBrain());
-	return (*this);
+// 	if (this == &animal)
+// 		return (*this);
+// 	// Animal::operator=(animal);
+// 	this->_type = animal.getType();
+// 	*(this->_brain) = *(animal.getBrain());
+// 	return (*this);
+// }
+
+/**
+ * Getters - Setters
+*/
+Brain	*Cat::getBrain(void) const {
+
+	return (this->_brain);
 }
 
+/**
+ * Other functions
+*/
 void    Cat::makeSound(void) const {
 
     std::cout << "Meeeeeoooow" << std::endl;
 }
 
-Brain	*Cat::getBrain(void) const {
-
-	return (this->_brain);
-}

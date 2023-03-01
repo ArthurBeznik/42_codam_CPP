@@ -27,12 +27,12 @@ class Dog : public Animal {
         Dog();
         Dog(const Dog &copy);
         Dog &operator = (const Dog &dog);
-        // ~Dog();
-        virtual ~Dog();
+        ~Dog();
+        // virtual ~Dog();
         Animal &operator = (const Animal &animal);
 
-		void			makeSound() const;
 		Brain	*getBrain() const;
+		void	makeSound() const;
 
 };
 

@@ -29,10 +29,10 @@ class Cat : public Animal {
         Cat &operator = (const Cat &cat);
         // ~Cat();
         virtual ~Cat();
-        Animal &operator = (const Animal &animal);
+        // Animal &operator = (const Animal &animal);
 
-		void			makeSound() const;
-		virtual	Brain	*getBrain() const;
+		Brain	*getBrain() const;
+		void	makeSound() const;
 
 };
 

@@ -12,6 +12,9 @@
 
 #include <Animal.hpp>
 
+/**
+ * Constructors - Destructors
+*/
 Animal::Animal(void) : _type("N/A") {
 	
     std::cout << "Default animal constructor called!" << std::endl;
@@ -35,6 +38,9 @@ Animal::~Animal(void) {
     std::cout << "Animal destructor called!" << std::endl;
 }
 
+/**
+ * Operator overloads
+*/
 Animal &Animal::operator = (const Animal &animal) {
 	
 	if (this == &animal)
@@ -43,6 +49,9 @@ Animal &Animal::operator = (const Animal &animal) {
 	return (*this);
 }
 
+/**
+ * Other functions
+*/
 void	Animal::makeSound(void) const {
 
 	std::cout << "Some animal sound" << std::endl;

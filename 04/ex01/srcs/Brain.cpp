@@ -12,23 +12,29 @@
 
 #include <Brain.hpp>
 
+/**
+ * Constructors - Destructors
+*/
 Brain::Brain(void) {
 	
-	std::cout << "Brain created" << std::endl;
+	std::cout << "Brain constructor called!" << std::endl;
 }
 
 Brain::Brain(const Brain &copy) {
 	
-	std::cout << "Brain copied" << std::endl;
+	std::cout << "Brain copy constructor called!" << std::endl;
 	if (this != &copy)
 		*this = copy;
 }
 
 Brain::~Brain(void) {
 	
-	std::cout << "Brain destroyed" << std::endl;
+	std::cout << "Brain destructor called!" << std::endl;
 }
 
+/**
+ * Operator overloads
+*/
 Brain &Brain::operator = (const Brain &brain) {
 	
 	if (this == &brain)

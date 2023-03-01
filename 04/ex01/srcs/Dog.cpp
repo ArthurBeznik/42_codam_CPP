@@ -12,12 +12,15 @@
 
 #include <Dog.hpp>
 
+/**
+ * Constructors - Destructors
+*/
 Dog::Dog(void): Animal("Dog"), _brain(new Brain()) {
 	
 	std::cout << "Dog constructor called!" << std::endl;
 }
 
-Dog::Dog(const Dog &copy): Animal(copy.getType()) {
+Dog::Dog(const Dog &copy): Animal(copy.getType()), _brain(copy.getBrain()) {
 	
 	std::cout << "Dog copy constructor called!" << std::endl;
 	// Animal(copy.getType());
@@ -29,6 +32,9 @@ Dog::~Dog(void) {
 	delete _brain;
 }
 
+/**
+ * Operator overloads
+*/
 Dog &Dog::operator = (const Dog &dog) {
 	
 	if (this == &dog)
@@ -39,16 +45,19 @@ Dog &Dog::operator = (const Dog &dog) {
 	return (*this);
 }
 
-Animal &Dog::operator = (const Animal &dog) {
+Animal &Dog::operator = (const Animal &animal) {
 	
-	if (this == &dog)
+	if (this == &animal)
 		return (*this);
-	Animal::operator=(dog);
-	this->_type = dog.getType();
-	*(this->_brain) = *(dog.getBrain());
+	// Animal::operator=(animal);
+	this->_type = animal.getType();
+	*(this->_brain) = *(animal.getBrain());
 	return (*this);
 }
 
+/**
+ * Other functions
+*/
 void    Dog::makeSound() const {
 
     std::cout << "Woof woof woooof" << std::endl;

@@ -30,9 +30,9 @@ class Animal {
         // ~Animal();
 		virtual ~Animal();
 
-		virtual void		makeSound() const;
 		const std::string	&getType() const;
-		virtual	Brain		*getBrain() const = 0;
+		virtual	Brain		*getBrain() const = 0;	// ? pure virtual function
+		virtual void		makeSound() const;
 
 };
 

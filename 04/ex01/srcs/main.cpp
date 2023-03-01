@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 10:40:16 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/03/01 10:59:24 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,5 @@ int	main(void) {
 
 	// system("leaks ex01");
 
-	std::cout << std::endl;
-
-	// std::cout << "---------- Brain ----------" << std::endl;
-	// testBrain();
-	
 	return (0);
 }
