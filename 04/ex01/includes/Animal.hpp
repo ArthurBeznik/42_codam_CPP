@@ -27,7 +27,6 @@ class Animal {
         Animal(std::string const &type);
         Animal(const Animal &copy);
         virtual Animal &operator = (const Animal &animal);
-        // ~Animal();
 		virtual ~Animal();
 
 		const std::string	&getType() const;

@@ -27,9 +27,8 @@ class Cat : public Animal {
         Cat();
         Cat(const Cat &copy);
         Cat &operator = (const Cat &cat);
-        // ~Cat();
+        Animal &operator = (const Animal &animal);
         virtual ~Cat();
-        // Animal &operator = (const Animal &animal);
 
 		Brain	*getBrain() const;
 		void	makeSound() const;
