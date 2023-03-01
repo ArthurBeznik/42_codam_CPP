@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                       :+:    :+:            */
+/*   Dog.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -10,30 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
 
+# include <AAnimal.hpp>
 # include <Brain.hpp>
 
-class Animal {
+class Dog : public AAnimal {
 
-	protected:
-		std::string _type;
-        
+	private:
+		Brain *_brain;
+
     public:
-		Animal();
-        Animal(std::string const &type);
-        Animal(const Animal &copy);
-        virtual Animal &operator = (const Animal &animal);
-		virtual ~Animal();
+        Dog();
+        Dog(const Dog &copy);
+        Dog &operator = (const Dog &dog);
+        AAnimal &operator = (const AAnimal &animal);
+        virtual ~Dog();
 
-		const std::string	&getType() const;
-		virtual	Brain		*getBrain() const;
-		virtual void		makeSound() const;
+		Brain	*getBrain() const;
+		void	makeSound() const;
 
 };
-
 
 #endif

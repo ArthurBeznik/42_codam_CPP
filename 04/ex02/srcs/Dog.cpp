@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.cpp                                       :+:    :+:            */
+/*   Dog.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -10,64 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Cat.hpp>
+#include <Dog.hpp>
 
 /**
  * Constructors - Destructors
 */
-Cat::Cat(void) : Animal("Cat"), _brain(new Brain()) {
+Dog::Dog(void): AAnimal("Dog"), _brain(new Brain()) {
 	
-	std::cout << "Cat constructor called!" << std::endl;
+	std::cout << "Dog constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal(copy.getType()), _brain(copy.getBrain()) {
+Dog::Dog(const Dog &copy): AAnimal(copy.getType()), _brain(copy.getBrain()) {
 	
-	std::cout << "Cat copy constructor called!" << std::endl;
-	// Animal(copy.getType());
+	std::cout << "Dog copy constructor called!" << std::endl;
+	// AAnimal(copy.getType());
 }
 
-Cat::~Cat(void) {
+Dog::~Dog(void) {
 	
-	std::cout << "Cat destructor called!" << std::endl;
-	delete this->_brain;
+	std::cout << "Dog destructor called!" << std::endl;
+	delete _brain;
 }
 
 /**
  * Operator overloads
 */
-Cat &Cat::operator = (const Cat &cat) {
+Dog &Dog::operator = (const Dog &dog) {
 	
-	if (this == &cat)
+	if (this == &dog)
 		return (*this);
-	Animal::operator=(cat);
-	this->_type = cat.getType();
-	*(this->_brain) = *(cat.getBrain());
+	AAnimal::operator=(dog);
+	this->_type = dog.getType();
+	*(this->_brain) = *(dog.getBrain());
 	return (*this);
 }
 
-Animal &Cat::operator = (const Animal &animal) {
+AAnimal &Dog::operator = (const AAnimal &animal) {
 	
 	if (this == &animal)
 		return (*this);
-	// Animal::operator=(animal);
+	// AAnimal::operator=(animal);
 	this->_type = animal.getType();
 	*(this->_brain) = *(animal.getBrain());
 	return (*this);
 }
 
 /**
- * Getters - Setters
+ * Other functions
 */
-Brain	*Cat::getBrain(void) const {
+void    Dog::makeSound() const {
+
+    std::cout << "Woof woof woooof" << std::endl;
+}
+
+Brain	*Dog::getBrain(void) const {
 
 	return (this->_brain);
 }
-
-/**
- * Other functions
-*/
-void    Cat::makeSound(void) const {
-
-    std::cout << "Meeeeeoooow" << std::endl;
-}
-

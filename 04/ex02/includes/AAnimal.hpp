@@ -17,21 +17,20 @@
 
 # include <Brain.hpp>
 
-class Animal {
+class AAnimal {
 
 	protected:
 		std::string _type;
         
     public:
-		Animal();
-        Animal(std::string const &type);
-        Animal(const Animal &copy);
-        virtual Animal &operator = (const Animal &animal);
-		virtual ~Animal();
+        AAnimal(std::string const &type);
+        AAnimal(const AAnimal &copy);
+        virtual AAnimal &operator = (const AAnimal &animal) = 0;
+		virtual ~AAnimal();
 
 		const std::string	&getType() const;
-		virtual	Brain		*getBrain() const;
-		virtual void		makeSound() const;
+		virtual	Brain		*getBrain() const = 0;
+		virtual void		makeSound() const = 0;
 
 };
 

@@ -15,15 +15,15 @@
 /**
  * Constructors - Destructors
 */
-Cat::Cat(void) : Animal("Cat"), _brain(new Brain()) {
+Cat::Cat(void) : AAnimal("Cat"), _brain(new Brain()) {
 	
 	std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal(copy.getType()), _brain(copy.getBrain()) {
+Cat::Cat(const Cat &copy) : AAnimal(copy.getType()), _brain(copy.getBrain()) {
 	
 	std::cout << "Cat copy constructor called!" << std::endl;
-	// Animal(copy.getType());
+	// AAnimal(copy.getType());
 }
 
 Cat::~Cat(void) {
@@ -39,17 +39,17 @@ Cat &Cat::operator = (const Cat &cat) {
 	
 	if (this == &cat)
 		return (*this);
-	Animal::operator=(cat);
+	AAnimal::operator=(cat);
 	this->_type = cat.getType();
 	*(this->_brain) = *(cat.getBrain());
 	return (*this);
 }
 
-Animal &Cat::operator = (const Animal &animal) {
+AAnimal &Cat::operator = (const AAnimal &animal) {
 	
 	if (this == &animal)
 		return (*this);
-	// Animal::operator=(animal);
+	// AAnimal::operator=(animal);
 	this->_type = animal.getType();
 	*(this->_brain) = *(animal.getBrain());
 	return (*this);

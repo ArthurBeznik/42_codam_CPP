@@ -50,14 +50,22 @@ Animal &Animal::operator = (const Animal &animal) {
 }
 
 /**
+ * Getters - Setters
+*/
+std::string const	&Animal::getType(void) const {
+
+	return (this->_type);
+}
+
+Brain	*Animal::getBrain(void) const {
+
+	return NULL;
+}
+
+/**
  * Other functions
 */
 void	Animal::makeSound(void) const {
 
 	std::cout << "Some animal sound" << std::endl;
-}
-
-std::string const	&Animal::getType(void) const {
-
-	return (this->_type);
 }
