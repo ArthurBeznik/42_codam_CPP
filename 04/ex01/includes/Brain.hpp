@@ -18,7 +18,6 @@
 class Brain {
 
     private:
-        std::string _ideas[100];
         
     public:
         Brain();
@@ -26,6 +25,7 @@ class Brain {
         Brain &operator = (const Brain &brain);
         ~Brain();
 
+        std::string ideas[100];
 
 };
 

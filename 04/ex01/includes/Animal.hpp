@@ -15,21 +15,24 @@
 
 # include <iostream>
 
+# include <Brain.hpp>
+
 class Animal {
 
 	protected:
-		std::string const _type;
+		std::string _type;
         
     public:
 		Animal();
         Animal(std::string const &type);
         Animal(const Animal &copy);
-        Animal &operator = (const Animal &animal);
+        virtual Animal &operator = (const Animal &animal);
         // ~Animal();
 		virtual ~Animal();
 
 		virtual void		makeSound() const;
-		std::string const	getType() const;
+		const std::string	&getType() const;
+		virtual	Brain		*getBrain() const = 0;
 
 };
 

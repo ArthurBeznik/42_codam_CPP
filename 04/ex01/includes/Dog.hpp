@@ -29,8 +29,10 @@ class Dog : public Animal {
         Dog &operator = (const Dog &dog);
         // ~Dog();
         virtual ~Dog();
+        Animal &operator = (const Animal &animal);
 
-		void	makeSound() const;
+		void			makeSound() const;
+		Brain	*getBrain() const;
 
 };
 

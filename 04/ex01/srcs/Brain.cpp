@@ -29,9 +29,12 @@ Brain::~Brain(void) {
 	std::cout << "Brain destroyed" << std::endl;
 }
 
-Brain &Brain::operator = (const Brain &op) {
+Brain &Brain::operator = (const Brain &brain) {
 	
-	if (this == &op)
+	if (this == &brain)
 		return (*this); 
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = brain.ideas[i];
+	}
 	return (*this);
 }

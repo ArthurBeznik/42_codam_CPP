@@ -6,153 +6,80 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/28 12:49:36 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/03/01 10:33:28 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Dog.hpp>
 #include <Cat.hpp>
 #include <WrongCat.hpp>
+#include <Brain.hpp>
 
-void	moreWrongAnimals() {
-	
-	const WrongAnimal* wrongAnimals[] = { new WrongAnimal(), new WrongCat() };
+#define NB_ANIMALS 8
 
-	int i = 0;
-	while (i < 2) {
-		wrongAnimals[i]->makeSound();
-		i++;
+void	moreTests(void) {
+
+	Animal	*animals[NB_ANIMALS];
+	Brain	*brain;
+
+	for (int i = 0; i < NB_ANIMALS; i++)
+	{
+		if (i < NB_ANIMALS / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+		std::cout << animals[i]->getType() << std::endl;
 	}
 
-	// system("leaks ex00");
-	
-	i = 0;
-	while (i < 2) {
-		delete wrongAnimals[i];
-		i++;
-	}
+	brain = animals[7]->getBrain();
+	brain->ideas[0] = "I'm hungry";
+	brain->ideas[1] = "That's a strange idea I'm having";
+	brain->ideas[2] = "Ball!!!!!";
+	brain->ideas[3] = "Squirrel!!!!!";
+	std::cout << animals[7]->getBrain()->ideas[0] << std::endl;
 
-	// system("leaks ex00");
-	
 	std::cout << std::endl;
-}
 
-void	moreAnimals() {
-	
-	Animal* animals[] = { new Dog(), new Cat(), new Animal() };
-	
-	int i = 0;
-	while (i < 3) {
-		animals[i]->makeSound();
-		i++;
-	}
+	*(animals[5]) = *(animals[7]);
+	std::cout << animals[5]->getBrain()->ideas[2] << std::endl;
 
-	// system("leaks ex00");
-	
-	i = 0;
-	while (i < 3) {
+	std::cout << std::endl;
+
+	for (int i = 0; i < NB_ANIMALS; i++)
 		delete animals[i];
-		i++;
-	}
-
-	// system("leaks ex00");
-
-	std::cout << std::endl;
-		
-	const Animal* copyDog = new Dog();
-	const Animal* testDog(copyDog);
-
-	std::cout << copyDog->getType() << " " << std::endl;
-	copyDog->makeSound();
-	std::cout << testDog->getType() << " " << std::endl;
-	testDog->makeSound();
-
-	delete copyDog;
-
-	std::cout << std::endl;
-		
-	const Animal* copyCat = new Cat();
-	const Animal* testCat(copyCat);
-
-	std::cout << copyCat->getType() << " " << std::endl;
-	copyCat->makeSound();
-	std::cout << testCat->getType() << " " << std::endl;
-	testCat->makeSound();
-
-	delete copyCat;
 
 	std::cout << std::endl;
 }
 
-// void	copyTest() {
-// 	std::cout << "----- Copy test: -----" << std::endl;
-// 	Animal*	first = new Dog();
-// 	Animal*	second = new Dog();
+void	subjectTests(void) {
 
-// 	first->getBrain()->setIdea(0, "Woof");
-// 	*second = *first;
-// 	first->getBrain()->setIdea(0, "Other Woof");
-// 	std::cout << "First idea: " << first->getBrain()->getIdea(0) << std::endl;
-// 	std::cout << "Second idea: " << second->getBrain()->getIdea(0) << std::endl;
-
-// 	delete(first);
-// 	delete(second);
-// }
-
-
-void	testBrain() {
-
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 	
+	delete j; //should not create a leak
+	delete i;
+
+	std::cout << std::endl;
 }
 
 int	main(void) {
 	
-	std::cout << "---------- Correct ----------" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
-	
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
-	
-	dog->makeSound(); // will output the dog sound!
-	cat->makeSound(); // will output the cat sound!
-	meta->makeSound();
-	std::cout << std::endl;
+	std::cout << "---------- Subject Tests ----------" << std::endl;
+	subjectTests();
 
-	std::cout << "---------- Wrong ----------" << std::endl;
-	const WrongAnimal* wrongMeta	= new WrongAnimal();
-	const WrongAnimal* wrongCat		= new WrongCat();
-
-	std::cout << wrongCat->getType() << " " << std::endl;
-	std::cout << wrongMeta->getType() << " " << std::endl;
-	wrongCat->makeSound();
-	wrongMeta->makeSound();
-
-	// system("leaks ex00");
-	
-	delete dog;
-    delete cat;
-    delete meta;
-    delete wrongMeta;
-    delete wrongCat;
-
-	// system("leaks ex00");
+	system("leaks ex01");
 
 	std::cout << std::endl;
 
-	std::cout << "---------- More Animals ----------" << std::endl;
-	moreAnimals();
+	std::cout << "---------- More Tests ----------" << std::endl;
+	moreTests();
 
-	// system("leaks ex00");
+	system("leaks ex01");
 
-	std::cout << "---------- More Wrong Animals ----------" << std::endl;
-	moreWrongAnimals();
+	std::cout << std::endl;
 
-	// system("leaks ex00");
-
-	std::cout << "---------- Brain ----------" << std::endl;
-	testBrain();
+	// std::cout << "---------- Brain ----------" << std::endl;
+	// testBrain();
 	
 	return (0);
 }

@@ -35,10 +35,11 @@ Animal::~Animal(void) {
     std::cout << "Animal destructor called!" << std::endl;
 }
 
-Animal &Animal::operator = (const Animal &op) {
+Animal &Animal::operator = (const Animal &animal) {
 	
-	if (this == &op)
-		return (*this); 
+	if (this == &animal)
+		return (*this);
+	this->_type = animal.getType();
 	return (*this);
 }
 
@@ -47,7 +48,7 @@ void	Animal::makeSound(void) const {
 	std::cout << "Some animal sound" << std::endl;
 }
 
-std::string const	Animal::getType(void) const {
+std::string const	&Animal::getType(void) const {
 
-	return _type;
+	return (this->_type);
 }

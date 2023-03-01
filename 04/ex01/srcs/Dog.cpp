@@ -34,10 +34,27 @@ Dog &Dog::operator = (const Dog &dog) {
 	if (this == &dog)
 		return (*this);
 	Animal::operator=(dog);
+	this->_type = dog.getType();
+	*(this->_brain) = *(dog.getBrain());
+	return (*this);
+}
+
+Animal &Dog::operator = (const Animal &dog) {
+	
+	if (this == &dog)
+		return (*this);
+	Animal::operator=(dog);
+	this->_type = dog.getType();
+	*(this->_brain) = *(dog.getBrain());
 	return (*this);
 }
 
 void    Dog::makeSound() const {
 
     std::cout << "Woof woof woooof" << std::endl;
+}
+
+Brain	*Dog::getBrain(void) const {
+
+	return (this->_brain);
 }
