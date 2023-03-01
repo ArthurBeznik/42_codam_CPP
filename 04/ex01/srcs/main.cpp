@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 10:33:28 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/03/01 10:40:16 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ int	main(void) {
 	std::cout << "---------- Subject Tests ----------" << std::endl;
 	subjectTests();
 
-	system("leaks ex01");
+	// system("leaks ex01");
 
 	std::cout << std::endl;
 
 	std::cout << "---------- More Tests ----------" << std::endl;
 	moreTests();
 
-	system("leaks ex01");
+	// system("leaks ex01");
 
 	std::cout << std::endl;
 
