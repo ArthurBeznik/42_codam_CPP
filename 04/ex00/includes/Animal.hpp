@@ -29,7 +29,7 @@ class Animal {
 		virtual ~Animal();
 
 		virtual void		makeSound() const;
-		std::string const	&getType() const;
+		std::string const	getType() const;
 
 };
 
