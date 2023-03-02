@@ -6,10 +6,11 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/20 11:57:39 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 12:59:42 by abeznik       ########   odam.nl         */
+/*   Updated: 2023/03/02 10:22:55 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <AAnimal.hpp>
 #include <Dog.hpp>
 #include <Cat.hpp>
 #include <WrongCat.hpp>
@@ -17,16 +18,25 @@
 
 #define NB_ANIMALS 8
 
+void	abstractTests(void) {
+
+	/**
+	 * this should not be possible
+	*/
+	// AAnimal *abstract = new AAnimal();
+	// abstract->makeSound();
+
+	std::cout << std::endl;
+}
+
 void	moreTests(void) {
 	
 	AAnimal	*animals[NB_ANIMALS];
 	Brain	*brain;
 
-	// AAnimal *abstract = new AAnimal();
-
 	for (int i = 0; i < NB_ANIMALS; i++)
 	{
-		if (i < NB_ANIMALS / 2)
+		if (i % 2 == 0)
 			animals[i] = new Dog();
 		else
 			animals[i] = new Cat();
@@ -49,6 +59,8 @@ void	moreTests(void) {
 
 	for (int i = 0; i < NB_ANIMALS; i++)
 		delete animals[i];
+
+	std::cout << std::endl;
 }
 
 void	subjectTests(void) {
@@ -67,14 +79,19 @@ int	main(void) {
 	std::cout << "---------- Subject Tests ----------" << std::endl;
 	subjectTests();
 
-	// system("leaks ex01");
+	// system("leaks ex02");
 
-	std::cout << std::endl;
 
 	std::cout << "---------- More Tests ----------" << std::endl;
 	moreTests();
 
-	// system("leaks ex01");
+	// system("leaks ex02");
+
+
+	std::cout << "---------- Abstract Tests ----------" << std::endl;
+	abstractTests();
+
+	// system("leaks ex02");
 
 	return (0);
 }

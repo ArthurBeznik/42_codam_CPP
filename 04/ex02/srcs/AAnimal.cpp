@@ -57,13 +57,13 @@ std::string const	&AAnimal::getType(void) const {
 	return (this->_type);
 }
 
-// Brain	*AAnimal::getBrain(void) const {
+Brain	*AAnimal::getBrain(void) const {
 
-// 	return NULL;
-// }
+	return NULL;
+}
 
 /**
- * Other functions
+ * Other functions => puer virtual function
 */
 // void	AAnimal::makeSound(void) const {
 

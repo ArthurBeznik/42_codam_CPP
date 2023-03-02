@@ -23,13 +23,21 @@ class AAnimal {
 		std::string _type;
         
     public:
+		AAnimal();
         AAnimal(std::string const &type);
         AAnimal(const AAnimal &copy);
-        virtual AAnimal &operator = (const AAnimal &animal) = 0;
+        virtual AAnimal &operator = (const AAnimal &animal);
+
+		/**
+		 * since there is a pure virtual function, it's necessary to define a 
+		 * virtual destructor, even though it doesn't have any implementation.
+		 * this allows derived classes to implement their own destructors and
+		 * clean up resources properly.
+		*/
 		virtual ~AAnimal();
 
 		const std::string	&getType() const;
-		virtual	Brain		*getBrain() const = 0;
+		virtual	Brain		*getBrain() const;
 		virtual void		makeSound() const = 0;
 
 };
