@@ -15,10 +15,10 @@
 /**
  * Constructors - Destructors
 */
-// AAnimal::AAnimal(void) : _type("N/A") {
+AAnimal::AAnimal(void) : _type("N/A") {
 	
-//     std::cout << "Default animal constructor called!" << std::endl;
-// }
+    std::cout << "Default animal constructor called!" << std::endl;
+}
 
 AAnimal::AAnimal(std::string const &type) : _type(type) {
 	
