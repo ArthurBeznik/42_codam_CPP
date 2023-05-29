@@ -10,19 +10,24 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	ex00
+NAME			= 	ex02
 
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
-					Bureaucrat.cpp \
-
+					AAnimal.cpp \
+					Cat.cpp \
+					Dog.cpp \
+					WrongCat.cpp \
+					WrongAnimal.cpp \
+					Brain.cpp \
+					
 OBJDIR			=	objs
 OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 INCLUDES		=	includes
 
 CC				= 	c++
-FLAGS			=	-Wall -Werror -Wextra -std=c++98 -pedantic-errors -I$(INCLUDES) -g
+FLAGS			=	-Wall -Werror -Wextra -std=c++98 -pedantic-errors -I $(INCLUDES) -g
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m
