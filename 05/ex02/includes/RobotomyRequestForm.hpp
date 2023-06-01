@@ -11,7 +11,7 @@
 class RobotomyRequestForm : public AForm {
 
     private:
-		void action() const;
+		void action(void) const;
         
     public:
         RobotomyRequestForm(void);

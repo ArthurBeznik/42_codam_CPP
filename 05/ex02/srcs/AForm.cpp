@@ -44,12 +44,12 @@ std::ostream &operator << (std::ostream &os, const AForm &op) {
 /**
  * Getters - Setters
 */
-std::string const	AForm::getName(void) const {
+const std::string	AForm::getName(void) const {
 	
 	return (this->_name);
 }
 
-std::string const	AForm::getTarget(void) const {
+const std::string	AForm::getTarget(void) const {
 	
 	return (this->_target);
 }
@@ -92,7 +92,7 @@ void	AForm::signForm(Bureaucrat const &bureaucrat) {
 	}
 }
 
-void AForm::execute(Bureaucrat const &executor) const {
+void 	AForm::execute(Bureaucrat const &executor) const {
 	
 	// std::cout << getSigned() << std::endl; // ? testing
 	if (!getSigned()) {
@@ -101,7 +101,7 @@ void AForm::execute(Bureaucrat const &executor) const {
 	if (getGradeExec() <= executor.getGrade()) {
 		throw AForm::GradeTooLowException();
 	} else {
+		// std::cout << this->_name << std::endl; // ? testing
 		action();
-		// std::cout << executor.getName() << " executed " << form << std::endl;
 	}
 }

@@ -11,7 +11,7 @@
 class PresidentialPardonForm : public AForm {
 
     private:
-		void action() const;
+		void action(void) const;
         
     public:
         PresidentialPardonForm(void);

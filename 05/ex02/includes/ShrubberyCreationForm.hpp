@@ -13,7 +13,7 @@
 class ShrubberyCreationForm : public AForm {
 
     private:
-		void action() const;
+		void action(void) const;
         
     public:
         ShrubberyCreationForm(void);
