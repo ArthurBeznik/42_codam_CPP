@@ -1,16 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: abeznik <abeznik@student.codam.nl>           +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/03/01 13:00:25 by abeznik       ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
 
-NAME			= 	ex01
+NAME			= 	ex02
 
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
@@ -56,6 +45,7 @@ fclean: clean
 	@echo "$(RED)----------------------------------------------------"
 	@/bin/rm -f $(NAME)
 	@echo "$(GRAY)Removed executable file $(RESET)"
+	@/bin/rm -f *_shrubbery
 
 db:
 	lldb $(NAME)

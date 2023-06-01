@@ -1,30 +1,24 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   PresidentialPardonForm.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:57:46 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
+# include <AForm.hpp>
 
-class PresidentialPardonForm {
+/**
+ * Required grades: sign 25, exec 5.
+*/
+class PresidentialPardonForm : public AForm {
 
     private:
-        
+		void action() const;
         
     public:
-        PresidentialPardonForm();
+        PresidentialPardonForm(void);
+		PresidentialPardonForm(const std::string &target);
         PresidentialPardonForm(const PresidentialPardonForm &copy);
         PresidentialPardonForm &operator = (const PresidentialPardonForm &op);
-        ~PresidentialPardonForm();
+        ~PresidentialPardonForm(void);
 
 
 };

@@ -1,70 +1,70 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Form.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <AForm.hpp>
 
 /**
  * Constructors - Destructors
 */
-Form::Form(void) : _name("N/A"), _signed(false), _gradeSign(150), _gradeExec(150) {
+AForm::AForm(void) : _name("N/A"), _target("N/A"), _isSigned(false), _gradeSign(150), _gradeExec(150) {
 	
-	std::cout << "[Form] Default constructor called" << std::endl;
+	std::cout << "[AForm] Default constructor called" << std::endl;
 }
 
-Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
+AForm::AForm(const std::string &name, const std::string &target, const int gradeSign, const int gradeExec) : _name(name), _target(target), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 
-	std::cout << "[Form] Copy constructor called" << std::endl;	
+	std::cout << "[AForm] Parameter constructor called" << std::endl;
 }
 
-Form::~Form(void) {
+AForm::AForm(const AForm &copy) : _name(copy._name), _target(copy._target), _isSigned(copy._isSigned), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
+
+	std::cout << "[AForm] Copy constructor called" << std::endl;	
+}
+
+AForm::~AForm(void) {
 	
-	std::cout << "[Form] Destructor called" << std::endl;
+	std::cout << "[AForm] Destructor called" << std::endl;
 }
 
 /**
  * Operator overloads
 */
-Form	&Form::operator = (const Form &op) {
+AForm	&AForm::operator = (const AForm &op) {
 	
-	if (this == &op)
-		return (*this); 
+	if (this != &op) {
+		this->_isSigned = op._isSigned;
+	}
 	return (*this);
 }
 
-std::ostream &operator << (std::ostream &os, const Form &op) {
+std::ostream &operator << (std::ostream &os, const AForm &op) {
 	
-	os << op.getName() << ", form grade to sign " << op.getGradeSign() << ", form grade to execute " << op.getGradeExec() << ", form is signed " << op.getSigned();
+	os << op.getName() << " | grade to sign [" << op.getGradeSign() << "] | grade to execute [" << op.getGradeExec() << "] | signed [" << op.getSigned() << "]";
 	return (os);
 }
 
 /**
  * Getters - Setters
 */
-std::string const	Form::getName(void) const {
+std::string const	AForm::getName(void) const {
 	
 	return (this->_name);
 }
 
-bool	Form::getSigned(void) const {
+std::string const	AForm::getTarget(void) const {
 	
-	return (this->_signed);
+	return (this->_target);
 }
 
-int		Form::getGradeSign(void) const {
+bool	AForm::getSigned(void) const {
+	
+	return (this->_isSigned);
+}
+
+int		AForm::getGradeSign(void) const {
 	
 	return (this->_gradeSign);
 }
 
-int		Form::getGradeExec(void) const {
+int		AForm::getGradeExec(void) const {
 
 	return (this->_gradeExec);
 }
@@ -72,14 +72,16 @@ int		Form::getGradeExec(void) const {
 /**
  * Other functions
 */
-void	Form::beSigned(Bureaucrat &bureaucrat) {
+void	AForm::beSigned(Bureaucrat const &bureaucrat) {
 	
-	if (bureaucrat.getGrade() >= this->_gradeSign)
-		throw Form::GradeTooLowException();
-	this->_signed = true;
+	if (bureaucrat.getGrade() >= this->_gradeSign) {
+		this->_isSigned = false;
+		throw AForm::GradeTooLowException();
+	}
+	this->_isSigned = true;
 }
 
-void	Form::signForm(Bureaucrat &bureaucrat) {
+void	AForm::signForm(Bureaucrat const &bureaucrat) {
 	
 	try {
 		beSigned(bureaucrat);
@@ -87,5 +89,19 @@ void	Form::signForm(Bureaucrat &bureaucrat) {
 	}
 	catch (std::exception &e) {
 		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name << " because " << e.what() << std::endl;
+	}
+}
+
+void AForm::execute(Bureaucrat const &executor) const {
+	
+	// std::cout << getSigned() << std::endl; // ? testing
+	if (!getSigned()) {
+		throw AForm::NotSignedException();
+	}
+	if (getGradeExec() <= executor.getGrade()) {
+		throw AForm::GradeTooLowException();
+	} else {
+		action();
+		// std::cout << executor.getName() << " executed " << form << std::endl;
 	}
 }

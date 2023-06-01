@@ -1,55 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   RobotomyRequestForm.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <RobotomyRequestForm.hpp>
 
 /**
  * Constructors - Destructors
 */
-RobotomyRequestForm::RobotomyRequestForm(void) {
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Robotomy Request Form", "N/A", 72, 45) {
 	
-	
+	std::cout << "[RobotomyRequestForm] Default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("Robotomy Request Form", target, 72, 45) {
 	
-	(void)copy;
+	std::cout << "[RobotomyRequestForm] Parameter constructor called" << std::endl;	
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy.getName(), copy.getTarget(), copy.getGradeSign(), copy.getGradeSign()) {
+	
+	std::cout << "[RobotomyRequestForm] Copy constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {
 	
-	
-}
-
-/**
- * Operator overloads
-*/
-RobotomyRequestForm	&RobotomyRequestForm::operator = (const RobotomyRequestForm &op) {
-	
-	if (this == &op)
-		return (*this); 
-	return (*this);
-}
-
-/**
- * Getters - Setters
-*/
-RobotomyRequestForm	*RobotomyRequestForm::getVariable(void) const {
-
-	return (this->);
-	// return ();
+	std::cout << "[RobotomyRequestForm] Destructor called" << std::endl;
 }
 
 /**
  * Other functions
 */
+void	RobotomyRequestForm::action(void) const {
 
+	/**
+	 * 	Makes some drilling noises. 
+	 * 	Then, informs that <target> has been robotomized successfully 50% of the time. 
+	 * 		Otherwise, informs that the robotomy failed.
+	*/
+	std::cout << "* drilling noises *" << std::endl;
+	if (rand() % 2 == 1) {
+		std::cout << getTarget() << " has been robotomized successfully." << std::endl;
+	}
+	else {
+		std::cout << "Robotomy failed." << std::endl;
+	}
+}

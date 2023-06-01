@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
 
@@ -87,4 +76,10 @@ int	Bureaucrat::decrementGrade(void) {
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
 	return (this->_grade);
+}
+
+void Bureaucrat::executeForm(AForm const &form) const {
+
+	form.execute(*this);
+	std::cout << getName() << " executed " << form.getName() << std::endl;
 }

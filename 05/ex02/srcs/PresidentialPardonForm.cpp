@@ -1,55 +1,36 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   PresidentialPardonForm.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <PresidentialPardonForm.hpp>
 
 /**
  * Constructors - Destructors
 */
-PresidentialPardonForm::PresidentialPardonForm(void) {
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Presidential Pardon Form", "N/A", 25, 5) {
 	
-	
+	std::cout << "[PresidentialPardonForm] Default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) {
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("Presidential Pardon Form", target, 25, 5) {
 	
-	(void)copy;
+	std::cout << "[PresidentialPardonForm] Parameter constructor called" << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy.getName(), copy.getTarget(), copy.getGradeSign(), copy.getGradeSign()) {
+	
+	std::cout << "[PresidentialPardonForm] Copy constructor called" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
 	
-	
-}
-
-/**
- * Operator overloads
-*/
-PresidentialPardonForm	&PresidentialPardonForm::operator = (const PresidentialPardonForm &op) {
-	
-	if (this == &op)
-		return (*this); 
-	return (*this);
-}
-
-/**
- * Getters - Setters
-*/
-PresidentialPardonForm	*PresidentialPardonForm::getVariable(void) const {
-
-	return (this->);
-	// return ();
+	std::cout << "[PresidentialPardonForm] Destructor called" << std::endl;
 }
 
 /**
  * Other functions
 */
+void	PresidentialPardonForm::action(void) const {
 
+	/**
+	 * Informs that <target> has been pardoned by Zaphod Beeblebrox.
+	*/
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

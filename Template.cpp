@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Template.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <Template.hpp>
 
@@ -35,8 +24,9 @@ Template::~Template(void) {
 */
 Template	&Template::operator = (const Template &op) {
 	
-	if (this == &op)
-		return (*this); 
+	if (this != &op) {
+		
+	}
 	return (*this);
 }
 
