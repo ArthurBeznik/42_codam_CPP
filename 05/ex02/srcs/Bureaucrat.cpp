@@ -9,13 +9,14 @@ Bureaucrat::Bureaucrat(void) : _name("N/A"), _grade(150) {
 	std::cout << "[Bureaucrat] Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(std::string name, const int grade) : _name(name) {
 
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooLowException();
-	if (this->_grade > 150)
-		throw Bureaucrat::GradeTooHighException();
 	std::cout << "[Bureaucrat] Parametric constructor called" << std::endl;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooLowException();
+	if (grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {

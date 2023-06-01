@@ -9,12 +9,12 @@ AForm::AForm(void) : _name("N/A"), _target("N/A"), _isSigned(false), _gradeSign(
 	std::cout << "[AForm] Default constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string &name, const std::string &target, const int gradeSign, const int gradeExec) : _name(name), _target(target), _isSigned(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+AForm::AForm(const std::string &name, const std::string &target, const int gradeSign, const int gradeExec) : _name(name), _target(target), _isSigned(false), _gradeSign(checkGrade(gradeSign)), _gradeExec(checkGrade(gradeExec)) {
 
 	std::cout << "[AForm] Parameter constructor called" << std::endl;
 }
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _target(copy._target), _isSigned(copy._isSigned), _gradeSign(copy._gradeSign), _gradeExec(copy._gradeExec) {
+AForm::AForm(const AForm &copy) : _name(copy._name), _target(copy._target), _isSigned(copy._isSigned), _gradeSign(checkGrade(copy._gradeSign)), _gradeExec(checkGrade(copy._gradeExec)) {
 
 	std::cout << "[AForm] Copy constructor called" << std::endl;	
 }
@@ -104,4 +104,15 @@ void 	AForm::execute(Bureaucrat const &executor) const {
 		// std::cout << this->_name << std::endl; // ? testing
 		action();
 	}
+}
+
+int		AForm::checkGrade(const int grade) const {
+
+	// std::cout << grade << std::endl; // ? testing
+	if (grade > 150) {
+		throw AForm::GradeTooLowException();
+	} else if (grade < 1) {
+		throw AForm::GradeTooHighException();
+	}
+	return grade;
 }

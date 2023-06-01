@@ -35,7 +35,7 @@ void	RobotomyRequestForm::action(void) const {
 	 * 		Otherwise, informs that the robotomy failed.
 	*/
 	std::cout << "* drilling noises *" << std::endl;
-	if (rand() % 2 == 1) {
+	if (rand() % 2 == 0) {
 		std::cout << getTarget() << " has been robotomized successfully." << std::endl;
 	}
 	else {

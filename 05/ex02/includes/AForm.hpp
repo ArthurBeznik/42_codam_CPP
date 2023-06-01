@@ -36,6 +36,7 @@ class AForm {
 		void				signForm(Bureaucrat const &bureaucrat);
 
 		void				execute(Bureaucrat const &executor) const;
+		int					checkGrade(const int grade) const;
 		virtual void		action(void) const = 0;
 
 		/* Highest grade is 1 */
