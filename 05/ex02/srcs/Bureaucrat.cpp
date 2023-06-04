@@ -32,7 +32,7 @@ Bureaucrat::~Bureaucrat(void) {
 /**
  * Operator overloads
 */
-Bureaucrat	&Bureaucrat::operator = (const Bureaucrat const &op) {
+Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &op) {
 	
 	std::cout << "[Bureaucrat] Assignment operator called" << std::endl;
 	if (this != &op) {
