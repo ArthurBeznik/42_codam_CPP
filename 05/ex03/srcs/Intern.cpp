@@ -66,5 +66,5 @@ AForm	*Intern::makeForm(const std::string &form, const std::string &target) {
 	}
 	// std::cout << "Unknown form name: " << form << std::endl;
 	throw Intern::InvalidFormNameException();
-	return (nullptr);
+	return (NULL);
 }
