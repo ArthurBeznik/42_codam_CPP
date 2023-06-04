@@ -7,15 +7,14 @@
 class ScalarConverter {
 
     private:
-        
-        
-    public:
         ScalarConverter(void);
         ScalarConverter(const ScalarConverter &copy);
         ScalarConverter &operator = (const ScalarConverter &op);
         ~ScalarConverter(void);
-
-		int	convert(const std::string &str) const;
+        
+    public:
+		static int				convert(const std::string &str);
+		static ScalarConverter	&getInstance(void); // ! Not needed for the subject ?
 };
 
 
