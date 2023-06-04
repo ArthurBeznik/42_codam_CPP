@@ -1,19 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:57:46 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+# include <AForm.hpp>
+
+class AForm;
 
 class Bureaucrat {
 
@@ -32,6 +25,8 @@ class Bureaucrat {
 		int					getGrade(void) const;
 		int					incrementGrade(void);
 		int					decrementGrade(void);
+
+		void 				executeForm(const AForm &form) const;
 
 		/* Highest grade is 1 */
 		class GradeTooHighException: public std::exception {

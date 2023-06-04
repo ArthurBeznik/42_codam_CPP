@@ -32,10 +32,10 @@ class AForm {
 		int					getGradeSign(void) const;
 		int					getGradeExec(void) const;
 
-		void				beSigned(Bureaucrat const &bureaucrat);
-		void				signForm(Bureaucrat const &bureaucrat);
+		void				beSigned(const Bureaucrat &bureaucrat);
+		void				signForm(const Bureaucrat &bureaucrat);
 
-		void				execute(Bureaucrat const &executor) const;
+		void				execute(const Bureaucrat &executor) const;
 		int					checkGrade(const int grade) const;
 		virtual void		action(void) const = 0;
 

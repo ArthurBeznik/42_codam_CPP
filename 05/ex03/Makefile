@@ -1,16 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: abeznik <abeznik@student.codam.nl>           +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/03/01 13:00:25 by abeznik       ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
 
-NAME			= 	ex01
+NAME			= 	ex03
 
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
@@ -19,6 +8,7 @@ SRCS			=	main.cpp \
 					PresidentialPardonForm.cpp \
 					RobotomyRequestForm.cpp \
 					ShrubberyCreationForm.cpp \
+					Intern.cpp \
 
 OBJDIR			=	objs
 OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
@@ -56,6 +46,7 @@ fclean: clean
 	@echo "$(RED)----------------------------------------------------"
 	@/bin/rm -f $(NAME)
 	@echo "$(GRAY)Removed executable file $(RESET)"
+	@/bin/rm -f *_shrubbery
 
 db:
 	lldb $(NAME)

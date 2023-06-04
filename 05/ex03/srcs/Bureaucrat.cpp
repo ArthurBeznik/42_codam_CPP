@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
 
@@ -20,13 +9,14 @@ Bureaucrat::Bureaucrat(void) : _name("N/A"), _grade(150) {
 	std::cout << "[Bureaucrat] Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(std::string name, const int grade) : _name(name) {
 
-	if (this->_grade < 1)
+	std::cout << "[Bureaucrat] Parameter constructor called" << std::endl;
+	if (grade < 1)
 		throw Bureaucrat::GradeTooLowException();
-	if (this->_grade > 150)
+	if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
-	std::cout << "[Bureaucrat] Parametric constructor called" << std::endl;
+	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
@@ -60,7 +50,7 @@ std::ostream &operator << (std::ostream &os, const Bureaucrat &op) {
 /**
  * Getters - Setters
 */
-std::string const Bureaucrat::getName(void) const {
+const std::string Bureaucrat::getName(void) const {
 
 	return (this->_name);
 }
@@ -87,4 +77,11 @@ int	Bureaucrat::decrementGrade(void) {
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
 	return (this->_grade);
+}
+
+void Bureaucrat::executeForm(const AForm &form) const {
+
+	// std::cout << *this << std::endl; // ? testing
+	form.execute(*this);
+	std::cout << getName() << " executed " << form.getName() << std::endl;
 }

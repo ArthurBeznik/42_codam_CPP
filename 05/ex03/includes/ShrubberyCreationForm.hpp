@@ -1,30 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:57:46 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include <iostream>
+# include <fstream>
 
-class ShrubberyCreationForm {
+# include <AForm.hpp>
+
+/**
+ * Required grades: sign 145, exec 137.
+*/
+class ShrubberyCreationForm : public AForm {
 
     private:
-        
+		void action(void) const;
         
     public:
-        ShrubberyCreationForm();
+        ShrubberyCreationForm(void);
+		ShrubberyCreationForm(const std::string &target);
         ShrubberyCreationForm(const ShrubberyCreationForm &copy);
         ShrubberyCreationForm &operator = (const ShrubberyCreationForm &op);
-        ~ShrubberyCreationForm();
+        ~ShrubberyCreationForm(void);
 
 
 };

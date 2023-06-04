@@ -72,7 +72,7 @@ int		AForm::getGradeExec(void) const {
 /**
  * Other functions
 */
-void	AForm::beSigned(Bureaucrat const &bureaucrat) {
+void	AForm::beSigned(const Bureaucrat &bureaucrat) {
 	
 	if (bureaucrat.getGrade() >= this->_gradeSign) {
 		this->_isSigned = false;
@@ -81,7 +81,7 @@ void	AForm::beSigned(Bureaucrat const &bureaucrat) {
 	this->_isSigned = true;
 }
 
-void	AForm::signForm(Bureaucrat const &bureaucrat) {
+void	AForm::signForm(const Bureaucrat &bureaucrat) {
 	
 	try {
 		beSigned(bureaucrat);
@@ -92,7 +92,7 @@ void	AForm::signForm(Bureaucrat const &bureaucrat) {
 	}
 }
 
-void 	AForm::execute(Bureaucrat const &executor) const {
+void 	AForm::execute(const Bureaucrat &executor) const {
 	
 	// std::cout << getSigned() << std::endl; // ? testing
 	if (!getSigned()) {

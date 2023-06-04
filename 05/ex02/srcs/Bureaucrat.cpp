@@ -32,7 +32,7 @@ Bureaucrat::~Bureaucrat(void) {
 /**
  * Operator overloads
 */
-Bureaucrat	&Bureaucrat::operator = (const Bureaucrat &op) {
+Bureaucrat	&Bureaucrat::operator = (const Bureaucrat const &op) {
 	
 	std::cout << "[Bureaucrat] Assignment operator called" << std::endl;
 	if (this != &op) {
@@ -50,7 +50,7 @@ std::ostream &operator << (std::ostream &os, const Bureaucrat &op) {
 /**
  * Getters - Setters
 */
-std::string const Bureaucrat::getName(void) const {
+const std::string Bureaucrat::getName(void) const {
 
 	return (this->_name);
 }
@@ -79,7 +79,7 @@ int	Bureaucrat::decrementGrade(void) {
 	return (this->_grade);
 }
 
-void Bureaucrat::executeForm(AForm const &form) const {
+void Bureaucrat::executeForm(const AForm &form) const {
 
 	// std::cout << *this << std::endl; // ? testing
 	form.execute(*this);

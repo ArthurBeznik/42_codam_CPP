@@ -1,16 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Intern.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:23 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/03/01 11:56:40 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <Intern.hpp>
+#include <RobotomyRequestForm.hpp>
+#include <PresidentialPardonForm.hpp>
+#include <ShrubberyCreationForm.hpp>
 
 /**
  * Constructors - Destructors
@@ -35,21 +27,44 @@ Intern::~Intern(void) {
 */
 Intern	&Intern::operator = (const Intern &op) {
 	
-	if (this == &op)
-		return (*this); 
+	if (this != &op) {
+		
+	}
 	return (*this);
 }
 
 /**
  * Getters - Setters
 */
-Intern	*Intern::getVariable(void) const {
-
-	return (this->);
-	// return ();
-}
 
 /**
  * Other functions
 */
+AForm    *Intern::makePresidentialForm(const std::string &target) {
 
+	return (new PresidentialPardonForm(target));
+}
+
+AForm    *Intern::makeShrubberyForm(const std::string &target) {
+
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm    *Intern::makeRobotomyForm(const std::string &target) {
+
+	return (new RobotomyRequestForm(target));
+}
+
+AForm	*Intern::makeForm(const std::string &form, const std::string &target) {
+
+	std::string formLower = form.c_str();
+	for (int i = 0; i < TABLE_SIZE; i++) {
+		if (formTable[i].key == formLower) {
+			std::cout << "Intern creates " << formLower << " form" << std::endl;
+			return (this->*(formTable[i].func))(target);
+		}
+	}
+	// std::cout << "Unknown form name: " << form << std::endl;
+	throw Intern::InvalidFormNameException();
+	return (nullptr);
+}

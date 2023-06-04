@@ -1,30 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   RobotomyRequestForm.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/11 12:03:42 by abeznik       #+#    #+#                 */
-/*   Updated: 2023/02/21 15:57:46 by abeznik       ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include <stdlib.h>
+# include <time.h>
 
-class RobotomyRequestForm {
+# include <AForm.hpp>
+
+/**
+ * Required grades: sign 72, exec 45.
+*/
+class RobotomyRequestForm : public AForm {
 
     private:
-        
+		void action(void) const;
         
     public:
-        RobotomyRequestForm();
+        RobotomyRequestForm(void);
+		RobotomyRequestForm(const std::string &target);
         RobotomyRequestForm(const RobotomyRequestForm &copy);
         RobotomyRequestForm &operator = (const RobotomyRequestForm &op);
-        ~RobotomyRequestForm();
+        ~RobotomyRequestForm(void);
 
 
 };

@@ -1,82 +1,118 @@
 
 #include <Bureaucrat.hpp>
-#include <AForm.hpp>
+#include <PresidentialPardonForm.hpp>
+#include <RobotomyRequestForm.hpp>
+#include <ShrubberyCreationForm.hpp>
+#include <Intern.hpp>
 
-void testDecrement(Bureaucrat &b) {
+void	signExecuteForm(Bureaucrat const &bc, AForm &form) {
 
-	std::cout << b << std::endl;
+	std::cout << "---------------------" << std::endl;
+	// std::cout << form << std::endl; // ? testing
 	try {
-		b.decrementGrade();
+		// form.beSigned(bc);
+		form.signForm(bc);
 	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Can't sign because: " << e.what() << std::endl;
 	}
-	std::cout << b << std::endl;
-}
-
-void	testIncrement(Bureaucrat &b) {
-
-	std::cout << b << std::endl;
+	// std::cout << form << std::endl; // ? testing
+	// std::cout << bc << std::endl; // ? testing
 	try {
-		b.incrementGrade();
+		bc.executeForm(form);
 	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Can't execute because: " << e.what() << std::endl;
 	}
-	std::cout << b << std::endl;
 }
 
-void testCopy(void) {
+void	testErrors(void) {
 
-	Bureaucrat	maxime("Maxime", 1);
-	Bureaucrat	jules(maxime);
+	std::cout << "---------------------" << std::endl;
+	try {
+		Bureaucrat		error("Thomas", 0);
+	} catch (std::exception &e) {
+		std::cout << "Can't create because: " << e.what() << std::endl;
+	}
+	try {
+		Bureaucrat		error("Thomas", 151);
+	} catch (std::exception &e) {
+		std::cout << "Can't create because: " << e.what() << std::endl;
+	}
+	try {
+		Bureaucrat				low("Jules", 150);
+		Bureaucrat				medium("Maxime", 71);
+		Bureaucrat				high("Thomas", 1);
+		Intern	intern;
+		AForm	*test = intern.makeForm("Test", "None");
 
-	std::cout << maxime << std::endl;
-	std::cout << jules << std::endl;
-	std::cout << std::endl;
-	testIncrement(maxime);
-	testIncrement(jules);
-	std::cout << std::endl;
-	testDecrement(maxime);
-	testDecrement(jules);
+		signExecuteForm(high, *test);
+		signExecuteForm(medium, *test);
+		signExecuteForm(low, *test);
+		std::cout << "---------------------" << std::endl;
+	} catch (std::exception &e) {
+		std::cout << "Can't create because: " << e.what() << std::endl;
+	}
+	try {
+		Bureaucrat				low("Jules", 150);
+		Bureaucrat				medium("Maxime", 71);
+		Bureaucrat				high("Thomas", 1);
+		Intern	intern;
+		AForm	*none = intern.makeForm("None", "Test");
+
+		signExecuteForm(high, *none);
+		signExecuteForm(medium, *none);
+		signExecuteForm(low, *none);
+		std::cout << "---------------------" << std::endl;
+
+	} catch (std::exception &e) {
+		std::cout << "Can't create because: " << e.what() << std::endl;
+	}
 }
 
-void	testParam(void) {
+int main(void) {
 
-	Bureaucrat	maxime("Maxime", 1);
+	testErrors();
+	std::cout << "---------------------" << std::endl;
 
-	std::cout << maxime << std::endl;
-	std::cout << std::endl;
-	testDecrement(maxime);
-	std::cout << std::endl;
-	testIncrement(maxime);
-}
+	Bureaucrat				low("Jules", 150);
+	Bureaucrat				medium("Maxime", 71);
+	Bureaucrat				high("Thomas", 1);
+	PresidentialPardonForm	presiForm("Luc");
+	RobotomyRequestForm 	robotForm("Skip");
+	ShrubberyCreationForm 	shrubForm("Home");
+	std::cout << "---------------------" << std::endl;
 
-void	testDefault(void) {
+	Intern	intern;
+	AForm	*presi = intern.makeForm("presidential pardon", "Thomas");
+	AForm	*robot = intern.makeForm("robotomy request", "Skip");
+	AForm	*shrub = intern.makeForm("shrubbery creation", "Home");
+	std::cout << "---------------------" << std::endl;
 
-	Bureaucrat	thomas;
-	Form		form;
+	srand(time(NULL));
+	
+	/* PresidentialPardonForm */
+	signExecuteForm(high, *presi);
+	signExecuteForm(medium, *presi);
+	signExecuteForm(low, *presi);
+	std::cout << "---------------------" << std::endl;
 
-	std::cout << form << std::endl;
-	form.signForm(thomas);
-	std::cout << thomas << std::endl;
-	std::cout << std::endl;
-	testDecrement(thomas);
-	std::cout << std::endl;
-	testIncrement(thomas);
-}
+	/* RobotomyRequestForm */
+	signExecuteForm(high, *robot);
+	signExecuteForm(high, *robot);
+	signExecuteForm(high, *robot);
+	signExecuteForm(high, *robot);
+	signExecuteForm(high, *robot);
+	signExecuteForm(medium, *robot);
+	signExecuteForm(low, *robot);
+	std::cout << "---------------------" << std::endl;
 
-int	main(void) {
+	/* ShrubberyCreationForm */
+	signExecuteForm(high, *shrub);
+	signExecuteForm(medium, *shrub);
+	signExecuteForm(low, *shrub);
+	std::cout << "---------------------" << std::endl;
 
-	std::cout << "---------------------------------" << std::endl;
-	testDefault();
-	std::cout << "---------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "---------------------------------" << std::endl;
-	testParam();
-	std::cout << "---------------------------------" << std::endl;
-	std::cout << std::endl;
-	std::cout << "---------------------------------" << std::endl;
-	testCopy();
-	std::cout << "---------------------------------" << std::endl;
-	std::cout << std::endl;
+	system("leaks ex03");
+	std::cout << "---------------------" << std::endl;
+
 	return (0);
 }
