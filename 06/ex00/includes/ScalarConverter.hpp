@@ -8,6 +8,7 @@
 # include <cfloat>
 # include <cmath>
 # include <climits>
+# include <string>
 
 # include <TypeTemplate.hpp>
 
