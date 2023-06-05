@@ -7,7 +7,8 @@ int	main(int argc, char **argv) {
 		std::cout << "Error: wrong number of arguments" << std::endl;
 		return (1);
 	}
-	std::cout << argv[1] << std::endl;
+	std::cout << "Input: " << argv[1] << std::endl; // ? testing
 	ScalarConverter::convert(argv[1]);
+	// processInput(argv[1]);
 	return (0);
 }
