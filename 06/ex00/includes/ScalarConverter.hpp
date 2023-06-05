@@ -3,7 +3,10 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <string>
+# include <ctype.h>
+# include <iomanip> 
+# include <cfloat>
+# include <cmath>
 
 # include <TypeTemplate.hpp>
 
@@ -16,9 +19,22 @@ class ScalarConverter {
         ~ScalarConverter(void);
         
     public:
-		static int				convert(const std::string &str);
+		static void				convert(const std::string &str);
 		static ScalarConverter	&getInstance(void); // ! Not needed for the subject ?
 
+		class ImpossibleConversionException: public std::exception {
+			public:
+				char const *what() const throw() {
+					return "impossible";
+				}
+		};
+
+		class NonDisplayableException: public std::exception {
+			public:
+				char const *what() const throw() {
+					return "non displayable";
+				}
+		};
 };
 
 

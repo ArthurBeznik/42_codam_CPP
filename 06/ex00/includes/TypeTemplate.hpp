@@ -24,13 +24,13 @@ struct is_floating_point {
 };
 
 template<>
-struct is_integral<float> {
+struct is_floating_point<float> {
 
     static const bool value = true;
 };
 
 template<>
-struct is_integral<double> {
+struct is_floating_point<double> {
 
     static const bool value = true;
 };
@@ -61,3 +61,26 @@ void checkType(T input) {
 		std::cout << "Unknown input." << std::endl;
 	}
 }
+
+/* Check type of str */
+// checkType(str); // ? testing
+// try {
+// 	checkType(static_cast<char>(str[0]));
+// } catch (std::exception &e) {
+// 	std::cerr << e.what() << std::endl;
+// }
+// try {
+// 	checkType(std::stoi(str, &sz));
+// } catch (std::exception &e) {
+// 	std::cerr << e.what() << std::endl;
+// }
+// try {
+// 	checkType(std::stof(str, &sz));
+// } catch (std::exception &e) {
+// 	std::cerr << e.what() << std::endl;
+// }
+// try {
+// 	checkType(std::stod(str, &sz));
+// } catch (std::exception &e) {
+// 	std::cerr << e.what() << std::endl;
+// }

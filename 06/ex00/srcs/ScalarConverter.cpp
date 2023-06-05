@@ -32,48 +32,171 @@ ScalarConverter	&ScalarConverter::operator = (const ScalarConverter &op) {
 }
 
 /**
- * Other functions
+ * Getters - Setters
 */
-int	ScalarConverter::convert(const std::string &str) {
-
-	std::string::size_type sz;
-	
-	// std::cout << str << std::endl; // ? testing
-	
-	/* Check type of str */
-	checkType(str);
-
-	/* Convert str to actual type */
-	
-	/* Convert it explicitly to the 3 other data types */
-	char	strChar = static_cast<char>(str[0]);
-	int		strInt = std::stoi(str, &sz);
-	float	strFloat = std::stof(str, &sz);
-	double	strDouble = std::stod(str, &sz);
-
-	/* Display results */
-	std::cout << "char: " << strChar << std::endl;
-	std::cout << "int: " << strInt << std::endl;
-	std::cout << "float: " << strFloat << "f" << std::endl;
-	std::cout << "double: " << strDouble << std::endl;
-	// std::cout << "char: ";
-	// if (strInt < 0 || strInt > 127)
-	// 	std::cout << "impossible" << std::endl;
-	// else if (strInt < 32 || strInt > 126)
-	// 	std::cout << "Non displayable" << std::endl;
-	// else
-	// 	std::cout << "'" << static_cast<char>(strInt) << "'" << std::endl;
-
-	/* Also handle conversion "errors" */
-
-	return (0);
-}
-
-/**
- * ! Not needed for the subject ?
-*/
+// ! Not needed for the subject ?
 ScalarConverter &ScalarConverter::getInstance(void) {
 	
 	static ScalarConverter	instance;
 	return (instance);
+}
+
+/**
+ * Other functions
+*/
+static void	tryAndCatch(const std::string str) {
+
+	std::string::size_type sz;
+
+	try {
+		std::cout << "char: " << static_cast<char>(std::stoi(str, &sz)) << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		std::cout << "int: " << std::stoi(str, &sz) << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		std::cout << "float: " << std::stof(str, &sz) << "f" << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		std::cout << "double: " << std::stod(str, &sz) << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+static void	inputError(void) {
+
+	std::cerr << "\nInput Error: must be of type char, int, float or double.\n" << std::endl;
+	exit(EXIT_FAILURE);
+}
+
+static void	convertDisplayChar(const double c) {
+
+	if (isprint(static_cast<char>(c))) {
+		std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
+	} else {
+		std::cout << "char: Non displayable" << std::endl;
+	}
+}
+
+static void	convertDisplayInt(const double i) {
+
+	if (i > INT_MAX || i < INT_MIN) {
+		std::cout << "int: Non displayable" << std::endl;
+	} else {
+		std::cout << "int: " << static_cast<int>(i) << std::endl;
+	}
+}
+
+static void	convertInt(const long i) {
+
+	if (i > INT_MAX || i < INT_MIN) {
+		std::cerr << "Invalid integer" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	convertDisplayChar(i);
+	std::cout << "int: " << static_cast<int>(i) << std::endl;
+	std::cout << std::fixed;
+	std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(i) << std::endl;
+}
+
+static void	convertFloat(const double f) {
+
+	if ((f > FLT_MAX || f < FLT_MIN) && !isinf(f)) {
+		std::cerr << "Input error: Invalid float\n";
+		exit(EXIT_FAILURE);
+	}
+	convertDisplayChar(f);
+	convertDisplayInt(f);
+	std::cout << std::showpoint;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(f) << std::endl;
+}
+
+static void	convertDouble(const double d) {
+
+	convertDisplayChar(d);
+	convertDisplayInt(d);
+	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(d) << std::endl;
+}
+
+static void	displayNan(const std::string &str) {
+	
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << static_cast<float>(std::stof(str)) << "f" << std::endl;
+	std::cout << "double: " << static_cast<float>(std::stod(str)) << std::endl;
+}
+
+static void	displayInf(const std::string &str) {
+	
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << static_cast<float>(std::stof(str)) << "f" << std::endl;
+	std::cout << "double: " << static_cast<float>(std::stod(str)) << std::endl;
+}
+
+static void	displayChar(char c) {
+
+	std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
+void	ScalarConverter::convert(const std::string &str) {
+
+	std::string::size_type	sz;
+	long					intValue;
+	double					doubleValue;
+
+	/* Check for nan */
+	if (!str.compare("nan") || !str.compare("nanf")) {
+		displayNan(str);
+	}
+
+	/* Check for inf */
+	else if (!str.compare("inf") || !str.compare("inff") || \
+		!str.compare("+inf") || !str.compare("-inf") || \
+		!str.compare("+inff") || !str.compare("-inff")) {
+			displayInf(str);
+	}
+
+	/* Check for char */
+	else if (str.length() == 1 && !isdigit(str[0]) && isprint(str[0])) {
+		displayChar(str[0]);
+	}
+
+	/* Check for int, float and double */
+	else {
+		try {
+			intValue = std::stol(str, &sz);
+		} catch (std::exception &e) {
+			inputError();
+		}
+		if (str[sz] == '\0') {
+			if (intValue == 0L && sz == 0)
+				inputError();
+			convertInt(intValue);
+			return ;
+		}
+		doubleValue = std::stod(str, &sz);
+		if (str[sz] == 'f' && str[sz + 1] == '\0')
+			convertFloat(doubleValue);
+		else if (str[sz] == '\0')
+			convertDouble(doubleValue);
+		else
+			inputError();
+	}
+
+	std::cout << "\n\tVS\n" << std::endl;
+	tryAndCatch(str);
 }
