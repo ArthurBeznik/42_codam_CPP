@@ -7,6 +7,7 @@
 # include <iomanip> 
 # include <cfloat>
 # include <cmath>
+# include <climits>
 
 # include <TypeTemplate.hpp>
 

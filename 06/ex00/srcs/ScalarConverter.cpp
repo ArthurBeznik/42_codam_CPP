@@ -49,22 +49,22 @@ static void	tryAndCatch(const std::string str) {
 	std::string::size_type sz;
 
 	try {
-		std::cout << "char: " << static_cast<char>(std::stoi(str, &sz)) << std::endl;
+		std::cout << "char: " << static_cast<char>(stoi(str, &sz)) << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	try {
-		std::cout << "int: " << std::stoi(str, &sz) << std::endl;
+		std::cout << "int: " << stoi(str, &sz) << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	try {
-		std::cout << "float: " << std::stof(str, &sz) << "f" << std::endl;
+		std::cout << "float: " << stof(str, &sz) << "f" << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	try {
-		std::cout << "double: " << std::stod(str, &sz) << std::endl;
+		std::cout << "double: " << stod(str, &sz) << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -133,15 +133,15 @@ static void	displayNan(const std::string &str) {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: " << static_cast<float>(std::stof(str)) << "f" << std::endl;
-	std::cout << "double: " << static_cast<float>(std::stod(str)) << std::endl;
+	std::cout << "double: " << static_cast<float>(stod(str)) << std::endl;
 }
 
 static void	displayInf(const std::string &str) {
 	
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << static_cast<float>(std::stof(str)) << "f" << std::endl;
-	std::cout << "double: " << static_cast<float>(std::stod(str)) << std::endl;
+	std::cout << "float: " << static_cast<float>(stof(str)) << "f" << std::endl;
+	std::cout << "double: " << static_cast<float>(stod(str)) << std::endl;
 }
 
 static void	displayChar(char c) {
@@ -178,7 +178,7 @@ void	ScalarConverter::convert(const std::string &str) {
 	/* Check for int, float and double */
 	else {
 		try {
-			intValue = std::stol(str, &sz);
+			intValue = stol(str, &sz);
 		} catch (std::exception &e) {
 			inputError();
 		}
@@ -186,15 +186,15 @@ void	ScalarConverter::convert(const std::string &str) {
 			if (intValue == 0L && sz == 0)
 				inputError();
 			convertInt(intValue);
-			return ;
+		} else {
+			doubleValue = stod(str, &sz);
+			if (str[sz] == 'f' && str[sz + 1] == '\0')
+				convertFloat(doubleValue);
+			else if (str[sz] == '\0')
+				convertDouble(doubleValue);
+			else
+				inputError();
 		}
-		doubleValue = std::stod(str, &sz);
-		if (str[sz] == 'f' && str[sz + 1] == '\0')
-			convertFloat(doubleValue);
-		else if (str[sz] == '\0')
-			convertDouble(doubleValue);
-		else
-			inputError();
 	}
 
 	std::cout << "\n\tVS\n" << std::endl;
