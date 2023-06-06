@@ -4,7 +4,7 @@ NAME			= 	ex02
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
 					Base.cpp \
-
+					
 					
 OBJDIR			=	objs
 OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
@@ -20,6 +20,7 @@ else ifdef dev
 else
 	FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -I $(INCLUDES)
 endif
+
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m
