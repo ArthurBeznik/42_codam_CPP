@@ -10,8 +10,6 @@
 # include <climits>
 # include <string>
 
-# include <TypeTemplate.hpp>
-
 class ScalarConverter {
 
     private:
