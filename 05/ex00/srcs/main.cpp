@@ -1,7 +1,7 @@
 
 #include <Bureaucrat.hpp>
 
-void testDecrement(Bureaucrat &b) {
+void tryDecrement(Bureaucrat &b) {
 
 	std::cout << b << std::endl;
 	try {
@@ -12,7 +12,7 @@ void testDecrement(Bureaucrat &b) {
 	std::cout << b << std::endl;
 }
 
-void	testIncrement(Bureaucrat &b) {
+void	tryIncrement(Bureaucrat &b) {
 
 	std::cout << b << std::endl;
 	try {
@@ -31,11 +31,11 @@ void testCopy(void) {
 	std::cout << maxime << std::endl;
 	std::cout << jules << std::endl;
 	std::cout << std::endl;
-	testIncrement(maxime);
-	testIncrement(jules);
+	tryIncrement(maxime);
+	tryIncrement(jules);
 	std::cout << std::endl;
-	testDecrement(maxime);
-	testDecrement(jules);
+	tryDecrement(maxime);
+	tryDecrement(jules);
 }
 
 void	testParam(void) {
@@ -44,9 +44,9 @@ void	testParam(void) {
 
 	std::cout << maxime << std::endl;
 	std::cout << std::endl;
-	testDecrement(maxime);
+	tryDecrement(maxime);
 	std::cout << std::endl;
-	testIncrement(maxime);
+	tryIncrement(maxime);
 }
 
 void	testDefault(void) {
@@ -56,9 +56,9 @@ void	testDefault(void) {
 
 	std::cout << thomas << std::endl;
 	std::cout << std::endl;
-	testDecrement(thomas);
+	tryDecrement(thomas);
 	std::cout << std::endl;
-	testIncrement(thomas);
+	tryIncrement(thomas);
 }
 
 int	main(void) {
@@ -75,5 +75,7 @@ int	main(void) {
 	testCopy();
 	std::cout << "---------------------------------" << std::endl;
 	std::cout << std::endl;
+
+	system("leaks -q ex00");
 	return (0);
 }
