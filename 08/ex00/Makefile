@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/03/01 13:00:25 by abeznik       ########   odam.nl          #
+#    Updated: 2023/07/17 15:30:12 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME			= 	ex00
 
 SRCDIR			=	srcs
 SRCS			=	main.cpp \
-					Bureaucrat.cpp \
-
+					
 OBJDIR			=	objs
 OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
