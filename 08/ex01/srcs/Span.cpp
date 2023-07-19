@@ -40,14 +40,14 @@ Span	&Span::operator = (const Span &op) {
 /**
  * Other functions
 */
-void			Span::addNumber(const int toAdd) {
+void	Span::addNumber(const int toAdd) {
 
 	if (_nbVector.size() + 1 > _maxCapacity)
 		throw SpanMaxCapacityException();
 	_nbVector.push_back(toAdd);
 }
 
-void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+void	Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
 	
 	_nbVector.insert(_nbVector.end(), begin, end);
 	if (_nbVector.size() > _maxCapacity) {
