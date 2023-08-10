@@ -59,5 +59,7 @@ int	main(void) {
 	testDeque();
 	std::cout << std::endl;
 
+	// system("leaks -q ex00");
+
 	return 0;
 }

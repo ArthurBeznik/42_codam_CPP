@@ -73,6 +73,9 @@ int	main(void) {
 	testSubject();
 	std::cout << std::endl;
 	testMine();
+	std::cout << std::endl;
 	
+	// system("leaks -q ex02");
+
 	return 0;
 }

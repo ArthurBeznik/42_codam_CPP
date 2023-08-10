@@ -107,6 +107,9 @@ int	main(void) {
 	testBigSpan();
 	std::cout << std::endl;
 	testRangeAdd();
+	std::cout << std::endl;
+
+	// system("leaks -q ex01");
 
 	return 0;
 }
