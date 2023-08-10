@@ -76,6 +76,7 @@ int	main(void) {
 	std::cout << "---------------------------------" << std::endl;
 	std::cout << std::endl;
 
-	system("leaks -q ex00");
+	// system("leaks -q ex00");
+	
 	return (0);
 }

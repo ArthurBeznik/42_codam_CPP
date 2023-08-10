@@ -111,6 +111,7 @@ int main(void) {
 	signExecuteForm(low, *shrub);
 	std::cout << "---------------------" << std::endl;
 
-	system("leaks -q ex03");
+	// system("leaks -q ex03");
+	
 	return (0);
 }

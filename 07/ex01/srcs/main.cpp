@@ -28,6 +28,7 @@ int main(void) {
 	iter(awArray, 5, printValue<Awesome>);
 	std::cout << std::endl;
 
-	system("leaks -q ex01");
+	// system("leaks -q ex01");
+	
 	return (0);
 }

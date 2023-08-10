@@ -71,6 +71,7 @@ int main(void) {
 	// signExecuteForm(medium, shrubForm);
 	// signExecuteForm(low, shrubForm);
 
-	system("leaks -q ex02");
+	// system("leaks -q ex02");
+	
 	return (0);
 }

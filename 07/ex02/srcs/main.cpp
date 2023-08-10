@@ -42,7 +42,8 @@ int main(void) {
         std::cout << e.what() << std::endl;  // Print: Exception caught: Index out of bounds
     }
 
-	system("leaks -q ex02");
+	// system("leaks -q ex02");
+	
     return 0;
 }
 
