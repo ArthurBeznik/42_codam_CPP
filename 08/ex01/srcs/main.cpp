@@ -71,7 +71,7 @@ void	testMaxCapacity(void) {
 	try {
 		for (size_t i = 0; i < 3; ++i)
 			sp.addNumber(rand());
-	} catch (Span::SpanMaxCapacityException e) {
+	} catch (Span::SpanMaxCapacityException &e) {
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -82,14 +82,14 @@ void	testNotFound(void) {
 	try {
 		Span	sp = Span(5);
 		sp.longestSpan();
-	} catch (Span::SpanNotFoundException e) {
+	} catch (Span::SpanNotFoundException &e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	try {
 		Span	sp = Span(5);
 		sp.shortestSpan();
-	} catch (Span::SpanNotFoundException e) {
+	} catch (Span::SpanNotFoundException &e) {
 		std::cout << e.what() << std::endl;
 	}
 }
