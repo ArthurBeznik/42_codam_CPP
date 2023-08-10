@@ -45,7 +45,7 @@ void	testVector(void) {
 	nbVector.push_back(4);
 	nbVector.push_back(5);
 	
-	std::cout << ::easyfind(nbVector, 5) << std::endl; // return 4
+	std::cout << ::easyfind(nbVector, 5) << std::endl; // return 5
 	std::cout << ::easyfind(nbVector, -1) << std::endl; // return -1
 	std::cout << ::easyfind(nbVector, 7) << std::endl; // return -1
 }
