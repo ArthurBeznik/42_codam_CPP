@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  DIR: 00 01 02 03 04 05 06 07 08
+  DIR: 00 01 02 03 04 05 06 07 08 09
   EXO: ex00 ex01 ex02 ex03 ex04 ex05
   CC: c++
   MAKE: make
@@ -172,3 +172,22 @@ jobs:
               make -kj re -C ${n}
             fi
           done
+          
+  check-c98_9:
+    name: Compiling 09 using ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 3
+      - name: Build 09
+        working-directory: 09/
+        continue-on-error: false
+        run: |
+          for n in ${{ env.EXO }}; do
+            if [[ -f ${n}/Makefile ]]; then
+              make -kj re -C ${n}
+            fi
+          done
+          
