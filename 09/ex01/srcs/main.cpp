@@ -1,14 +1,11 @@
 
-#include "BitcoinExchange.hpp"
-
+#include "RPN.hpp"
 
 int	main(int argc, char **argv) {
 
-	if (argc != 2) {
-		std::cout << "Invalid usage: ./btc <file>" << std::endl;
-		return 1;
-	}
-	std::cout << argv[1] << std::endl;
+	(void)argc;
+	(void)argv;
+
 	std::cout << std::endl;
 
 	// system("leaks -q ex00");
