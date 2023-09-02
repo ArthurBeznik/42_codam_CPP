@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/08/11 10:37:08 by abeznik       ########   odam.nl          #
+#    Updated: 2023/09/02 14:11:48 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS			=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES		=	includes
 
 CC				= 	c++
-FLAGS			=	-Wall -Werror -Wextra -std=c++98 -pedantic-errors -I $(INCLUDES) -g
+FLAGS			=	-Wall -Werror -Wextra -std=c++11 -pedantic-errors -I $(INCLUDES) -g
 
 RESET			= 	\033[0m
 GREEN 			= 	\033[1;32m

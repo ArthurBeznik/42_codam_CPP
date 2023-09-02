@@ -15,6 +15,7 @@ class RPN {
         RPN &operator = (const RPN &op);
         ~RPN(void);
 
+		int	evaluateRPN(const std::string& expression);
 
 };
 

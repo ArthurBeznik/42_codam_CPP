@@ -6,18 +6,18 @@
 */
 BitcoinExchange::BitcoinExchange(void) {
 	
-	std::cout << "[BitcoinExchange] Default constructor called" << std::endl;
+	// std::cout << "[BitcoinExchange] Default constructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) {
 	
-	std::cout << "[BitcoinExchange] Copy constructor called" << std::endl;
+	// std::cout << "[BitcoinExchange] Copy constructor called" << std::endl;
 	(void)copy;
 }
 
 BitcoinExchange::~BitcoinExchange(void) {
 	
-	std::cout << "[BitcoinExchange] Destructor called" << std::endl;
+	// std::cout << "[BitcoinExchange] Destructor called" << std::endl;
 }
 
 /**
@@ -66,7 +66,6 @@ double BitcoinExchange::calculateBitcoinValue(const std::map<std::string, double
 	// Find the iterator pointing to the first element that is not less than the given date, 
 	// will either point to the exact date or the closest available date in the map.
 	std::map<std::string, double>::const_iterator it = exchangeRates.lower_bound(date);
-	std::cout << it->first << std::endl;
 
     // Check if there is no data available before the given date
     if (it == exchangeRates.begin()) {

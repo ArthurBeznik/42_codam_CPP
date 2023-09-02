@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/29 14:59:12 by abeznik       #+#    #+#                  #
-#    Updated: 2023/08/11 10:36:56 by abeznik       ########   odam.nl          #
+#    Updated: 2023/09/02 14:02:38 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,11 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 	@echo "$(GRAY)Removed executable file $(RESET)"
 
-db:
-	lldb $(NAME)
+subject:
+	./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+	./RPN "7 7 * 7 -"
+	./RPN "1 2 * 2 / 2 * 2 4 - +"
+	./RPN "(1 + 1)"
 
 re: fclean all
 
